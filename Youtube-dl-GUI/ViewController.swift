@@ -212,6 +212,13 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //set texts
+       // inputURLS.insertText("\n\nInsert your URLs here. Seperate multiple URLS with a breakline (enter).")
+        outputWindow.insertText( "\n\nThis will contain some debugging information when downloading your requested files.\n" )
+        
+        
+  //      inputURLS.toolTip("Insert your URLs here. Seperate multiple URLS with a breakline (enter).")
+        
         //Default value for the maximum file size is 15MB
         maxFileSize.stringValue = "15"
         
