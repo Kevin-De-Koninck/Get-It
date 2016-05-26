@@ -605,7 +605,6 @@
                         <outlet property="maxFileSize" destination="3pX-rq-V4S" id="O1X-2s-RAC"/>
                         <outlet property="outputWindow" destination="MzN-OX-L3E" id="VEV-Hu-ziR"/>
                         <outlet property="pathChooser" destination="Z8J-bx-eH9" id="tvf-bO-v6R"/>
-                        <outlet property="window" destination="m2S-Jp-Qdl" id="YyP-cp-m8D"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
