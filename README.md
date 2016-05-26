@@ -9,7 +9,8 @@ A GUI (OSX) for the [youtube-dl](https://github.com/rg3/youtube-dl) command.
 
 # SCREENSHOT
 
-ToDo: add
+![My image](https://raw.githubusercontent.com/Kevin-De-Koninck/YouTube-dl-GUI/Develop/App.png)
+![My image](https://raw.githubusercontent.com/Kevin-De-Koninck/YouTube-dl-GUI/Develop/Dock.png)
 
 # INSTALLATION
 
