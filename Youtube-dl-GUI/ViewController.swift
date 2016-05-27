@@ -20,6 +20,15 @@ class ViewController: NSViewController {
     @IBOutlet weak var extractAudio: NSButton!
     @IBOutlet weak var audioFormat: NSPopUpButton!
     @IBOutlet weak var pathChooser: NSPathCell!
+    
+    //playlist tab
+    @IBOutlet weak var downloadPlaylist: NSButton!
+    @IBOutlet weak var reversePlaylist: NSButton!
+    @IBOutlet weak var flatPlaylist: NSButton!
+    @IBOutlet weak var startAtVideo: NSTextField!
+    @IBOutlet weak var stopAtVideo: NSTextField!
+    @IBOutlet weak var downloadSpecificVideos: NSTextField!
+    
 
 
     //will excecute when we psuh on the download-button
@@ -36,6 +45,12 @@ class ViewController: NSViewController {
         
         
         /*
+         
+         General:
+         --abort-on-error                 Abort downloading of further videos (in the playlist or the command line) if an error occurs
+         -o, --output TEMPLATE
+         
+
  
          src: https://github.com/MrS0m30n3/youtube-dl-gui/blob/master/youtube_dl_gui/optionsframe.py
          
@@ -164,9 +179,55 @@ class ViewController: NSViewController {
         
         
         
+/*****************
+* create command *
+******************/
         
-        //create command
         var command = "export PATH=$PATH:/usr/local/bin && youtube-dl";
+        
+/*****************
+*  Playlist tab  *
+******************/
+        
+        //append "download playlist" to command
+        if downloadPlaylist.state == 1 {
+            command += " --yes-playlist"
+        }
+        else{
+            command += " --no-playlist"
+        }
+        
+        //append "download playlist in reverse" to command
+        if reversePlaylist.state == 1 {
+            command += " --playlist-reverse"
+        }
+        
+        //append "flat playlist" to command
+        if flatPlaylist.state == 1 {
+            command += " --flat-playlist"
+        }
+        
+        //append ""start at video" to command
+        if !startAtVideo.stringValue.isEmpty {
+            command += " --playlist-start \(startAtVideo.stringValue)"
+        }
+        
+        //append "stop at video" to command
+        if !stopAtVideo.stringValue.isEmpty {
+            command += " --playlist-end \(stopAtVideo.stringValue)"
+        }
+        
+        //append "download specific videos" to command
+        if !downloadSpecificVideos.stringValue.isEmpty {
+            command += " --playlist-items \(downloadSpecificVideos.stringValue)"
+        }
+        
+        
+        
+        
+/*****************
+*  General tab   *
+******************/
         
         //append max file size to command
         if !maxFileSize.stringValue.isEmpty {
@@ -195,6 +256,9 @@ class ViewController: NSViewController {
         for url in inputURLS_array {
             command += " \(url)"
         }
+        
+        //display the used command
+        outputWindow.insertText( "\nYour files will be downloaded with the following youtube-dl command:\n\n\t \(command) \n\n" )
         
 
         
