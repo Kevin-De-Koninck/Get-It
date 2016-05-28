@@ -1,7 +1,7 @@
 # YouTube-dl-GUI
 A GUI (OSX) for the [youtube-dl](https://github.com/rg3/youtube-dl) command.
 
-
+- [SCREENSHOT](#screenshot)
 - [TODO](#todo)
 - [INSTALLATION](#installation)
 - [DESCRIPTION](#description)
@@ -12,22 +12,35 @@ A GUI (OSX) for the [youtube-dl](https://github.com/rg3/youtube-dl) command.
 ![My image](https://raw.githubusercontent.com/Kevin-De-Koninck/YouTube-dl-GUI/Develop/App.png)
 ![My image](https://raw.githubusercontent.com/Kevin-De-Koninck/YouTube-dl-GUI/Develop/Dock.png)
 
+# TODO
+
+- Fill in the multiple tabs (General, Video, Audio, subtitles, ...)
+- Add link for soundiiz.com (in info window)
+- Add support for multiple languages (if requested)
+- Save and load settings
+- ...
+
 # INSTALLATION
+
+Please note that you must have brew installed. If not, open the Terminal app and enter the following command:
+```bash
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
 
 ##youtube-dl
 Users can install **youtube-dl** with [Homebrew](http://brew.sh/).
-
+```bash
     brew install youtube-dl
-
+```
 You can also use pip:
-
+```bash
     sudo pip install youtube-dl
-
+```
 ##FFMPEG
 If you want to convert your files to mp3, wav, ... you'll need FFMPEG.
-
+```bash
     brew install ffmpeg
-
+```
 ##YouTube-dl-GUI
 Copy the *.app file to you Applications folder on Mac OR build the application yourself.
 
