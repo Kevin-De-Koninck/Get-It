@@ -11,8 +11,6 @@
 		0A31531B1CF37A660020DBB8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A31531A1CF37A660020DBB8 /* ViewController.swift */; };
 		0A31531D1CF37A660020DBB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A31531C1CF37A660020DBB8 /* Assets.xcassets */; };
 		0A3153201CF37A660020DBB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A31531E1CF37A660020DBB8 /* Main.storyboard */; };
-		0A31532B1CF37A660020DBB8 /* Youtube_dl_GUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A31532A1CF37A660020DBB8 /* Youtube_dl_GUITests.swift */; };
-		0A3153361CF37A660020DBB8 /* Youtube_dl_GUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3153351CF37A660020DBB8 /* Youtube_dl_GUIUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,11 +38,7 @@
 		0A31531F1CF37A660020DBB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0A3153211CF37A660020DBB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A3153261CF37A660020DBB8 /* Youtube-dl-GUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Youtube-dl-GUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0A31532A1CF37A660020DBB8 /* Youtube_dl_GUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Youtube_dl_GUITests.swift; sourceTree = "<group>"; };
-		0A31532C1CF37A660020DBB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A3153311CF37A660020DBB8 /* Youtube-dl-GUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Youtube-dl-GUIUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0A3153351CF37A660020DBB8 /* Youtube_dl_GUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Youtube_dl_GUIUITests.swift; sourceTree = "<group>"; };
-		0A3153371CF37A660020DBB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A4BB3E51CF51585005F030C /* Youtube-dl-GUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Youtube-dl-GUI.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,8 +71,6 @@
 			isa = PBXGroup;
 			children = (
 				0A3153171CF37A660020DBB8 /* Youtube-dl-GUI */,
-				0A3153291CF37A660020DBB8 /* Youtube-dl-GUITests */,
-				0A3153341CF37A660020DBB8 /* Youtube-dl-GUIUITests */,
 				0A3153161CF37A660020DBB8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -104,24 +96,6 @@
 				0A3153211CF37A660020DBB8 /* Info.plist */,
 			);
 			path = "Youtube-dl-GUI";
-			sourceTree = "<group>";
-		};
-		0A3153291CF37A660020DBB8 /* Youtube-dl-GUITests */ = {
-			isa = PBXGroup;
-			children = (
-				0A31532A1CF37A660020DBB8 /* Youtube_dl_GUITests.swift */,
-				0A31532C1CF37A660020DBB8 /* Info.plist */,
-			);
-			path = "Youtube-dl-GUITests";
-			sourceTree = "<group>";
-		};
-		0A3153341CF37A660020DBB8 /* Youtube-dl-GUIUITests */ = {
-			isa = PBXGroup;
-			children = (
-				0A3153351CF37A660020DBB8 /* Youtube_dl_GUIUITests.swift */,
-				0A3153371CF37A660020DBB8 /* Info.plist */,
-			);
-			path = "Youtube-dl-GUIUITests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,7 +242,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A31532B1CF37A660020DBB8 /* Youtube_dl_GUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +249,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A3153361CF37A660020DBB8 /* Youtube_dl_GUIUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
