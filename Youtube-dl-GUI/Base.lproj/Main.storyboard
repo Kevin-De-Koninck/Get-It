@@ -640,14 +640,14 @@
                                             <rect key="frame" x="10" y="33" width="544" height="229"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <button ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RpZ-jx-IAK">
-                                                    <rect key="frame" x="507" y="208" width="22" height="18"/>
+                                                <button toolTip="Convert video files to audio-only files." misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RpZ-jx-IAK">
+                                                    <rect key="frame" x="507" y="206" width="22" height="18"/>
                                                     <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="RfZ-5F-GHa">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="system"/>
                                                     </buttonCell>
                                                 </button>
-                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DIX-YS-UUv">
+                                                <textField toolTip="Specify audio format. &quot;best&quot; by default." horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DIX-YS-UUv">
                                                     <rect key="frame" x="15" y="182" width="86" height="17"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Audio format:" id="7M1-Th-p1a">
                                                         <font key="font" metaFont="system"/>
@@ -655,21 +655,44 @@
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <popUpButton verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="COd-kj-c2S">
-                                                    <rect key="frame" x="454" y="175" width="76" height="26"/>
-                                                    <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="hkc-5f-how">
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Ij-Gv-MIa">
+                                                    <rect key="frame" x="15" y="157" width="87" height="17"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Audio quality:" id="PDr-t9-gv8">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ShA-pY-pqQ">
+                                                    <rect key="frame" x="16" y="132" width="75" height="17"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Keep video:" id="Dze-UI-4lz">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <popUpButton toolTip="Specify audio format. &quot;best&quot; by default." verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="COd-kj-c2S">
+                                                    <rect key="frame" x="429" y="177" width="101" height="26"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="96" id="vSf-I0-pm7"/>
+                                                    </constraints>
+                                                    <popUpButtonCell key="cell" type="push" title="mp3" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="nG7-Yr-dNV" id="hkc-5f-how">
                                                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="menu"/>
                                                         <menu key="menu" id="Sue-sO-fvP">
                                                             <items>
-                                                                <menuItem title="mp3" id="nG7-Yr-dNV"/>
+                                                                <menuItem title="mp3" state="on" id="nG7-Yr-dNV"/>
                                                                 <menuItem title="wav" id="TnI-aE-0IC"/>
                                                                 <menuItem title="best" id="12u-Wp-wuW"/>
+                                                                <menuItem title="aac" id="4Zl-lE-7KC"/>
+                                                                <menuItem title="vorbis" id="Juy-vc-0ld"/>
+                                                                <menuItem title="m4a" id="Krr-1X-QhV"/>
+                                                                <menuItem title="opus" id="7rU-1X-cjX"/>
                                                             </items>
                                                         </menu>
                                                     </popUpButtonCell>
                                                 </popUpButton>
-                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V5l-AO-JnB">
+                                                <textField toolTip="Convert video files to audio-only files." horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V5l-AO-JnB">
                                                     <rect key="frame" x="15" y="207" width="88" height="17"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Extract audio:" id="Xtw-tj-DIa">
                                                         <font key="font" metaFont="system"/>
@@ -677,14 +700,56 @@
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
+                                                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NTZ-jV-G7e">
+                                                    <rect key="frame" x="429" y="152" width="101" height="26"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="96" id="7nG-gp-pEI"/>
+                                                    </constraints>
+                                                    <popUpButtonCell key="cell" type="push" title="5 - default" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="93A-J4-ydT" id="rdW-HE-pLn">
+                                                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="menu"/>
+                                                        <menu key="menu" id="iai-gS-RYE">
+                                                            <items>
+                                                                <menuItem title="0 - better" id="aiN-lP-2a9"/>
+                                                                <menuItem title="1" id="BDD-hA-cns"/>
+                                                                <menuItem title="2" id="cu5-Fg-7i6"/>
+                                                                <menuItem title="3" id="a2G-X1-QOH"/>
+                                                                <menuItem title="4" id="EPi-56-8cm"/>
+                                                                <menuItem title="5 - default" state="on" id="93A-J4-ydT"/>
+                                                                <menuItem title="6" id="L4y-E4-fmm"/>
+                                                                <menuItem title="7" id="Thv-Ym-qom"/>
+                                                                <menuItem title="8" id="6St-mf-1xk"/>
+                                                                <menuItem title="9 - worse" id="RSX-bQ-0kQ"/>
+                                                            </items>
+                                                        </menu>
+                                                    </popUpButtonCell>
+                                                </popUpButton>
+                                                <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="piS-fl-rjZ">
+                                                    <rect key="frame" x="507" y="131" width="22" height="18"/>
+                                                    <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" inset="2" id="gjP-11-fEG">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="RpZ-jx-IAK" firstAttribute="leading" secondItem="COd-kj-c2S" secondAttribute="leading" id="2mk-g1-Tds"/>
+                                                <constraint firstItem="ShA-pY-pqQ" firstAttribute="top" secondItem="9Ij-Gv-MIa" secondAttribute="bottom" constant="8" id="6gy-vp-a94"/>
+                                                <constraint firstItem="9Ij-Gv-MIa" firstAttribute="top" secondItem="DIX-YS-UUv" secondAttribute="bottom" constant="8" id="BTX-aK-u9C"/>
+                                                <constraint firstItem="piS-fl-rjZ" firstAttribute="leading" secondItem="COd-kj-c2S" secondAttribute="leading" id="Chq-cF-g6d"/>
+                                                <constraint firstItem="RpZ-jx-IAK" firstAttribute="leading" secondItem="COd-kj-c2S" secondAttribute="leading" id="DjP-so-uBw"/>
+                                                <constraint firstItem="RpZ-jx-IAK" firstAttribute="top" secondItem="l0I-oc-rcB" secondAttribute="top" constant="7" id="DkU-Zq-Zpd"/>
                                                 <constraint firstItem="V5l-AO-JnB" firstAttribute="top" secondItem="l0I-oc-rcB" secondAttribute="top" constant="3" id="MCO-g9-cHR"/>
+                                                <constraint firstItem="COd-kj-c2S" firstAttribute="top" secondItem="RpZ-jx-IAK" secondAttribute="bottom" constant="7" id="O6g-6g-3g0"/>
+                                                <constraint firstItem="NTZ-jV-G7e" firstAttribute="top" secondItem="COd-kj-c2S" secondAttribute="bottom" constant="4" id="TmG-Cu-NKk"/>
+                                                <constraint firstItem="piS-fl-rjZ" firstAttribute="top" secondItem="NTZ-jV-G7e" secondAttribute="bottom" constant="8" id="U6V-9w-la0"/>
+                                                <constraint firstItem="9Ij-Gv-MIa" firstAttribute="leading" secondItem="l0I-oc-rcB" secondAttribute="leading" constant="17" id="Uhb-RP-f16"/>
+                                                <constraint firstAttribute="trailing" secondItem="COd-kj-c2S" secondAttribute="trailing" constant="17" id="Vw3-4P-i1c"/>
                                                 <constraint firstItem="DIX-YS-UUv" firstAttribute="top" secondItem="V5l-AO-JnB" secondAttribute="bottom" constant="8" id="dEr-Bj-wLr"/>
                                                 <constraint firstItem="DIX-YS-UUv" firstAttribute="leading" secondItem="l0I-oc-rcB" secondAttribute="leading" constant="17" id="gXO-V1-fLF"/>
+                                                <constraint firstItem="NTZ-jV-G7e" firstAttribute="leading" secondItem="COd-kj-c2S" secondAttribute="leading" id="kCc-Ac-9yL"/>
                                                 <constraint firstItem="DIX-YS-UUv" firstAttribute="top" secondItem="V5l-AO-JnB" secondAttribute="bottom" constant="8" id="kkK-nb-8ox"/>
-                                                <constraint firstAttribute="trailing" secondItem="COd-kj-c2S" secondAttribute="trailing" constant="17" id="tmN-Vr-D1f"/>
+                                                <constraint firstItem="ShA-pY-pqQ" firstAttribute="leading" secondItem="l0I-oc-rcB" secondAttribute="leading" constant="17" id="koG-1E-fva"/>
+                                                <constraint firstAttribute="trailing" secondItem="NTZ-jV-G7e" secondAttribute="trailing" constant="17" id="oAH-Bq-Rhn"/>
                                             </constraints>
                                         </view>
                                     </tabViewItem>
@@ -878,12 +943,14 @@
                     </view>
                     <connections>
                         <outlet property="audioFormat" destination="COd-kj-c2S" id="8cx-f5-53c"/>
+                        <outlet property="audioQuality" destination="NTZ-jV-G7e" id="GZN-v9-0nZ"/>
                         <outlet property="downloadPlaylist" destination="ftN-Oa-Mj1" id="cux-yW-h8a"/>
                         <outlet property="downloadSpecificVideos" destination="nec-cA-tY9" id="8lx-Xq-dBI"/>
                         <outlet property="extractAudio" destination="RpZ-jx-IAK" id="q8u-He-Iqe"/>
                         <outlet property="flatPlaylist" destination="72h-4l-ttj" id="sge-Fg-sPV"/>
                         <outlet property="ignoreErrors" destination="uqP-0o-vcq" id="BTS-pQ-ynR"/>
                         <outlet property="inputURLS" destination="7x6-CY-4t8" id="fsP-Il-dvb"/>
+                        <outlet property="keepVideo" destination="piS-fl-rjZ" id="1fN-wp-DiD"/>
                         <outlet property="maxFileSize" destination="3pX-rq-V4S" id="O1X-2s-RAC"/>
                         <outlet property="netrc" destination="V5P-b2-lLA" id="rOw-lf-uRy"/>
                         <outlet property="outputWindow" destination="MzN-OX-L3E" id="VEV-Hu-ziR"/>

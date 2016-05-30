@@ -17,9 +17,15 @@ class ViewController: NSViewController {
     //settings GUI elements
     @IBOutlet weak var maxFileSize: NSTextField!
     @IBOutlet weak var ignoreErrors: NSButton!
+    @IBOutlet weak var pathChooser: NSPathCell!
+    
+    
+    //audio tab
     @IBOutlet weak var extractAudio: NSButton!
     @IBOutlet weak var audioFormat: NSPopUpButton!
-    @IBOutlet weak var pathChooser: NSPathCell!
+    @IBOutlet weak var audioQuality: NSPopUpButton!
+    @IBOutlet weak var keepVideo: NSButton!
+    
     
     //playlist tab
     @IBOutlet weak var downloadPlaylist: NSButton!
@@ -259,6 +265,31 @@ class ViewController: NSViewController {
             command += " --netrc"
         }
         
+
+/*****************
+*   Audio tab    *
+******************/
+        
+        //append extract audio to command
+        if extractAudio.state == 1 {
+            command += " --extract-audio"
+        }
+        
+        //append audio format to command
+        let audioFormatString = audioFormat.selectedItem?.title.characters.split{$0 == "\""}.map(String.init) //item to string
+        command += " --audio-format \(audioFormatString![0])"
+        
+        //append audio quality to command
+        let audioQualityString = audioQuality.selectedItem!.title.characters.split{$0 == "\""}.map(String.init) //item to string
+        let audioQ = audioQualityString.first!.characters.first
+        command += " --audio-quality \(audioQ!)"
+        
+        //append "keep video" to command
+        if keepVideo.state == 1 {
+            command += " --keep-video"
+        }
+        
+        
 /*****************
 *  General tab   *
 ******************/
@@ -272,16 +303,7 @@ class ViewController: NSViewController {
         if ignoreErrors.state == 1 {
             command += " --ignore-errors"
         }
-        
-        //append extract audio to command
-        if extractAudio.state == 1 {
-            command += " --extract-audio"
-        }
-        
-        //append audio format to command
-        let audioFormatString = audioFormat.selectedItem?.title.characters.split{$0 == "\""}.map(String.init) //item to string
-        command += " --audio-format \(audioFormatString![0])"
-    
+
         //append output destination to command
         let pathString = pathChooser.URL?.path!.characters.split{$0 == "\""}.map(String.init) //item to string
         command += " -o \(pathString![0])/'%(title)s.%(ext)s'"
