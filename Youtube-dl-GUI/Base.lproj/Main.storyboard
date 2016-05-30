@@ -369,10 +369,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="436" height="249"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <size key="minSize" width="436" height="235"/>
+                                            <size key="minSize" width="436" height="249"/>
                                             <size key="maxSize" width="533" height="10000000"/>
                                             <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                            <size key="minSize" width="436" height="235"/>
+                                            <size key="minSize" width="436" height="249"/>
                                             <size key="maxSize" width="533" height="10000000"/>
                                         </textView>
                                     </subviews>
@@ -498,6 +498,140 @@
                                                 <constraint firstItem="hSv-0K-HSK" firstAttribute="leading" secondItem="TLS-HV-qXB" secondAttribute="leading" constant="17" id="bId-Qx-nq9"/>
                                                 <constraint firstAttribute="trailing" secondItem="3pX-rq-V4S" secondAttribute="trailing" constant="17" id="dKr-cR-k67"/>
                                                 <constraint firstItem="YUd-jr-IsJ" firstAttribute="top" secondItem="hSv-0K-HSK" secondAttribute="bottom" constant="8" id="oHa-YZ-9LL"/>
+                                            </constraints>
+                                        </view>
+                                    </tabViewItem>
+                                    <tabViewItem label="Authentication" identifier="1" id="nQe-Ig-lpx">
+                                        <view key="view" id="feV-YF-baS">
+                                            <rect key="frame" x="10" y="33" width="544" height="229"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <textField toolTip="Login with this account ID." horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cq7-lq-buu">
+                                                    <rect key="frame" x="15" y="209" width="70" height="17"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Username:" id="rde-Ek-tE0">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <textField toolTip="Account password." horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kPw-pm-uzD">
+                                                    <rect key="frame" x="15" y="184" width="66" height="17"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Password:" id="3dl-Oh-K3n">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <textField toolTip="Two-factor auth code." horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QCZ-p4-s9r">
+                                                    <rect key="frame" x="15" y="159" width="126" height="17"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="2-factor auth. code:" id="5Pl-g9-mvf">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <textField toolTip="Use .netrc authentication data." horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VgU-RJ-wme">
+                                                    <rect key="frame" x="15" y="134" width="43" height="17"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title=".netrc:" id="mVl-wb-Dwj">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <textField toolTip="Video password (vimeo, smotri, youku)." horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XT7-mz-0Ty">
+                                                    <rect key="frame" x="15" y="109" width="105" height="17"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Video password:" id="Ccx-Sr-IKu">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <textField toolTip="Login with this account ID." verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dBF-vk-0RT">
+                                                    <rect key="frame" x="208" y="206" width="96" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="96" id="Bqq-5c-GtW"/>
+                                                    </constraints>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="rks-dF-EiC">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <secureTextField toolTip="Account password." verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XOo-FL-D72">
+                                                    <rect key="frame" x="208" y="181" width="96" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="96" id="CvM-Ap-STQ"/>
+                                                    </constraints>
+                                                    <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="cXC-NM-zft">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        <allowedInputSourceLocales>
+                                                            <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                                        </allowedInputSourceLocales>
+                                                    </secureTextFieldCell>
+                                                </secureTextField>
+                                                <secureTextField toolTip="Two-factor auth code." verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oKK-rG-X7n">
+                                                    <rect key="frame" x="208" y="156" width="96" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="96" id="AzE-Gk-j8t"/>
+                                                    </constraints>
+                                                    <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="tsX-JF-j9l">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        <allowedInputSourceLocales>
+                                                            <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                                        </allowedInputSourceLocales>
+                                                    </secureTextFieldCell>
+                                                </secureTextField>
+                                                <secureTextField toolTip="Video password (vimeo, smotri, youku)." verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7z3-Y1-nMX">
+                                                    <rect key="frame" x="208" y="106" width="96" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="96" id="N7I-1y-b1d"/>
+                                                    </constraints>
+                                                    <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="nh1-q6-ChQ">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        <allowedInputSourceLocales>
+                                                            <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                                        </allowedInputSourceLocales>
+                                                    </secureTextFieldCell>
+                                                </secureTextField>
+                                                <button toolTip="Use .netrc authentication data." misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V5P-b2-lLA">
+                                                    <rect key="frame" x="206" y="133" width="22" height="18"/>
+                                                    <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" inset="2" id="OXY-gW-r9T">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="cq7-lq-buu" firstAttribute="leading" secondItem="feV-YF-baS" secondAttribute="leading" constant="17" id="2oi-Qa-9sI"/>
+                                                <constraint firstItem="VgU-RJ-wme" firstAttribute="top" secondItem="QCZ-p4-s9r" secondAttribute="bottom" constant="8" id="3jE-6w-6Un"/>
+                                                <constraint firstItem="QCZ-p4-s9r" firstAttribute="leading" secondItem="feV-YF-baS" secondAttribute="leading" constant="17" id="4Qt-QK-Vbg"/>
+                                                <constraint firstItem="XOo-FL-D72" firstAttribute="top" secondItem="dBF-vk-0RT" secondAttribute="bottom" constant="3" id="A0r-SS-2AC"/>
+                                                <constraint firstItem="VgU-RJ-wme" firstAttribute="leading" secondItem="feV-YF-baS" secondAttribute="leading" constant="17" id="AdT-Lb-QRy"/>
+                                                <constraint firstItem="kPw-pm-uzD" firstAttribute="top" secondItem="cq7-lq-buu" secondAttribute="bottom" constant="8" id="DVH-jN-W0g"/>
+                                                <constraint firstItem="cq7-lq-buu" firstAttribute="top" secondItem="feV-YF-baS" secondAttribute="top" constant="3" id="FYj-CN-moW"/>
+                                                <constraint firstItem="V5P-b2-lLA" firstAttribute="top" secondItem="oKK-rG-X7n" secondAttribute="bottom" constant="7" id="G5y-N3-7Rn"/>
+                                                <constraint firstAttribute="trailing" secondItem="XOo-FL-D72" secondAttribute="trailing" constant="17" id="Nnm-Iw-DbL"/>
+                                                <constraint firstItem="oKK-rG-X7n" firstAttribute="leading" secondItem="dBF-vk-0RT" secondAttribute="leading" id="Pd2-IE-eEo"/>
+                                                <constraint firstAttribute="trailing" secondItem="oKK-rG-X7n" secondAttribute="trailing" constant="17" id="Swp-zu-9io"/>
+                                                <constraint firstItem="XT7-mz-0Ty" firstAttribute="top" secondItem="VgU-RJ-wme" secondAttribute="bottom" constant="8" id="UgA-Ug-LRN"/>
+                                                <constraint firstItem="XOo-FL-D72" firstAttribute="leading" secondItem="dBF-vk-0RT" secondAttribute="leading" id="Urc-LK-76z"/>
+                                                <constraint firstAttribute="trailing" secondItem="dBF-vk-0RT" secondAttribute="trailing" constant="17" id="WCM-re-WoC"/>
+                                                <constraint firstItem="kPw-pm-uzD" firstAttribute="top" secondItem="cq7-lq-buu" secondAttribute="bottom" constant="8" id="ZUe-P3-hG5"/>
+                                                <constraint firstItem="oKK-rG-X7n" firstAttribute="top" secondItem="XOo-FL-D72" secondAttribute="bottom" constant="3" id="aZZ-kQ-KGI"/>
+                                                <constraint firstItem="XT7-mz-0Ty" firstAttribute="leading" secondItem="feV-YF-baS" secondAttribute="leading" constant="17" id="cOU-sg-sTB"/>
+                                                <constraint firstItem="kPw-pm-uzD" firstAttribute="leading" secondItem="feV-YF-baS" secondAttribute="leading" constant="17" id="dBF-4t-nws"/>
+                                                <constraint firstItem="V5P-b2-lLA" firstAttribute="leading" secondItem="dBF-vk-0RT" secondAttribute="leading" id="g1S-R1-ygd"/>
+                                                <constraint firstItem="7z3-Y1-nMX" firstAttribute="leading" secondItem="dBF-vk-0RT" secondAttribute="leading" id="iMO-bw-WP4"/>
+                                                <constraint firstItem="7z3-Y1-nMX" firstAttribute="top" secondItem="V5P-b2-lLA" secondAttribute="bottom" constant="7" id="ml9-lk-crS"/>
+                                                <constraint firstAttribute="trailing" secondItem="7z3-Y1-nMX" secondAttribute="trailing" constant="17" id="qqu-M4-yrp"/>
+                                                <constraint firstItem="dBF-vk-0RT" firstAttribute="top" secondItem="feV-YF-baS" secondAttribute="top" constant="1" id="up1-4U-e3L"/>
+                                                <constraint firstItem="QCZ-p4-s9r" firstAttribute="top" secondItem="kPw-pm-uzD" secondAttribute="bottom" constant="8" id="wtF-cB-npD"/>
                                             </constraints>
                                         </view>
                                     </tabViewItem>
@@ -700,8 +834,20 @@
                                             </constraints>
                                         </view>
                                     </tabViewItem>
-                                    <tabViewItem label="Subtitles" identifier="1" id="nQe-Ig-lpx">
-                                        <view key="view" id="feV-YF-baS">
+                                    <tabViewItem label="Subtitles" identifier="1" id="h0n-gl-wIw">
+                                        <view key="view" id="nHS-1k-TWW">
+                                            <rect key="frame" x="10" y="33" width="544" height="229"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </view>
+                                    </tabViewItem>
+                                    <tabViewItem label="Subtitles" identifier="1" id="j8Z-IN-jVX">
+                                        <view key="view" id="8o5-ch-mWJ">
+                                            <rect key="frame" x="10" y="33" width="544" height="229"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </view>
+                                    </tabViewItem>
+                                    <tabViewItem label="Subtitles" identifier="1" id="ezN-nQ-CxR">
+                                        <view key="view" id="RuL-ja-aEt">
                                             <rect key="frame" x="10" y="33" width="544" height="229"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </view>
@@ -739,42 +885,21 @@
                         <outlet property="ignoreErrors" destination="uqP-0o-vcq" id="BTS-pQ-ynR"/>
                         <outlet property="inputURLS" destination="7x6-CY-4t8" id="fsP-Il-dvb"/>
                         <outlet property="maxFileSize" destination="3pX-rq-V4S" id="O1X-2s-RAC"/>
+                        <outlet property="netrc" destination="V5P-b2-lLA" id="rOw-lf-uRy"/>
                         <outlet property="outputWindow" destination="MzN-OX-L3E" id="VEV-Hu-ziR"/>
+                        <outlet property="password" destination="XOo-FL-D72" id="47G-th-qDm"/>
                         <outlet property="pathChooser" destination="Z8J-bx-eH9" id="tvf-bO-v6R"/>
                         <outlet property="reversePlaylist" destination="BUw-Ix-kVe" id="Aqz-ND-Tow"/>
                         <outlet property="startAtVideo" destination="U6T-aK-Xnk" id="wU6-OC-h1v"/>
                         <outlet property="stopAtVideo" destination="XWE-3Z-NoL" id="gCq-aX-J7Q"/>
+                        <outlet property="twoFactorCode" destination="oKK-rG-X7n" id="M6h-47-qqc"/>
+                        <outlet property="username" destination="dBF-vk-0RT" id="yQl-ws-GKg"/>
+                        <outlet property="videoPassword" destination="7z3-Y1-nMX" id="rmZ-nI-ad2"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="44.5" y="1088.5"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="p1E-eE-RZU">
-            <objects>
-                <customObject id="j66-wh-efR" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <viewController id="vTh-8s-Jqj" sceneMemberID="viewController">
-                    <view key="view" id="Mrw-AS-V0U">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </view>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="1511" y="873"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="ypu-9D-H1A">
-            <objects>
-                <customObject id="fk5-hE-ecw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <viewController id="lPb-Lu-If5" sceneMemberID="viewController">
-                    <view key="view" id="Wti-LF-cGf">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </view>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="1511" y="1233"/>
         </scene>
     </scenes>
     <resources>

@@ -29,6 +29,13 @@ class ViewController: NSViewController {
     @IBOutlet weak var stopAtVideo: NSTextField!
     @IBOutlet weak var downloadSpecificVideos: NSTextField!
     
+    //authentication tab
+    @IBOutlet weak var username: NSTextField!
+    @IBOutlet weak var password: NSSecureTextField!
+    @IBOutlet weak var twoFactorCode: NSSecureTextField!
+    @IBOutlet weak var netrc: NSButton!
+    @IBOutlet weak var videoPassword: NSSecureTextField!
+    
 
 
     //will excecute when we psuh on the download-button
@@ -223,7 +230,34 @@ class ViewController: NSViewController {
         }
         
         
+/***********************
+*  Authentication tab  *
+************************/
         
+        //append "username" to command
+        if !username.stringValue.isEmpty {
+            command += " --username \(username.stringValue)"
+        }
+        
+        //append "password" to command
+        if !password.stringValue.isEmpty {
+            command += " --password \(password.stringValue)"
+        }
+        
+        //append "2 factor authentication code" to command
+        if !twoFactorCode.stringValue.isEmpty {
+            command += " --twofactor \(twoFactorCode.stringValue)"
+        }
+        
+        //append "video password" to command
+        if !videoPassword.stringValue.isEmpty {
+            command += " --video-password \(videoPassword.stringValue)"
+        }
+        
+        //append "netrc" to command
+        if netrc.state == 1 {
+            command += " --netrc"
+        }
         
 /*****************
 *  General tab   *
