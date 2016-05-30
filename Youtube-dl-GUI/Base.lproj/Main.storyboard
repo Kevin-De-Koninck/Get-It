@@ -655,7 +655,7 @@
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Ij-Gv-MIa">
+                                                <textField toolTip="Specify ffmpeg/avconv audio quality." horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Ij-Gv-MIa">
                                                     <rect key="frame" x="15" y="157" width="87" height="17"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Audio quality:" id="PDr-t9-gv8">
                                                         <font key="font" metaFont="system"/>
@@ -663,7 +663,7 @@
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ShA-pY-pqQ">
+                                                <textField toolTip="Keep the video file on disk after the post-processing; the video is erased by default." horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ShA-pY-pqQ">
                                                     <rect key="frame" x="16" y="132" width="75" height="17"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Keep video:" id="Dze-UI-4lz">
                                                         <font key="font" metaFont="system"/>
@@ -700,7 +700,7 @@
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NTZ-jV-G7e">
+                                                <popUpButton toolTip="Specify ffmpeg/avconv audio quality." verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NTZ-jV-G7e">
                                                     <rect key="frame" x="429" y="152" width="101" height="26"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="96" id="7nG-gp-pEI"/>
@@ -724,7 +724,7 @@
                                                         </menu>
                                                     </popUpButtonCell>
                                                 </popUpButton>
-                                                <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="piS-fl-rjZ">
+                                                <button toolTip="Keep the video file on disk after the post-processing; the video is erased by default." misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="piS-fl-rjZ">
                                                     <rect key="frame" x="507" y="131" width="22" height="18"/>
                                                     <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" inset="2" id="gjP-11-fEG">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -757,6 +757,134 @@
                                         <view key="view" id="hPO-YD-p1n">
                                             <rect key="frame" x="10" y="33" width="544" height="229"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <textField toolTip="Video format code." horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NjN-y1-bSl">
+                                                    <rect key="frame" x="15" y="209" width="86" height="17"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Video format:" id="OHU-gK-tH6">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <textField toolTip="Download all available video formats." horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cKg-wC-j4n">
+                                                    <rect key="frame" x="15" y="184" width="136" height="17"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Download all formats:" id="fbn-st-Mbt">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <textField toolTip="Prefer free video formats unless a specific one is requested." horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="b4h-Sg-jRv">
+                                                    <rect key="frame" x="15" y="159" width="123" height="17"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Prefer free formats:" id="Z8v-o1-T1j">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <textField toolTip="Do not download the DASH manifests and related data on YouTube videos." horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="reo-hp-tuX">
+                                                    <rect key="frame" x="15" y="134" width="123" height="17"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Skip dash manifest:" id="C5D-85-wjG">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <popUpButton toolTip="Video format code." verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eWL-eG-ysb">
+                                                    <rect key="frame" x="186" y="204" width="201" height="26"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="196" id="cJc-Ij-pI6"/>
+                                                    </constraints>
+                                                    <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="oE5-Sb-yT5" id="NMF-8y-sbu">
+                                                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="menu"/>
+                                                        <menu key="menu" id="JS0-Ig-EGD">
+                                                            <items>
+                                                                <menuItem state="on" id="oE5-Sb-yT5"/>
+                                                                <menuItem title="3gp [176x144]" tag="17" id="chN-5m-jRQ"/>
+                                                                <menuItem title="3gp [320x240]" tag="36" id="Wk3-1h-TPf"/>
+                                                                <menuItem title="flv [400x240]" tag="5" id="g07-Va-UDL"/>
+                                                                <menuItem title="flv [640x360]" tag="34" id="B4H-TI-hcc"/>
+                                                                <menuItem title="flv [854x480]" tag="35" id="7Zt-7W-2Pj"/>
+                                                                <menuItem title="webm [640x360]" tag="43" id="hAH-a8-uZI"/>
+                                                                <menuItem title="webm [854x480]" tag="44" id="3Yv-zz-B3X"/>
+                                                                <menuItem title="webm [1280x720]" tag="45" id="S8b-CG-ca1"/>
+                                                                <menuItem title="webm [1920x1080]" tag="46" id="FYl-4H-6jC"/>
+                                                                <menuItem title="mp4 [640x360]" tag="18" id="tpK-Wl-kU4"/>
+                                                                <menuItem title="mp4 [1280x720]" tag="22" id="DP3-lx-Rtx"/>
+                                                                <menuItem title="mp4 [1920x1080]" tag="37" id="UDk-Nj-SEQ"/>
+                                                                <menuItem title="mp4 [4096x3072]" tag="38" id="Goo-p9-CLz"/>
+                                                                <menuItem title="mp4 144p (DASH)" tag="160" id="IcN-NR-965"/>
+                                                                <menuItem title="mp4 240p (DASH)" tag="133" id="HW9-oc-HJr"/>
+                                                                <menuItem title="mp4 360p (DASH)" tag="134" id="dAJ-Db-eoi"/>
+                                                                <menuItem title="mp4 480p (DASH)" tag="135" id="oG7-UW-dMb"/>
+                                                                <menuItem title="mp4 720p (DASH)" tag="136" id="fN0-h7-mjt"/>
+                                                                <menuItem title="mp4 1080p (DASH)" tag="137" id="35t-EI-vp9"/>
+                                                                <menuItem title="mp4 1440p (DASH)" tag="264" id="PqD-9Z-H2e"/>
+                                                                <menuItem title="mp4 2160p (DASH)" tag="138" id="unn-ec-WJX"/>
+                                                                <menuItem title="webm 240p (DASH)" tag="242" id="rBY-ez-HT0"/>
+                                                                <menuItem title="webm 360p (DASH)" tag="243" id="WSG-Kr-3ff"/>
+                                                                <menuItem title="webm 480p (DASH)" tag="244" id="Ob4-aq-pbB"/>
+                                                                <menuItem title="webm 720p (DASH)" tag="247" id="4bm-M2-jIu"/>
+                                                                <menuItem title="webm 1080p (DASH)" tag="248" id="gI0-2I-3Cl"/>
+                                                                <menuItem title="webm 1440p (DASH)" tag="271" id="f9w-wf-7JO"/>
+                                                                <menuItem title="webm 2160p (DASH)" tag="272" id="3FN-wf-P68"/>
+                                                                <menuItem title="mp4 360p (3D)" tag="82" id="Cmm-Y6-LIh"/>
+                                                                <menuItem title="mp4 480p (3D)" tag="83" id="4Pb-6f-zZi"/>
+                                                                <menuItem title="mp4 720p (3D)" tag="84" id="QR5-Ub-n8y"/>
+                                                                <menuItem title="mp4 1080p (3D)" tag="85" id="WOU-la-Xa1"/>
+                                                                <menuItem title="webm 360p (3D)" tag="100" id="mbf-uA-lle"/>
+                                                                <menuItem title="webm 480p (3D)" tag="101" id="u0r-GF-qM1"/>
+                                                                <menuItem title="webm 720p (3D)" tag="102" id="ZpD-JK-wIB"/>
+                                                                <menuItem title="m4a 48k (DASH AUDIO)" tag="139" id="fHF-1T-HIq"/>
+                                                                <menuItem title="m4a 128k (DASH AUDIO)" tag="140" id="7jX-On-ia8"/>
+                                                                <menuItem title="m4a 256k (DASH AUDIO)" tag="141" id="idY-Vx-svl"/>
+                                                                <menuItem title="webm 48k (DASH AUDIO)" tag="171" id="Ue6-r4-Eoi"/>
+                                                                <menuItem title="webm 256k (DASH AUDIO)" tag="172" id="O15-u8-NtF"/>
+                                                            </items>
+                                                        </menu>
+                                                    </popUpButtonCell>
+                                                </popUpButton>
+                                                <button toolTip="Download all available video formats." misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hsr-nu-pd0">
+                                                    <rect key="frame" x="186" y="183" width="22" height="18"/>
+                                                    <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" inset="2" id="KcU-Ga-2Kb">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                </button>
+                                                <button toolTip="Prefer free video formats unless a specific one is requested." misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gh3-Ls-M1S">
+                                                    <rect key="frame" x="186" y="158" width="22" height="18"/>
+                                                    <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" inset="2" id="gZS-O0-JF7">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                </button>
+                                                <button toolTip="Do not download the DASH manifests and related data on YouTube videos." misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pIn-K4-Qm4">
+                                                    <rect key="frame" x="186" y="133" width="22" height="18"/>
+                                                    <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="noZ-oU-yud">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="reo-hp-tuX" firstAttribute="top" secondItem="b4h-Sg-jRv" secondAttribute="bottom" constant="8" id="3Al-sn-y7I"/>
+                                                <constraint firstItem="Gh3-Ls-M1S" firstAttribute="top" secondItem="hsr-nu-pd0" secondAttribute="bottom" constant="11" id="3FA-M2-PPI"/>
+                                                <constraint firstItem="b4h-Sg-jRv" firstAttribute="leading" secondItem="hPO-YD-p1n" secondAttribute="leading" constant="17" id="Jg3-B2-dcc"/>
+                                                <constraint firstItem="eWL-eG-ysb" firstAttribute="top" secondItem="hPO-YD-p1n" secondAttribute="top" constant="1" id="RZ8-3Y-MeF"/>
+                                                <constraint firstItem="NjN-y1-bSl" firstAttribute="leading" secondItem="hPO-YD-p1n" secondAttribute="leading" constant="17" id="TbX-da-QWr"/>
+                                                <constraint firstItem="hsr-nu-pd0" firstAttribute="top" secondItem="eWL-eG-ysb" secondAttribute="bottom" constant="8" id="Tbg-U6-rrR"/>
+                                                <constraint firstItem="hsr-nu-pd0" firstAttribute="leading" secondItem="eWL-eG-ysb" secondAttribute="leading" id="UBd-Rb-G5r"/>
+                                                <constraint firstAttribute="trailing" secondItem="eWL-eG-ysb" secondAttribute="trailing" constant="17" id="VP0-Sf-sqc"/>
+                                                <constraint firstItem="pIn-K4-Qm4" firstAttribute="top" secondItem="Gh3-Ls-M1S" secondAttribute="bottom" constant="11" id="Vhe-8f-hSZ"/>
+                                                <constraint firstItem="cKg-wC-j4n" firstAttribute="leading" secondItem="hPO-YD-p1n" secondAttribute="leading" constant="17" id="fq2-u8-oj3"/>
+                                                <constraint firstItem="cKg-wC-j4n" firstAttribute="top" secondItem="NjN-y1-bSl" secondAttribute="bottom" constant="8" id="krk-i1-Vfs"/>
+                                                <constraint firstItem="reo-hp-tuX" firstAttribute="leading" secondItem="hPO-YD-p1n" secondAttribute="leading" constant="17" id="p4Q-ms-gdH"/>
+                                                <constraint firstItem="pIn-K4-Qm4" firstAttribute="leading" secondItem="eWL-eG-ysb" secondAttribute="leading" id="rGC-6i-DK2"/>
+                                                <constraint firstItem="Gh3-Ls-M1S" firstAttribute="leading" secondItem="eWL-eG-ysb" secondAttribute="leading" id="tWI-ea-q6j"/>
+                                                <constraint firstItem="b4h-Sg-jRv" firstAttribute="top" secondItem="cKg-wC-j4n" secondAttribute="bottom" constant="8" id="vhG-IJ-FVx"/>
+                                                <constraint firstItem="NjN-y1-bSl" firstAttribute="top" secondItem="hPO-YD-p1n" secondAttribute="top" constant="3" id="vy5-Rl-5F7"/>
+                                            </constraints>
                                         </view>
                                     </tabViewItem>
                                     <tabViewItem label="Playlist" identifier="1" id="qOo-8r-eIm">
@@ -944,6 +1072,7 @@
                     <connections>
                         <outlet property="audioFormat" destination="COd-kj-c2S" id="8cx-f5-53c"/>
                         <outlet property="audioQuality" destination="NTZ-jV-G7e" id="GZN-v9-0nZ"/>
+                        <outlet property="downloadAllFormats" destination="hsr-nu-pd0" id="3Tf-Ib-jrZ"/>
                         <outlet property="downloadPlaylist" destination="ftN-Oa-Mj1" id="cux-yW-h8a"/>
                         <outlet property="downloadSpecificVideos" destination="nec-cA-tY9" id="8lx-Xq-dBI"/>
                         <outlet property="extractAudio" destination="RpZ-jx-IAK" id="q8u-He-Iqe"/>
@@ -956,11 +1085,14 @@
                         <outlet property="outputWindow" destination="MzN-OX-L3E" id="VEV-Hu-ziR"/>
                         <outlet property="password" destination="XOo-FL-D72" id="47G-th-qDm"/>
                         <outlet property="pathChooser" destination="Z8J-bx-eH9" id="tvf-bO-v6R"/>
+                        <outlet property="preferFreeFormats" destination="Gh3-Ls-M1S" id="rk3-ih-4XA"/>
                         <outlet property="reversePlaylist" destination="BUw-Ix-kVe" id="Aqz-ND-Tow"/>
+                        <outlet property="skipDashManifest" destination="pIn-K4-Qm4" id="a4j-gk-2yN"/>
                         <outlet property="startAtVideo" destination="U6T-aK-Xnk" id="wU6-OC-h1v"/>
                         <outlet property="stopAtVideo" destination="XWE-3Z-NoL" id="gCq-aX-J7Q"/>
                         <outlet property="twoFactorCode" destination="oKK-rG-X7n" id="M6h-47-qqc"/>
                         <outlet property="username" destination="dBF-vk-0RT" id="yQl-ws-GKg"/>
+                        <outlet property="videoFormat" destination="eWL-eG-ysb" id="IVY-aw-Q10"/>
                         <outlet property="videoPassword" destination="7z3-Y1-nMX" id="rmZ-nI-ad2"/>
                     </connections>
                 </viewController>
