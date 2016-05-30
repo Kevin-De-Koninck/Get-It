@@ -1031,6 +1031,124 @@
                                         <view key="view" id="nHS-1k-TWW">
                                             <rect key="frame" x="10" y="33" width="544" height="229"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <textField toolTip="Write subtitle file." horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XCo-Ln-Jxd">
+                                                    <rect key="frame" x="15" y="209" width="124" height="17"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Download subtitles:" id="cme-BQ-1xK">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <textField toolTip="Write automatically generated subtitle file (YouTube only)." horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mh9-74-e3H">
+                                                    <rect key="frame" x="15" y="184" width="187" height="17"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Download automatic subtitles:" id="u3T-LL-CRA">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <textField toolTip="Languages of the subtitles to download." horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jXz-Ve-AdZ">
+                                                    <rect key="frame" x="15" y="134" width="68" height="17"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Language:" id="mRV-ma-N58">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <textField toolTip="Embed subtitles in the video (only for mp4, webm and mkv videos)." horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GJM-IW-X6K">
+                                                    <rect key="frame" x="15" y="109" width="106" height="17"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Embed subtitles:" id="gDf-QG-NYY">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <button toolTip="Write subtitle file." misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m5i-Kb-r1t">
+                                                    <rect key="frame" x="252" y="208" width="22" height="18"/>
+                                                    <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" inset="2" id="q2l-jv-enr">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                </button>
+                                                <button toolTip="Write automatically generated subtitle file (YouTube only)." misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E0C-15-qKb">
+                                                    <rect key="frame" x="252" y="183" width="22" height="18"/>
+                                                    <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" inset="2" id="DQz-5q-pTW">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                </button>
+                                                <button toolTip="Download all the available subtitles of the video." misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4ug-ux-Tpv">
+                                                    <rect key="frame" x="252" y="158" width="22" height="18"/>
+                                                    <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" inset="2" id="4RU-pa-gIv">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                </button>
+                                                <button toolTip="Embed subtitles in the video (only for mp4, webm and mkv videos)." ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MR0-Bt-uyA">
+                                                    <rect key="frame" x="252" y="108" width="22" height="18"/>
+                                                    <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" inset="2" id="TVr-qV-Sao">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                </button>
+                                                <popUpButton toolTip="Languages of the subtitles to download." verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dgx-dx-gii">
+                                                    <rect key="frame" x="252" y="129" width="133" height="26"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="128" id="77N-2I-Qv0"/>
+                                                    </constraints>
+                                                    <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="dST-Kk-zjE">
+                                                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="menu"/>
+                                                        <menu key="menu" id="rI0-Ek-eFR">
+                                                            <items>
+                                                                <menuItem state="on" id="OSc-kZ-ZkZ"/>
+                                                                <menuItem title="en - English" tag="1" id="e3b-kk-JiB"/>
+                                                                <menuItem title="gr - Greek" tag="2" id="2PB-t3-fJw"/>
+                                                                <menuItem title="pt - Portuguese" tag="3" id="Eu3-Rg-eUs"/>
+                                                                <menuItem title="fr - French" tag="4" id="4AY-9U-mTb"/>
+                                                                <menuItem title="it - Italian" tag="5" id="Cwf-JK-QrQ"/>
+                                                                <menuItem title="ru - Russian" tag="6" id="d0E-IO-IGk"/>
+                                                                <menuItem title="es - Spanish" tag="7" id="UPQ-Rq-lmq"/>
+                                                                <menuItem title="de - German" tag="8" id="Dxc-QX-Gvd"/>
+                                                                <menuItem title="nl - Dutch" tag="9" id="w58-BP-tTp"/>
+                                                            </items>
+                                                        </menu>
+                                                    </popUpButtonCell>
+                                                </popUpButton>
+                                                <textField toolTip="Download all the available subtitles of the video." horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7ki-wA-jz0">
+                                                    <rect key="frame" x="15" y="159" width="141" height="17"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Download all subtitles:" id="8kQ-N1-YGV">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="7ki-wA-jz0" firstAttribute="top" secondItem="mh9-74-e3H" secondAttribute="bottom" constant="8" id="0IV-jR-5T2"/>
+                                                <constraint firstItem="7ki-wA-jz0" firstAttribute="leading" secondItem="nHS-1k-TWW" secondAttribute="leading" constant="17" id="1ID-fy-S78"/>
+                                                <constraint firstItem="GJM-IW-X6K" firstAttribute="top" secondItem="jXz-Ve-AdZ" secondAttribute="bottom" constant="8" id="6NI-2J-NeH"/>
+                                                <constraint firstItem="mh9-74-e3H" firstAttribute="top" secondItem="XCo-Ln-Jxd" secondAttribute="bottom" constant="8" id="7s7-8B-9Sf"/>
+                                                <constraint firstItem="4ug-ux-Tpv" firstAttribute="leading" secondItem="m5i-Kb-r1t" secondAttribute="leading" id="9Zq-WS-jm9"/>
+                                                <constraint firstItem="XCo-Ln-Jxd" firstAttribute="leading" secondItem="nHS-1k-TWW" secondAttribute="leading" constant="17" id="GJn-Vu-RQj"/>
+                                                <constraint firstItem="jXz-Ve-AdZ" firstAttribute="leading" secondItem="nHS-1k-TWW" secondAttribute="leading" constant="17" id="ICr-aW-bfi"/>
+                                                <constraint firstItem="MR0-Bt-uyA" firstAttribute="leading" secondItem="m5i-Kb-r1t" secondAttribute="leading" id="ImH-0P-cqa"/>
+                                                <constraint firstItem="mh9-74-e3H" firstAttribute="leading" secondItem="nHS-1k-TWW" secondAttribute="leading" constant="17" id="PHj-TE-azr"/>
+                                                <constraint firstItem="XCo-Ln-Jxd" firstAttribute="top" secondItem="nHS-1k-TWW" secondAttribute="top" constant="3" id="Re0-nn-L82"/>
+                                                <constraint firstItem="E0C-15-qKb" firstAttribute="leading" secondItem="m5i-Kb-r1t" secondAttribute="leading" id="XQf-Ba-f7g"/>
+                                                <constraint firstItem="4ug-ux-Tpv" firstAttribute="top" secondItem="E0C-15-qKb" secondAttribute="bottom" constant="11" id="YU7-Em-woz"/>
+                                                <constraint firstItem="dgx-dx-gii" firstAttribute="leading" secondItem="m5i-Kb-r1t" secondAttribute="leading" id="ZT0-h7-L03"/>
+                                                <constraint firstItem="4ug-ux-Tpv" firstAttribute="leading" secondItem="m5i-Kb-r1t" secondAttribute="leading" id="aD6-yk-lJn"/>
+                                                <constraint firstItem="jXz-Ve-AdZ" firstAttribute="top" secondItem="7ki-wA-jz0" secondAttribute="bottom" constant="8" id="bgk-Jq-5v9"/>
+                                                <constraint firstItem="dgx-dx-gii" firstAttribute="top" secondItem="4ug-ux-Tpv" secondAttribute="bottom" constant="7" id="dC5-X9-AmU"/>
+                                                <constraint firstAttribute="trailing" secondItem="dgx-dx-gii" secondAttribute="trailing" constant="17" id="daY-hc-49Y"/>
+                                                <constraint firstItem="m5i-Kb-r1t" firstAttribute="top" secondItem="nHS-1k-TWW" secondAttribute="top" constant="5" id="dbW-Va-sUT"/>
+                                                <constraint firstItem="MR0-Bt-uyA" firstAttribute="leading" secondItem="m5i-Kb-r1t" secondAttribute="leading" id="qUb-ko-gy0"/>
+                                                <constraint firstItem="E0C-15-qKb" firstAttribute="top" secondItem="m5i-Kb-r1t" secondAttribute="bottom" constant="11" id="sO7-9d-Do8"/>
+                                                <constraint firstItem="E0C-15-qKb" firstAttribute="leading" secondItem="m5i-Kb-r1t" secondAttribute="leading" id="uo8-bu-4sr"/>
+                                                <constraint firstItem="GJM-IW-X6K" firstAttribute="leading" secondItem="nHS-1k-TWW" secondAttribute="leading" constant="17" id="wcv-vO-XB9"/>
+                                            </constraints>
                                         </view>
                                     </tabViewItem>
                                     <tabViewItem label="Subtitles" identifier="1" id="j8Z-IN-jVX">
@@ -1073,13 +1191,18 @@
                         <outlet property="audioFormat" destination="COd-kj-c2S" id="8cx-f5-53c"/>
                         <outlet property="audioQuality" destination="NTZ-jV-G7e" id="GZN-v9-0nZ"/>
                         <outlet property="downloadAllFormats" destination="hsr-nu-pd0" id="3Tf-Ib-jrZ"/>
+                        <outlet property="downloadAllSubs" destination="4ug-ux-Tpv" id="eHq-9d-KQt"/>
+                        <outlet property="downloadAutoSubs" destination="E0C-15-qKb" id="YRZ-0K-TkI"/>
                         <outlet property="downloadPlaylist" destination="ftN-Oa-Mj1" id="cux-yW-h8a"/>
                         <outlet property="downloadSpecificVideos" destination="nec-cA-tY9" id="8lx-Xq-dBI"/>
+                        <outlet property="downloadSubs" destination="m5i-Kb-r1t" id="Yuw-Tq-Ec9"/>
+                        <outlet property="embedSubs" destination="MR0-Bt-uyA" id="OAV-nm-TDG"/>
                         <outlet property="extractAudio" destination="RpZ-jx-IAK" id="q8u-He-Iqe"/>
                         <outlet property="flatPlaylist" destination="72h-4l-ttj" id="sge-Fg-sPV"/>
                         <outlet property="ignoreErrors" destination="uqP-0o-vcq" id="BTS-pQ-ynR"/>
                         <outlet property="inputURLS" destination="7x6-CY-4t8" id="fsP-Il-dvb"/>
                         <outlet property="keepVideo" destination="piS-fl-rjZ" id="1fN-wp-DiD"/>
+                        <outlet property="languageSubs" destination="dgx-dx-gii" id="YAz-VK-oKD"/>
                         <outlet property="maxFileSize" destination="3pX-rq-V4S" id="O1X-2s-RAC"/>
                         <outlet property="netrc" destination="V5P-b2-lLA" id="rOw-lf-uRy"/>
                         <outlet property="outputWindow" destination="MzN-OX-L3E" id="VEV-Hu-ziR"/>

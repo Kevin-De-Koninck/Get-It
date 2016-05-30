@@ -32,7 +32,13 @@ class ViewController: NSViewController {
     @IBOutlet weak var preferFreeFormats: NSButton!
     @IBOutlet weak var skipDashManifest: NSButton!
     
+    //subtitles tab
     
+    @IBOutlet weak var downloadSubs: NSButton!
+    @IBOutlet weak var downloadAutoSubs: NSButton!
+    @IBOutlet weak var downloadAllSubs: NSButton!
+    @IBOutlet weak var languageSubs: NSPopUpButton!
+    @IBOutlet weak var embedSubs: NSButton!
     
     //playlist tab
     @IBOutlet weak var downloadPlaylist: NSButton!
@@ -72,16 +78,9 @@ class ViewController: NSViewController {
          
 
  
-         src: https://github.com/MrS0m30n3/youtube-dl-gui/blob/master/youtube_dl_gui/optionsframe.py#L828
+         src: https://github.com/MrS0m30n3/youtube-dl-gui/blob/master/youtube_dl_gui/optionsframe.py#L944
          
-         
-         VALID_VIDEO_FORMAT = ('0', '17', '36', '5', '34', '35', '43', '44', '45',
-         '46', '18', '22', '37', '38', '160', '133', '134', '135', '136','137',
-         '264', '138', '242', '243', '244', '247', '248', '271', '272', '82',
-         '83', '84', '85', '100', '101', '102', '139', '140', '141', '171', '172')
-         
-         VALID_AUDIO_FORMAT = ('mp3', 'wav', 'aac', 'm4a', 'vorbis', 'opus')
-         
+ 
          
          VALID_OUTPUT_FORMAT = ('title', 'id', 'custom')
          
@@ -230,9 +229,52 @@ class ViewController: NSViewController {
         if skipDashManifest.state == 1 {
             command += " --youtube-skip-dash-manifest"
         }
+
         
+/********************
+*  Subtitles tab    *
+*********************/
         
+        command += " --sub-format srt"  //always SRT
         
+        //append "download subtitles" to command
+        if downloadSubs.state == 1 {
+            command += " --write-sub"
+        }
+        
+        //append "download auto subtitles" to command
+        if downloadAutoSubs.state == 1 {
+            command += " --write-auto-sub"
+        }
+        
+        //append "download all subtitles" to command
+        if downloadAllSubs.state == 1 {
+            command += " --all-subs"
+        }
+        
+        //append "embed subtitles" to command
+        if embedSubs.state == 1 {
+            command += " --embed-subs"
+        }
+        
+        //append "language subs" to command
+        if languageSubs.selectedItem!.tag > 0 {
+            var subLanguage = ""
+            switch languageSubs.selectedItem!.tag {
+                case 1: subLanguage = "en"
+                case 2: subLanguage = "gr"
+                case 3: subLanguage = "pt"
+                case 4: subLanguage = "fr"
+                case 5: subLanguage = "it"
+                case 6: subLanguage = "ru"
+                case 7: subLanguage = "es"
+                case 8: subLanguage = "de"
+                case 9: subLanguage = "nl"
+                default: subLanguage = "en"
+            }
+            command += " --sub-lang \(subLanguage)"
+        }
+       
         
         
 /*****************
