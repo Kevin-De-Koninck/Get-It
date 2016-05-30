@@ -342,6 +342,7 @@
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <rect key="contentRect" x="316" y="275" width="1051" height="530"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <value key="minSize" type="size" width="835" height="375"/>
                     </window>
                     <connections>
                         <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
@@ -415,7 +416,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <tabView toolTip="Insert your URLs here. Seperate multiple URLS with a breakline (enter)." translatesAutoresizingMaskIntoConstraints="NO" id="Thg-ew-X1n">
+                            <tabView translatesAutoresizingMaskIntoConstraints="NO" id="Thg-ew-X1n">
                                 <rect key="frame" x="474" y="242" width="564" height="275"/>
                                 <font key="font" metaFont="system"/>
                                 <tabViewItems>
@@ -424,7 +425,7 @@
                                             <rect key="frame" x="10" y="33" width="544" height="229"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hSv-0K-HSK">
+                                                <textField toolTip="Do not download any videos larger than... [MB]" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hSv-0K-HSK">
                                                     <rect key="frame" x="15" y="209" width="116" height="17"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Maximum file size:" id="4pd-DK-fsY">
                                                         <font key="font" metaFont="system"/>
@@ -432,7 +433,7 @@
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <textField verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3pX-rq-V4S">
+                                                <textField toolTip="Do not download any videos larger than... [MB]" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3pX-rq-V4S">
                                                     <rect key="frame" x="326" y="204" width="201" height="22"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="MB" drawsBackground="YES" id="bwk-B0-ddt">
                                                         <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="upV-Rp-Z1r"/>
@@ -441,7 +442,7 @@
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YUd-jr-IsJ">
+                                                <textField toolTip="Continue on download errors, for example to skip unavailable videos in a playlist." horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YUd-jr-IsJ">
                                                     <rect key="frame" x="15" y="184" width="86" height="17"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Ignore errors:" id="9Dm-Cl-vRu">
                                                         <font key="font" metaFont="system"/>
@@ -449,7 +450,7 @@
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uqP-0o-vcq">
+                                                <button toolTip="Continue on download errors, for example to skip unavailable videos in a playlist." misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uqP-0o-vcq">
                                                     <rect key="frame" x="324" y="183" width="22" height="18"/>
                                                     <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="cb9-fg-T9Y">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -464,6 +465,14 @@
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Um9-h0-AJH">
+                                                    <rect key="frame" x="15" y="134" width="94" height="17"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Output format:" id="Z16-Ey-7AP">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
                                                 <pathControl verticalHuggingPriority="750" misplaced="YES" tag="1" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BJn-jR-6jQ">
                                                     <rect key="frame" x="316" y="154" width="207" height="26"/>
                                                     <pathCell key="cell" selectable="YES" editable="YES" alignment="left" pathStyle="popUp" id="Z8J-bx-eH9">
@@ -471,8 +480,25 @@
                                                         <url key="url" string="file:///"/>
                                                     </pathCell>
                                                 </pathControl>
+                                                <popUpButton verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GVv-b9-3xw">
+                                                    <rect key="frame" x="324" y="128" width="206" height="26"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="201" id="bLG-jG-ye0"/>
+                                                    </constraints>
+                                                    <popUpButtonCell key="cell" type="push" title="Title.extension" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="ij1-hj-WYz" id="Iat-Kw-AUH">
+                                                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="menu"/>
+                                                        <menu key="menu" id="RXR-sy-iVE">
+                                                            <items>
+                                                                <menuItem title="Title.extension" state="on" id="ij1-hj-WYz"/>
+                                                                <menuItem title="title.extension with playlist in seperate folder" tag="1" id="1eS-Om-jpb"/>
+                                                                <menuItem title="title.extension with playlist in seperate folder with index number of playlist" tag="2" id="Wi5-U4-u3G"/>
+                                                            </items>
+                                                        </menu>
+                                                    </popUpButtonCell>
+                                                </popUpButton>
                                                 <button verticalHuggingPriority="750" misplaced="YES" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eoJ-ib-ihB">
-                                                    <rect key="frame" x="222" y="95" width="101" height="32"/>
+                                                    <rect key="frame" x="222" y="66" width="101" height="32"/>
                                                     <buttonCell key="cell" type="push" title="Download" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" sound="Ping" inset="2" id="2Wl-gw-9kz">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -483,10 +509,12 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="GVv-b9-3xw" firstAttribute="leading" secondItem="3pX-rq-V4S" secondAttribute="leading" id="0us-PB-3S7"/>
                                                 <constraint firstItem="eoJ-ib-ihB" firstAttribute="centerX" secondItem="TLS-HV-qXB" secondAttribute="centerX" id="3SN-Vk-cdN"/>
                                                 <constraint firstItem="DBg-5l-KHe" firstAttribute="leading" secondItem="TLS-HV-qXB" secondAttribute="leading" constant="17" id="4fw-tq-5Q0"/>
                                                 <constraint firstItem="uqP-0o-vcq" firstAttribute="top" secondItem="3pX-rq-V4S" secondAttribute="bottom" constant="8" id="7v0-cL-jMP"/>
                                                 <constraint firstItem="DBg-5l-KHe" firstAttribute="top" secondItem="YUd-jr-IsJ" secondAttribute="bottom" constant="8" id="DGB-Mi-0x4"/>
+                                                <constraint firstAttribute="trailing" secondItem="GVv-b9-3xw" secondAttribute="trailing" constant="17" id="Fef-WO-S3k"/>
                                                 <constraint firstItem="uqP-0o-vcq" firstAttribute="leading" secondItem="BJn-jR-6jQ" secondAttribute="leading" id="Fni-lF-uCC"/>
                                                 <constraint firstItem="uqP-0o-vcq" firstAttribute="leading" secondItem="3pX-rq-V4S" secondAttribute="leading" id="IBh-a5-JE6"/>
                                                 <constraint firstItem="BJn-jR-6jQ" firstAttribute="top" secondItem="uqP-0o-vcq" secondAttribute="bottom" constant="8" id="JdT-we-t4Z"/>
@@ -494,10 +522,13 @@
                                                 <constraint firstAttribute="trailing" secondItem="BJn-jR-6jQ" secondAttribute="trailing" constant="17" id="MQx-LQ-7h3"/>
                                                 <constraint firstItem="3pX-rq-V4S" firstAttribute="top" secondItem="TLS-HV-qXB" secondAttribute="top" constant="3" id="NMy-5h-lcD"/>
                                                 <constraint firstItem="YUd-jr-IsJ" firstAttribute="leading" secondItem="TLS-HV-qXB" secondAttribute="leading" constant="17" id="PgI-tC-Jfd"/>
-                                                <constraint firstItem="eoJ-ib-ihB" firstAttribute="top" secondItem="TLS-HV-qXB" secondAttribute="top" constant="100" id="Ufa-ol-k2j"/>
+                                                <constraint firstAttribute="bottom" secondItem="eoJ-ib-ihB" secondAttribute="bottom" constant="8" id="RLz-dT-pTC"/>
                                                 <constraint firstItem="hSv-0K-HSK" firstAttribute="leading" secondItem="TLS-HV-qXB" secondAttribute="leading" constant="17" id="bId-Qx-nq9"/>
                                                 <constraint firstAttribute="trailing" secondItem="3pX-rq-V4S" secondAttribute="trailing" constant="17" id="dKr-cR-k67"/>
+                                                <constraint firstItem="Um9-h0-AJH" firstAttribute="leading" secondItem="TLS-HV-qXB" secondAttribute="leading" constant="17" id="nTe-Fn-Mxl"/>
                                                 <constraint firstItem="YUd-jr-IsJ" firstAttribute="top" secondItem="hSv-0K-HSK" secondAttribute="bottom" constant="8" id="oHa-YZ-9LL"/>
+                                                <constraint firstItem="GVv-b9-3xw" firstAttribute="top" secondItem="BJn-jR-6jQ" secondAttribute="bottom" constant="6" id="oXZ-M1-tRj"/>
+                                                <constraint firstItem="Um9-h0-AJH" firstAttribute="top" secondItem="DBg-5l-KHe" secondAttribute="bottom" constant="8" id="xxO-kf-0pw"/>
                                             </constraints>
                                         </view>
                                     </tabViewItem>
@@ -1097,7 +1128,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="128" id="77N-2I-Qv0"/>
                                                     </constraints>
-                                                    <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="dST-Kk-zjE">
+                                                    <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="OSc-kZ-ZkZ" id="dST-Kk-zjE">
                                                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="menu"/>
                                                         <menu key="menu" id="rI0-Ek-eFR">
@@ -1151,20 +1182,7 @@
                                             </constraints>
                                         </view>
                                     </tabViewItem>
-                                    <tabViewItem label="Subtitles" identifier="1" id="j8Z-IN-jVX">
-                                        <view key="view" id="8o5-ch-mWJ">
-                                            <rect key="frame" x="10" y="33" width="544" height="229"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        </view>
-                                    </tabViewItem>
-                                    <tabViewItem label="Subtitles" identifier="1" id="ezN-nQ-CxR">
-                                        <view key="view" id="RuL-ja-aEt">
-                                            <rect key="frame" x="10" y="33" width="544" height="229"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        </view>
-                                    </tabViewItem>
                                 </tabViewItems>
-                                <accessibility description="Insert your URLs here. Seperate multiple URLS with a breakline (enter)."/>
                             </tabView>
                         </subviews>
                         <constraints>
@@ -1205,6 +1223,7 @@
                         <outlet property="languageSubs" destination="dgx-dx-gii" id="YAz-VK-oKD"/>
                         <outlet property="maxFileSize" destination="3pX-rq-V4S" id="O1X-2s-RAC"/>
                         <outlet property="netrc" destination="V5P-b2-lLA" id="rOw-lf-uRy"/>
+                        <outlet property="outputTemplate" destination="GVv-b9-3xw" id="TAo-dt-yAh"/>
                         <outlet property="outputWindow" destination="MzN-OX-L3E" id="VEV-Hu-ziR"/>
                         <outlet property="password" destination="XOo-FL-D72" id="47G-th-qDm"/>
                         <outlet property="pathChooser" destination="Z8J-bx-eH9" id="tvf-bO-v6R"/>

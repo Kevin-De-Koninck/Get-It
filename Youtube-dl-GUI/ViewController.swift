@@ -14,10 +14,11 @@ class ViewController: NSViewController {
     @IBOutlet var inputURLS: NSTextView!
     @IBOutlet var outputWindow: NSTextView!
     
-    //settings GUI elements
+    //General tab
     @IBOutlet weak var maxFileSize: NSTextField!
     @IBOutlet weak var ignoreErrors: NSButton!
     @IBOutlet weak var pathChooser: NSPathCell!
+    @IBOutlet weak var outputTemplate: NSPopUpButton!
     
     
     //audio tab
@@ -57,6 +58,10 @@ class ViewController: NSViewController {
     
 
 
+//****************************************************************************************************************
+//****************************************************************************************************************
+
+    
     //will excecute when we psuh on the download-button
     @IBAction func downloadButton(sender: AnyObject) {
        
@@ -67,45 +72,7 @@ class ViewController: NSViewController {
         let tempString = inputURLS.string!
         let inputURLS_array = tempString.characters.split{$0 == "\n"}.map(String.init) //array: inputURL[0] inputURL[1] ...
         
-        
-        
-        
-        /*
-         
-         General:
-         --abort-on-error                 Abort downloading of further videos (in the playlist or the command line) if an error occurs
-         -o, --output TEMPLATE
-         
 
- 
-         src: https://github.com/MrS0m30n3/youtube-dl-gui/blob/master/youtube_dl_gui/optionsframe.py#L944
-         
- 
-         
-         VALID_OUTPUT_FORMAT = ('title', 'id', 'custom')
-         
-         VALID_FILESIZE_UNIT = ('', 'k', 'm', 'g', 't', 'p', 'e', 'z', 'y')
-         
-         VALID_SUB_LANGUAGE = ('en', 'gr', 'pt', 'fr', 'it', 'ru', 'es', 'de')
-
- 
-        */
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
         
 /*****************
@@ -290,21 +257,41 @@ class ViewController: NSViewController {
         if ignoreErrors.state == 1 {
             command += " --ignore-errors"
         }
+        else{
+            command += " --abort-on-error"
+        }
 
         //append output destination to command
         let pathString = pathChooser.URL?.path!.characters.split{$0 == "\""}.map(String.init) //item to string
-        command += " -o \(pathString![0])/'%(title)s.%(ext)s'"
+        command += " -o \(pathString![0])/"
+        
+        //append output template
+        switch outputTemplate.selectedItem!.tag {
+        case 0: command += "'%(title)s.%(ext)s'"
+        case 1: command += "'%(playlist)s/%(title)s.%(ext)s'"
+        case 2: command += "'%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s'"
+        default: command += "'%(title)s.%(ext)s'"
+        
+        }
         
         //append input URLs to the command
         for url in inputURLS_array {
             command += " \(url)"
         }
         
+        
+        
+/*****************
+*  PRINT COMMAND *
+******************/
+        
         //display the used command
-        outputWindow.insertText( "\nYour files will be downloaded with the following youtube-dl command:\n\n\t \(command) \n\n" )
+        outputWindow.insertText( "\nYour files will be downloaded with the following youtube-dl command:\n\n \(command) \n\n" )
         
 
-        
+/********************
+*  EXCECUTE COMMAND *
+*********************/
         
 
         
@@ -358,6 +345,9 @@ class ViewController: NSViewController {
     }
     
     
+//****************************************************************************************************************
+//****************************************************************************************************************
+
     
     //this function will excecute once when the view has been loaded
     override func viewDidLoad() {
@@ -365,7 +355,7 @@ class ViewController: NSViewController {
         
         //set texts
        // inputURLS.insertText("\n\nInsert your URLs here. Seperate multiple URLS with a breakline (enter).")
-        outputWindow.insertText( "\n\nThis will contain some debugging information when downloading your requested files.\n" )
+        outputWindow.insertText( "\n\nThis will contain some debugging information when downloading your requested files.\n\nThe default settings will download the input URLs as MP3-files.\n\nENJOY!" )
         
         
   //      inputURLS.toolTip("Insert your URLs here. Seperate multiple URLS with a breakline (enter).")
@@ -377,13 +367,16 @@ class ViewController: NSViewController {
         pathChooser.pathComponentCells.removeAll()
         
         // TODO - set the default path to the user his downloads folder
-        let username = system ("whoami")
+       // let username = system ("whoami")
         // pathChooser.URL?.path = "/"
         
         
     }
 
-    
+   
+//****************************************************************************************************************
+//****************************************************************************************************************
+
     
     override var representedObject: AnyObject? {
         didSet {
