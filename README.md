@@ -1,24 +1,17 @@
 # YouTube-dl-GUI
 A GUI (OSX) for the [youtube-dl](https://github.com/rg3/youtube-dl) command.
 
+I've created this program without any experience in app development. The coding can be a bit dirty... I'll update this when I got some more time. But for now, it does what I want it to do :)
+
 - [SCREENSHOT](#screenshot)
-- [TODO](#todo)
 - [INSTALLATION](#installation)
 - [DESCRIPTION](#description)
 - [THANKS](#thanks)
 
 # SCREENSHOT
 
-![My image](https://raw.githubusercontent.com/Kevin-De-Koninck/YouTube-dl-GUI/Develop/App.png)
+![My image](https://github.com/Kevin-De-Koninck/YouTube-dl-GUI/blob/master/App.png)
 ![My image](https://raw.githubusercontent.com/Kevin-De-Koninck/YouTube-dl-GUI/Develop/Dock.png)
-
-# TODO
-
-- Fill in the multiple tabs (General, Video, Audio, subtitles, ...)
-- Add link for soundiiz.com (in info window)
-- Add support for multiple languages (if requested)
-- Save and load settings
-- ...
 
 # INSTALLATION
 
