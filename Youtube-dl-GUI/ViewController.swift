@@ -63,7 +63,7 @@ class ViewController: NSViewController {
 
     
     //will excecute when we psuh on the download-button
-    @IBAction func downloadButton(sender: AnyObject) {
+    @IBAction func downloadButton(_ sender: AnyObject) {
        
         //erase text from outputWindow
         outputWindow.textStorage!.mutableString.setString("")
@@ -262,7 +262,7 @@ class ViewController: NSViewController {
         }
 
         //append output destination to command
-        let pathString = pathChooser.URL?.path!.characters.split{$0 == "\""}.map(String.init) //item to string
+        let pathString = pathChooser.url?.path.characters.split{$0 == "\""}.map(String.init) //item to string
         command += " -o \(pathString![0])/"
         
         //append output template
@@ -304,21 +304,21 @@ class ViewController: NSViewController {
         arguments.append( command )
         
 
-        let task = NSTask()
+        let task = Process()
         task.launchPath = "/bin/sh"
         task.arguments = arguments
         
-        let pipe = NSPipe()
+        let pipe = Pipe()
         task.standardOutput = pipe
         let outHandle = pipe.fileHandleForReading
         outHandle.waitForDataInBackgroundAndNotify()
         
         var obs1 : NSObjectProtocol!
-        obs1 = NSNotificationCenter.defaultCenter().addObserverForName(NSFileHandleDataAvailableNotification,
+        obs1 = NotificationCenter.default.addObserver(forName: NSNotification.Name.NSFileHandleDataAvailable,
                                                                        object: outHandle, queue: nil) {  notification -> Void in
                                                                         let data = outHandle.availableData
-                                                                        if data.length > 0 {
-                                                                            if let str = NSString(data: data, encoding: NSUTF8StringEncoding) {
+                                                                        if data.count > 0 {
+                                                                            if let str = NSString(data: data, encoding: String.Encoding.utf8.rawValue) {
                                                                                 //print("got output: \(str)")
                                                                                 //RECEIVED OUTPUT
                                                                                 self.outputWindow.insertText( "\(str)" )
@@ -328,16 +328,16 @@ class ViewController: NSViewController {
                                                                         } else {
                                                                             //print("EOF on stdout from process")
                                                                             //self.outputWindow.insertText( "\nEOF on stdout from process" )
-                                                                            NSNotificationCenter.defaultCenter().removeObserver(obs1)
+                                                                            NotificationCenter.default.removeObserver(obs1)
                                                                         }
         }
         
         var obs2 : NSObjectProtocol!
-        obs2 = NSNotificationCenter.defaultCenter().addObserverForName(NSTaskDidTerminateNotification,
+        obs2 = NotificationCenter.default.addObserver(forName: Process.didTerminateNotification,
                                                                        object: task, queue: nil) { notification -> Void in
                                                                         //print("terminated")
                                                                         self.outputWindow.insertText( "\n\nDONE.\n" )
-                                                                        NSNotificationCenter.defaultCenter().removeObserver(obs2)
+                                                                        NotificationCenter.default.removeObserver(obs2)
         }
         
         task.launch()
@@ -378,7 +378,7 @@ class ViewController: NSViewController {
 //****************************************************************************************************************
 
     
-    override var representedObject: AnyObject? {
+    override var representedObject: Any? {
         didSet {
         // Update the view, if already loaded.
         }

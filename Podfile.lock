@@ -1,0 +1,15 @@
+PODS:
+  - DJProgressHUD_OSX (0.0.1)
+  - ITSwitch (1.0)
+
+DEPENDENCIES:
+  - DJProgressHUD_OSX
+  - ITSwitch
+
+SPEC CHECKSUMS:
+  DJProgressHUD_OSX: a8de6d2da8750dbf671fcddc649a44a9cd2807c4
+  ITSwitch: 7ff745d6f2a6910e9194b23e4eab9a843258a478
+
+PODFILE CHECKSUM: 14dee6d987ef1378ebc77ed7446e50bd5ff9a16b
+
+COCOAPODS: 1.1.1
