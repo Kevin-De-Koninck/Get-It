@@ -1,6 +1,0 @@
-framework module Pods_Youtube_dl_GUI {
-  umbrella header "Pods-Youtube-dl-GUI-umbrella.h"
-
-  export *
-  module * { export * }
-}
