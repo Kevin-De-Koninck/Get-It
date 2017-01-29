@@ -1,4 +1,11 @@
-# YouTube-dl-GUI
+# Get It
+
+<img src="https://github.com/Kevin-De-Koninck/Get-It/blob/master/ReadMe%20Resources/Get%20It%20v0.2.png?raw=true" width="400" />
+<img src="https://github.com/Kevin-De-Koninck/Get-It/blob/master/ReadMe%20Resources/Get%20It%20v0.2%20(2).png?raw=true" width="400" />
+<img src="https://github.com/Kevin-De-Koninck/Get-It/blob/master/ReadMe%20Resources/Get%20It%20v0.2%20(3).png?raw=true" width="400" />
+
+
+# YouTube-dl-GUI (OLD name, to be updated)
 A GUI (OSX) for the [youtube-dl](https://github.com/rg3/youtube-dl) command.
 
 I've created this program without any experience in app development. The coding can be a bit dirty... I'll update this when I got some more time. But for now, it does what I want it to do :)
@@ -10,8 +17,8 @@ I've created this program without any experience in app development. The coding 
 
 # SCREENSHOT
 
-![My image](https://github.com/Kevin-De-Koninck/YouTube-dl-GUI/blob/master/App.png)
-![My image](https://raw.githubusercontent.com/Kevin-De-Koninck/YouTube-dl-GUI/Develop/Dock.png)
+![My image](https://github.com/Kevin-De-Koninck/Get-It/blob/master/ReadMe%20Resources/AppV0.1.png?raw=true)
+
 
 # INSTALLATION
 
