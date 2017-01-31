@@ -10,10 +10,18 @@ import Foundation
 
 class GetIt {
     var command: String!
+    var progress: CGFloat {
+        didSet{
+            if progress != oldValue {
+                progressChanged()
+            }
+        }
+    }
     
     
     init() {
-         loadCmdFromSettings()
+        progress = 0.0
+        loadCmdFromSettings()
     }
     
     func loadCmdFromSettings(){
@@ -24,7 +32,30 @@ class GetIt {
         }
     }
     
+    func progressChanged(){
+        
+    }
     
+    func execute(commandSynchronous: String) -> String {
+        var arguments:[String] = []
+        arguments.append("-c")
+        arguments.append( command )
+        
+        let task = Process()
+        task.launchPath = "/bin/sh"
+        task.arguments = arguments
+        
+        let pipe = Pipe()
+        task.standardOutput = pipe
+        task.standardError = pipe
+        task.launch()
+        task.waitUntilExit()
+        let data = pipe.fileHandleForReading.readDataToEndOfFile()
+        
+        return(NSString(data: data, encoding: String.Encoding.utf8.rawValue) as! String)
+    }
+    
+
     
     
 }
