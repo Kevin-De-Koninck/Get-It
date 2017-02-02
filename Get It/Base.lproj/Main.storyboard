@@ -841,7 +841,7 @@
                             <button verticalHuggingPriority="750" fixedFrame="YES" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eoJ-ib-ihB" customClass="DownloadButton" customModule="Get_It" customModuleProvider="target">
                                 <rect key="frame" x="20" y="20" width="291" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="bevel" title="Download" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" sound="Ping" inset="2" id="2Wl-gw-9kz">
+                                <buttonCell key="cell" type="bevel" title="Download" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="2Wl-gw-9kz">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -991,6 +991,5 @@ For more information, visit GitHub and my website.</string>
         <image name="arrow-download-icon" width="256" height="256"/>
         <image name="github" width="351.08572387695312" height="351.08572387695312"/>
         <image name="package" width="300" height="300"/>
-        <sound name="Ping"/>
     </resources>
 </document>

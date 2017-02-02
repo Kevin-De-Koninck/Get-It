@@ -10,8 +10,9 @@ import Foundation
 
 // Command
 let DEFAULT_COMMAND = "export PATH=$PATH:/usr/local/bin && youtube-dl —yes-playlist —extract-audio —audio-format mp3 —audio-quality 5 —youtube-skip-dash-manifest —sub-format srt —max-filesize 15M —ignore-errors -o ~/Downloads/‘%(title)s.%(ext)s’"
-let COMMAND_PREFIX = "export PATH=$PATH:/usr/local/bin && youtube-dl --newline"
-let COMMAND_POSTFIX = " | perl -nle 'print $& if m{^\\[download\\].*?\\K([0-9.]+\\%|#\\d+ of \\d)}'"
+let COMMAND_PREFIX = "export PATH=$PATH:/usr/local/bin && youtube-dl --newline "
+let COMMAND_POSTFIX = " | perl -nle 'print \"$& \n\" if m{^\\[download\\].*?\\K([0-9.]+\\%|#\\d+ of \\d)}'"
+let REGEX_PATTERN = "(?<=^\\[download\\].)[0-9.]+\\%"
 
 
 // Settings
