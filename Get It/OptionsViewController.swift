@@ -14,10 +14,8 @@ class OptionsViewController: NSViewController {
     //General tab
     @IBOutlet weak var maxFileSize: NSTextField!
     @IBOutlet weak var ignoreErrors: ITSwitch!
-    
     @IBOutlet weak var pathChooser: NSPathCell!
     @IBOutlet weak var outputTemplate: NSPopUpButton!
-    
     
     //audio tab
     @IBOutlet weak var extractAudio: ITSwitch!
@@ -32,7 +30,6 @@ class OptionsViewController: NSViewController {
     @IBOutlet weak var skipDashManifest: ITSwitch!
     
     //subtitles tab
-    
     @IBOutlet weak var downloadSubs: ITSwitch!
     @IBOutlet weak var downloadAutoSubs: ITSwitch!
     @IBOutlet weak var downloadAllSubs: ITSwitch!
@@ -53,13 +50,7 @@ class OptionsViewController: NSViewController {
     @IBOutlet weak var netrc: ITSwitch!
     @IBOutlet weak var videoPassword: NSSecureTextField!
 
-    
 
-    
-    
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.wantsLayer = true
@@ -89,15 +80,10 @@ class OptionsViewController: NSViewController {
         stopAtVideo.placeholderString = "To"
         downloadSpecificVideos.placeholderString = "E.g. 1-3,7,10-13"
 
-        
         pathChooser.pathComponentCells.removeAll()
         
         loadSettingsAndSetElements()
     }
-    
-
-    
-    
     
     override func awakeFromNib() {
         if self.view.layer != nil {
@@ -114,27 +100,18 @@ class OptionsViewController: NSViewController {
         UserDefaults.standard.setValue(createCommand(), forKey: SAVED_COMMAND)
         UserDefaults.standard.synchronize()
     }
-    
-    
-    
-    
-    
+
     @IBAction func loadDefaultsBtnClicked(_ sender: Any) {
         UserDefaults.standard.set(DEFAULT_SETTINGS, forKey: SETTINGS_KEY)
         UserDefaults.standard.synchronize()
         loadSettingsAndSetElements()
     }
     
-    
-    
-    
-    
     func saveSettings() {
         var settingsDict = [String: String]()
         
         let pathString = pathChooser.url?.path.characters.split{$0 == "\""}.map(String.init) //item to string
 
-        
         settingsDict["maxFileSize"] = maxFileSize.stringValue
         settingsDict["ignoreErrors"] = String(ignoreErrors.checked) == "true" ? "1" : "0"
         settingsDict["path"] = "~/Downloads/"//pathString![0]
@@ -167,295 +144,142 @@ class OptionsViewController: NSViewController {
         UserDefaults.standard.synchronize()
     }
     
-    
-    
     func loadSettingsAndSetElements() {
         
         if let arr = UserDefaults.standard.value(forKey: SETTINGS_KEY) as? [String:String] {
             
-            if let val = arr["maxFileSize"] {
-                maxFileSize.stringValue = val
-            } else {
-                maxFileSize.stringValue = DEFAULT_SETTINGS["maxFileSize"]!
-            }
+            //TODO: fix the path
+            //            if let val = arr["path"] {
+            //                pathChooser.url = URL.init(fileURLWithPath: val)
+            //            } else {
+            //                pathChooser.url = URL.init(fileURLWithPath: DEFAULT_SETTINGS["path"]!)
+            //            }
             
-            if let val = arr["ignoreErrors"] {
-                ignoreErrors.checked = val == "1" ? true : false
-            } else {
-                ignoreErrors.checked = DEFAULT_SETTINGS["ignoreErrors"]! == "1" ? true : false
-            }
+            //Get and set all saved settings
             
-//TODO: fix the path
-//            if let val = arr["path"] {
-//                pathChooser.url = URL.init(fileURLWithPath: val)
-//            } else {
-//                pathChooser.url = URL.init(fileURLWithPath: DEFAULT_SETTINGS["path"]!)
-//            }
+            if let val = arr["maxFileSize"] { maxFileSize.stringValue = val }
+            else { maxFileSize.stringValue = DEFAULT_SETTINGS["maxFileSize"]! }
             
-            if let val = arr["outputTemplate"] {
-                outputTemplate.select(outputTemplate.item(withTitle: val))
-            } else {
-                outputTemplate.select(outputTemplate.item(withTitle: DEFAULT_SETTINGS["outputTemplate"]!))
-            }
+            if let val = arr["ignoreErrors"] { ignoreErrors.checked = val == "1" ? true : false }
+            else { ignoreErrors.checked = DEFAULT_SETTINGS["ignoreErrors"]! == "1" ? true : false }
             
-            if let val = arr["extractAudio"] {
-                extractAudio.checked = val == "1" ? true : false
-            } else {
-                extractAudio.checked = DEFAULT_SETTINGS["extractAudio"]! == "1" ? true : false
-            }
+            if let val = arr["outputTemplate"] { outputTemplate.select(outputTemplate.item(withTitle: val)) }
+            else { outputTemplate.select(outputTemplate.item(withTitle: DEFAULT_SETTINGS["outputTemplate"]!)) }
             
-            if let val = arr["audioFormat"] {
-                audioFormat.select(audioFormat.item(withTitle: val))
-            } else {
-                audioFormat.select(audioFormat.item(withTitle: DEFAULT_SETTINGS["audioFormat"]!))
-            }
+            if let val = arr["extractAudio"] { extractAudio.checked = val == "1" ? true : false }
+            else { extractAudio.checked = DEFAULT_SETTINGS["extractAudio"]! == "1" ? true : false }
             
-            if let val = arr["audioQuality"] {
-                audioQuality.select(audioQuality.item(withTitle: val))
-            } else {
-                audioQuality.select(audioQuality.item(withTitle: DEFAULT_SETTINGS["audioQuality"]!))
-            }
+            if let val = arr["audioFormat"] { audioFormat.select(audioFormat.item(withTitle: val)) }
+            else { audioFormat.select(audioFormat.item(withTitle: DEFAULT_SETTINGS["audioFormat"]!)) }
             
-            if let val = arr["keepVideo"] {
-                keepVideo.checked = val  == "1" ? true : false
-            } else {
-                keepVideo.checked = DEFAULT_SETTINGS["keepVideo"]! == "1" ? true : false
-            }
+            if let val = arr["audioQuality"] { audioQuality.select(audioQuality.item(withTitle: val)) }
+            else { audioQuality.select(audioQuality.item(withTitle: DEFAULT_SETTINGS["audioQuality"]!)) }
             
-            if let val = arr["videoFormat"] {
-                videoFormat.selectItem(at: Int(val)!)
-            } else {
-                videoFormat.selectItem(at: Int(DEFAULT_SETTINGS["videoFormat"]!)!)
-            }
+            if let val = arr["keepVideo"] { keepVideo.checked = val  == "1" ? true : false }
+            else { keepVideo.checked = DEFAULT_SETTINGS["keepVideo"]! == "1" ? true : false }
             
-            if let val = arr["downloadAllFormats"] {
-                downloadAllFormats.checked = val == "1" ? true : false
-            } else {
-                downloadAllFormats.checked = DEFAULT_SETTINGS["downloadAllFormats"]! == "1" ? true : false
-            }
+            if let val = arr["videoFormat"] { videoFormat.selectItem(at: Int(val)!) }
+            else { videoFormat.selectItem(at: Int(DEFAULT_SETTINGS["videoFormat"]!)!) }
             
-            if let val = arr["preferFreeFormats"] {
-                preferFreeFormats.checked = val == "1" ? true : false
-            } else {
-                preferFreeFormats.checked = DEFAULT_SETTINGS["preferFreeFormats"]! == "1" ? true : false
-            }
+            if let val = arr["downloadAllFormats"] { downloadAllFormats.checked = val == "1" ? true : false }
+            else { downloadAllFormats.checked = DEFAULT_SETTINGS["downloadAllFormats"]! == "1" ? true : false }
             
-            if let val = arr["skipDashManifest"] {
-                skipDashManifest.checked = val == "1" ? true : false
-            } else {
-                skipDashManifest.checked = DEFAULT_SETTINGS["skipDashManifest"]! == "1" ? true : false
-            }
+            if let val = arr["preferFreeFormats"] { preferFreeFormats.checked = val == "1" ? true : false }
+            else { preferFreeFormats.checked = DEFAULT_SETTINGS["preferFreeFormats"]! == "1" ? true : false }
             
-            if let val = arr["downloadSubs"] {
-                downloadSubs.checked = val == "1" ? true : false
-            } else {
-                downloadSubs.checked = DEFAULT_SETTINGS["downloadSubs"]! == "1" ? true : false
-            }
+            if let val = arr["skipDashManifest"] { skipDashManifest.checked = val == "1" ? true : false }
+            else { skipDashManifest.checked = DEFAULT_SETTINGS["skipDashManifest"]! == "1" ? true : false }
             
-            if let val = arr["downloadAutoSubs"] {
-                downloadAutoSubs.checked = val == "1" ? true : false
-            } else {
-                downloadAutoSubs.checked = DEFAULT_SETTINGS["downloadAutoSubs"]! == "1" ? true : false
-            }
+            if let val = arr["downloadSubs"] { downloadSubs.checked = val == "1" ? true : false }
+            else { downloadSubs.checked = DEFAULT_SETTINGS["downloadSubs"]! == "1" ? true : false }
             
-            if let val = arr["downloadAllSubs"] {
-                downloadAllSubs.checked = val == "1" ? true : false
-            } else {
-                downloadAllSubs.checked = DEFAULT_SETTINGS["downloadAllSubs"]! == "1" ? true : false
-            }
+            if let val = arr["downloadAutoSubs"] { downloadAutoSubs.checked = val == "1" ? true : false }
+            else { downloadAutoSubs.checked = DEFAULT_SETTINGS["downloadAutoSubs"]! == "1" ? true : false }
             
-            if let val = arr["embedSubs"] {
-                embedSubs.checked = val == "1" ? true : false
-            } else {
-                embedSubs.checked = DEFAULT_SETTINGS["embedSubs"]! == "1" ? true : false
-            }
+            if let val = arr["downloadAllSubs"] { downloadAllSubs.checked = val == "1" ? true : false }
+            else { downloadAllSubs.checked = DEFAULT_SETTINGS["downloadAllSubs"]! == "1" ? true : false }
             
-            if let val = arr["languageSubs"] {
-                languageSubs.selectItem(at: Int(val)!)
-            } else {
-                languageSubs.selectItem(at: Int(DEFAULT_SETTINGS["languageSubs"]!)!)
-            }
+            if let val = arr["embedSubs"] { embedSubs.checked = val == "1" ? true : false }
+            else { embedSubs.checked = DEFAULT_SETTINGS["embedSubs"]! == "1" ? true : false }
+            
+            if let val = arr["languageSubs"] { languageSubs.selectItem(at: Int(val)!) }
+            else { languageSubs.selectItem(at: Int(DEFAULT_SETTINGS["languageSubs"]!)!) }
 
-            if let val = arr["downloadPlaylist"] {
-                downloadPlaylist.checked = val == "1" ? true : false
-            } else {
-                downloadPlaylist.checked = DEFAULT_SETTINGS["downloadPlaylist"]! == "1" ? true : false
-            }
+            if let val = arr["downloadPlaylist"] { downloadPlaylist.checked = val == "1" ? true : false }
+            else { downloadPlaylist.checked = DEFAULT_SETTINGS["downloadPlaylist"]! == "1" ? true : false }
             
-            if let val = arr["reversePlaylist"] {
-                reversePlaylist.checked = val == "1" ? true : false
-            } else {
-                reversePlaylist.checked = DEFAULT_SETTINGS["reversePlaylist"]! == "1" ? true : false
-            }
+            if let val = arr["reversePlaylist"] { reversePlaylist.checked = val == "1" ? true : false }
+            else { reversePlaylist.checked = DEFAULT_SETTINGS["reversePlaylist"]! == "1" ? true : false }
+
+            if let val = arr["startAtVideo"] { startAtVideo.stringValue = val }
+            else { startAtVideo.stringValue = DEFAULT_SETTINGS["startAtVideo"]! }
             
-//            if let val = arr["flatPlaylist"] {
-//                flatPlaylist.state = Int(val)!
-//            } else {
-//                flatPlaylist.state = Int(DEFAULT_SETTINGS["flatPlaylist"]!)!
-//            }
+            if let val = arr["stopAtVideo"] { stopAtVideo.stringValue = val }
+            else { stopAtVideo.stringValue = DEFAULT_SETTINGS["stopAtVideo"]! }
             
-            if let val = arr["startAtVideo"] {
-                startAtVideo.stringValue = val
-            } else {
-                startAtVideo.stringValue = DEFAULT_SETTINGS["startAtVideo"]!
-            }
+            if let val = arr["downloadSpecificVideos"] { downloadSpecificVideos.stringValue = val }
+            else { downloadSpecificVideos.stringValue = DEFAULT_SETTINGS["downloadSpecificVideos"]! }
             
-            if let val = arr["stopAtVideo"] {
-                stopAtVideo.stringValue = val
-            } else {
-                stopAtVideo.stringValue = DEFAULT_SETTINGS["stopAtVideo"]!
-            }
+            if let val = arr["username"] { username.stringValue = val }
+            else { username.stringValue = DEFAULT_SETTINGS["username"]! }
             
-            if let val = arr["downloadSpecificVideos"] {
-                downloadSpecificVideos.stringValue = val
-            } else {
-                downloadSpecificVideos.stringValue = DEFAULT_SETTINGS["downloadSpecificVideos"]!
-            }
+            if let val = arr["password"] { password.stringValue = val }
+            else { password.stringValue = DEFAULT_SETTINGS["password"]! }
             
-            if let val = arr["username"] {
-                username.stringValue = val
-            } else {
-                username.stringValue = DEFAULT_SETTINGS["username"]!
-            }
+            if let val = arr["twoFactorCode"] { twoFactorCode.stringValue = val }
+            else { twoFactorCode.stringValue = DEFAULT_SETTINGS["twoFactorCode"]! }
             
-            if let val = arr["password"] {
-                password.stringValue = val
-            } else {
-                password.stringValue = DEFAULT_SETTINGS["password"]!
-            }
+            if let val = arr["netrc"] { netrc.checked = val == "1" ? true : false }
+            else { netrc.checked = DEFAULT_SETTINGS["netrc"]! == "1" ? true : false }
             
-            if let val = arr["twoFactorCode"] {
-                twoFactorCode.stringValue = val
-            } else {
-                twoFactorCode.stringValue = DEFAULT_SETTINGS["twoFactorCode"]!
-            }
-            
-            if let val = arr["netrc"] {
-                netrc.checked = val == "1" ? true : false
-            } else {
-                netrc.checked = DEFAULT_SETTINGS["netrc"]! == "1" ? true : false
-            }
-            
-            if let val = arr["videoPassword"] {
-                videoPassword.stringValue = val
-            } else {
-                videoPassword.stringValue = DEFAULT_SETTINGS["videoPassword"]!
-            }
+            if let val = arr["videoPassword"] { videoPassword.stringValue = val }
+            else { videoPassword.stringValue = DEFAULT_SETTINGS["videoPassword"]!}
             
         } else {
-            // No saved settings, save the defaults and retry
+            // No saved settings?, save the defaults and retry
             UserDefaults.standard.setValue(DEFAULT_SETTINGS, forKey: SETTINGS_KEY)
             UserDefaults.standard.synchronize()
             loadSettingsAndSetElements()
         }
-        
     }
     
-    
-    
-    
-    
     func createCommand() -> String {
-        
+        //Start of creating the command
         var command = "export PATH=$PATH:/usr/local/bin && youtube-dl --newline";
         
-        if downloadPlaylist.checked {
-            command += " --yes-playlist"
-        }
-        else{
-            command += " --no-playlist"
-        }
-        
-        if reversePlaylist.checked {
-            command += " --playlist-reverse"
-        }
-        
-//        //append "flat playlist" to command
-//        if flatPlaylist.state == 1 {
-//            command += " --flat-playlist"
-//        }
-        
-        if !startAtVideo.stringValue.isEmpty {
-            command += " --playlist-start \(startAtVideo.stringValue)"
-        }
-        
-        if !stopAtVideo.stringValue.isEmpty {
-            command += " --playlist-end \(stopAtVideo.stringValue)"
-        }
-        
-        if !downloadSpecificVideos.stringValue.isEmpty {
-            command += " --playlist-items \(downloadSpecificVideos.stringValue)"
-        }
-
-        if !username.stringValue.isEmpty {
-            command += " --username \(username.stringValue)"
-        }
-        
-        if !password.stringValue.isEmpty {
-            command += " --password \(password.stringValue)"
-        }
-        
-        if !twoFactorCode.stringValue.isEmpty {
-            command += " --twofactor \(twoFactorCode.stringValue)"
-        }
-        
-        if !videoPassword.stringValue.isEmpty {
-            command += " --video-password \(videoPassword.stringValue)"
-        }
-        
-        if netrc.checked {
-            command += " --netrc"
-        }
-
-        if extractAudio.checked {
-            command += " --extract-audio"
-        }
-        
-        let audioFormatString = audioFormat.selectedItem?.title.characters.split{$0 == "\""}.map(String.init) //item to string
-        command += " --audio-format \(audioFormatString![0])"
-        
-        let audioQualityString = audioQuality.selectedItem!.title.characters.split{$0 == "\""}.map(String.init) //item to string
-        let audioQ = audioQualityString.first!.characters.first
-        command += " --audio-quality \(audioQ!)"
-        
-        if keepVideo.checked {
-            command += " --keep-video"
-        }
-        
+        //Preprocessing
+        let audioFormatString = audioFormat.selectedItem?.title.characters.split{$0 == "\""}.map(String.init)
+        let audioQualityString = audioQuality.selectedItem!.title.characters.split{$0 == "\""}.map(String.init)
         let videoFormatString = videoFormat.selectedItem!.tag
-        if videoFormatString > 0 {
-            command += " --format \(videoFormatString)"
-        }
+        let audioQ = audioQualityString.first!.characters.first
         
-        if downloadAllFormats.checked {
-            command += " --all-formats"
-        }
+        //Creating the command
+        if downloadPlaylist.checked { command += " --yes-playlist" } else { command += " --no-playlist" }
+        if reversePlaylist.checked { command += " --playlist-reverse" }
+        if !startAtVideo.stringValue.isEmpty { command += " --playlist-start \(startAtVideo.stringValue)" }
+        if !stopAtVideo.stringValue.isEmpty { command += " --playlist-end \(stopAtVideo.stringValue)" }
+        if !downloadSpecificVideos.stringValue.isEmpty { command += " --playlist-items \(downloadSpecificVideos.stringValue)" }
+        if !username.stringValue.isEmpty { command += " --username \(username.stringValue)" }
+        if !password.stringValue.isEmpty { command += " --password \(password.stringValue)" }
+        if !twoFactorCode.stringValue.isEmpty { command += " --twofactor \(twoFactorCode.stringValue)" }
+        if !videoPassword.stringValue.isEmpty { command += " --video-password \(videoPassword.stringValue)" }
+        if netrc.checked { command += " --netrc" }
+        if extractAudio.checked { command += " --extract-audio" }
+        if keepVideo.checked { command += " --keep-video" }
+        if videoFormatString > 0 { command += " --format \(videoFormatString)" }
+        if downloadAllFormats.checked { command += " --all-formats" }
+        if preferFreeFormats.checked { command += " --prefer-free-formats " }
+        if skipDashManifest.checked { command += " --youtube-skip-dash-manifest" }
+        if downloadSubs.checked { command += " --write-sub" }
+        if downloadAutoSubs.checked { command += " --write-auto-sub" }
+        if downloadAllSubs.checked { command += " --all-subs" }
+        if embedSubs.checked { command += " --embed-subs" }
+        if !maxFileSize.stringValue.isEmpty { command += " --max-filesize \(maxFileSize.stringValue)M" }
+        if ignoreErrors.checked == true { command += " --ignore-errors" } else { command += " --abort-on-error" }
         
-        if preferFreeFormats.checked {
-            command += " --prefer-free-formats "
-        }
-        
-        if skipDashManifest.checked {
-            command += " --youtube-skip-dash-manifest"
-        }
-        
+        command += " --audio-format \(audioFormatString![0])"
+        command += " --audio-quality \(audioQ!)"
         command += " --sub-format srt"  //always SRT
-        
-        if downloadSubs.checked {
-            command += " --write-sub"
-        }
-        
-        if downloadAutoSubs.checked {
-            command += " --write-auto-sub"
-        }
-        
-        if downloadAllSubs.checked {
-            command += " --all-subs"
-        }
-        
-        if embedSubs.checked {
-            command += " --embed-subs"
-        }
         
         if languageSubs.selectedItem!.tag > 0 {
             var subLanguage = ""
@@ -473,24 +297,11 @@ class OptionsViewController: NSViewController {
             }
             command += " --sub-lang \(subLanguage)"
         }
-        
-        if !maxFileSize.stringValue.isEmpty {
-            command += " --max-filesize \(maxFileSize.stringValue)M"
-        }
-        
-        if ignoreErrors.checked == true {
-            command += " --ignore-errors"
-        }
-        else{
-            command += " --abort-on-error"
-        }
-        
+
         //append output destination to command
-//TODO
 //        let pathString = pathChooser.url?.path.characters.split{$0 == "\""}.map(String.init) //item to string
 //        command += " -o \(pathString![0])/"
         command += " -o ~/Downloads/"
-        
         switch outputTemplate.selectedItem!.tag {
             case 0: command += "'%(title)s.%(ext)s'"
             case 1: command += "'%(playlist)s/%(title)s.%(ext)s'"
@@ -500,7 +311,5 @@ class OptionsViewController: NSViewController {
         
         return command
     }
-    
-
-    
+ 
 }

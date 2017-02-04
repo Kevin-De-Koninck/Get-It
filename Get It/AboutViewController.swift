@@ -47,4 +47,5 @@ class AboutViewController: NSViewController {
             print("default browser was successfully opened")
         }
     }
+    
 }

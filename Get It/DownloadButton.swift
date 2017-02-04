@@ -13,7 +13,6 @@ class DownloadButton: NSButton {
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
 
-        //GUI
         self.layer?.backgroundColor = blueColor.cgColor
         self.layer?.cornerRadius = 15.0
         self.layer?.masksToBounds = true

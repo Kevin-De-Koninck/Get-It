@@ -36,7 +36,6 @@ let DEFAULT_SETTINGS = [    "maxFileSize"       :   "15",
                             "embedSubs"         :   "0", //bool
                             "downloadPlaylist"  :   "1", //bool
                             "reversePlaylist"   :   "0", //bool
-                           // "flatPlaylist"      :   "0", //bool
                             "startAtVideo"      :   "",
                             "stopAtVideo"       :   "",
                             "downloadSpecificVideos":   "",
