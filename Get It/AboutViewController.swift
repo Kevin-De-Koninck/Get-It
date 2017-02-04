@@ -30,6 +30,18 @@ class AboutViewController: NSViewController {
         open(website: "https://kevindekoninck.com")
     }
     
+    @IBAction func supportedSitesBtnClicked(_ sender: Any) {
+        open(website: "https://rg3.github.io/youtube-dl/supportedsites.html")
+    }
+    
+    @IBAction func githubYTBtnClicked(_ sender: Any) {
+        open(website: "https://github.com/rg3/youtube-dl")
+    }
+
+    @IBAction func donateBtnClicked(_ sender: Any) {
+        open(website: "https://rg3.github.io/youtube-dl/donations.html")
+    }
+
     func open(website: String){
         if let url = URL(string: website), NSWorkspace.shared().open(url) {
             print("default browser was successfully opened")
