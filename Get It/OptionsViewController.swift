@@ -20,29 +20,28 @@ class OptionsViewController: NSViewController {
     
     
     //audio tab
-    @IBOutlet weak var extractAudio: NSButton!
+    @IBOutlet weak var extractAudio: ITSwitch!
     @IBOutlet weak var audioFormat: NSPopUpButton!
     @IBOutlet weak var audioQuality: NSPopUpButton!
-    @IBOutlet weak var keepVideo: NSButton!
+    @IBOutlet weak var keepVideo: ITSwitch!
     
     //Video tab
     @IBOutlet weak var videoFormat: NSPopUpButton!
-    @IBOutlet weak var downloadAllFormats: NSButton!
-    @IBOutlet weak var preferFreeFormats: NSButton!
-    @IBOutlet weak var skipDashManifest: NSButton!
+    @IBOutlet weak var downloadAllFormats: ITSwitch!
+    @IBOutlet weak var preferFreeFormats: ITSwitch!
+    @IBOutlet weak var skipDashManifest: ITSwitch!
     
     //subtitles tab
     
-    @IBOutlet weak var downloadSubs: NSButton!
-    @IBOutlet weak var downloadAutoSubs: NSButton!
-    @IBOutlet weak var downloadAllSubs: NSButton!
+    @IBOutlet weak var downloadSubs: ITSwitch!
+    @IBOutlet weak var downloadAutoSubs: ITSwitch!
+    @IBOutlet weak var downloadAllSubs: ITSwitch!
     @IBOutlet weak var languageSubs: NSPopUpButton!
-    @IBOutlet weak var embedSubs: NSButton!
+    @IBOutlet weak var embedSubs: ITSwitch!
     
     //playlist tab
-    @IBOutlet weak var downloadPlaylist: NSButton!
-    @IBOutlet weak var reversePlaylist: NSButton!
-//    @IBOutlet weak var flatPlaylist: NSButton!
+    @IBOutlet weak var downloadPlaylist: ITSwitch!
+    @IBOutlet weak var reversePlaylist: ITSwitch!
     @IBOutlet weak var startAtVideo: NSTextField!
     @IBOutlet weak var stopAtVideo: NSTextField!
     @IBOutlet weak var downloadSpecificVideos: NSTextField!
@@ -51,7 +50,7 @@ class OptionsViewController: NSViewController {
     @IBOutlet weak var username: NSTextField!
     @IBOutlet weak var password: NSSecureTextField!
     @IBOutlet weak var twoFactorCode: NSSecureTextField!
-    @IBOutlet weak var netrc: NSButton!
+    @IBOutlet weak var netrc: ITSwitch!
     @IBOutlet weak var videoPassword: NSSecureTextField!
 
     
@@ -65,14 +64,40 @@ class OptionsViewController: NSViewController {
         super.viewDidLoad()
         self.view.wantsLayer = true
         
-        
+        //Switch color
         ignoreErrors.tintColor = blueColor
-        
+        extractAudio.tintColor = blueColor
+        keepVideo.tintColor = blueColor
+        downloadAllFormats.tintColor = blueColor
+        preferFreeFormats.tintColor = blueColor
+        skipDashManifest.tintColor = blueColor
+        downloadSubs.tintColor = blueColor
+        downloadAutoSubs.tintColor = blueColor
+        downloadAllSubs.tintColor = blueColor
+        embedSubs.tintColor = blueColor
+        downloadPlaylist.tintColor = blueColor
+        reversePlaylist.tintColor = blueColor
+        netrc.tintColor = blueColor
 
+        //placeholders
+        maxFileSize.placeholderString = "In MB"
+        username.placeholderString = "Enter your username"
+        password.placeholderString = "Enter your password"
+        twoFactorCode.placeholderString = "2FA code"
+        videoPassword.placeholderString = "Enter the password"
+        startAtVideo.placeholderString = "From"
+        stopAtVideo.placeholderString = "To"
+        downloadSpecificVideos.placeholderString = "E.g. 1-3,7,10-13"
+
+        
         pathChooser.pathComponentCells.removeAll()
         
         loadSettingsAndSetElements()
     }
+    
+
+    
+    
     
     override func awakeFromNib() {
         if self.view.layer != nil {
@@ -111,9 +136,8 @@ class OptionsViewController: NSViewController {
 
         
         settingsDict["maxFileSize"] = maxFileSize.stringValue
-        settingsDict["ignoreErrors"] = String(ignoreErrors.checked)
+        settingsDict["ignoreErrors"] = String(ignoreErrors.checked) == "true" ? "1" : "0"
         settingsDict["path"] = "~/Downloads/"//pathString![0]
-        
         settingsDict["outputTemplate"] = outputTemplate.itemTitle(at: outputTemplate.indexOfSelectedItem)
         settingsDict["audioFormat"] = audioFormat.itemTitle(at: audioFormat.indexOfSelectedItem)
         settingsDict["audioQuality"] = audioQuality.itemTitle(at: audioQuality.indexOfSelectedItem)
@@ -126,19 +150,18 @@ class OptionsViewController: NSViewController {
         settingsDict["password"] = password.stringValue
         settingsDict["twoFactorCode"] = twoFactorCode.stringValue
         settingsDict["videoPassword"] = videoPassword.stringValue
-        settingsDict["extractAudio"] = String(extractAudio.state)
-        settingsDict["keepVideo"] = String(keepVideo.state)
-        settingsDict["downloadAllFormats"] = String(downloadAllFormats.state)
-        settingsDict["preferFreeFormats"] = String(preferFreeFormats.state)
-        settingsDict["skipDashManifest"] = String(skipDashManifest.state)
-        settingsDict["downloadSubs"] = String(downloadSubs.state)
-        settingsDict["downloadAutoSubs"] = String(downloadAutoSubs.state)
-        settingsDict["downloadAllSubs"] = String(downloadAllSubs.state)
-        settingsDict["embedSubs"] = String(embedSubs.state)
-        settingsDict["downloadPlaylist"] = String(downloadPlaylist.state)
-        settingsDict["reversePlaylist"] = String(reversePlaylist.state)
-//        settingsDict["flatPlaylist"] = String(flatPlaylist.state)
-        settingsDict["netrc"] = String(netrc.state)
+        settingsDict["extractAudio"] = String(extractAudio.checked) == "true" ? "1" : "0"
+        settingsDict["keepVideo"] = String(keepVideo.checked) == "true" ? "1" : "0"
+        settingsDict["downloadAllFormats"] = String(downloadAllFormats.checked) == "true" ? "1" : "0"
+        settingsDict["preferFreeFormats"] = String(preferFreeFormats.checked) == "true" ? "1" : "0"
+        settingsDict["skipDashManifest"] = String(skipDashManifest.checked) == "true" ? "1" : "0"
+        settingsDict["downloadSubs"] = String(downloadSubs.checked) == "true" ? "1" : "0"
+        settingsDict["downloadAutoSubs"] = String(downloadAutoSubs.checked) == "true" ? "1" : "0"
+        settingsDict["downloadAllSubs"] = String(downloadAllSubs.checked) == "true" ? "1" : "0"
+        settingsDict["embedSubs"] = String(embedSubs.checked) == "true" ? "1" : "0"
+        settingsDict["downloadPlaylist"] = String(downloadPlaylist.checked) == "true" ? "1" : "0"
+        settingsDict["reversePlaylist"] = String(reversePlaylist.checked) == "true" ? "1" : "0"
+        settingsDict["netrc"] = String(netrc.checked) == "true" ? "1" : "0"
 
         UserDefaults.standard.set(settingsDict, forKey: SETTINGS_KEY)
         UserDefaults.standard.synchronize()
@@ -156,10 +179,10 @@ class OptionsViewController: NSViewController {
                 maxFileSize.stringValue = DEFAULT_SETTINGS["maxFileSize"]!
             }
             
-            if let val = arr["ignoreErrors"], val != "" {
-                ignoreErrors.checked = Bool(val)!
+            if let val = arr["ignoreErrors"] {
+                ignoreErrors.checked = val == "1" ? true : false
             } else {
-                ignoreErrors.checked = Bool(DEFAULT_SETTINGS["ignoreErrors"]!)!
+                ignoreErrors.checked = DEFAULT_SETTINGS["ignoreErrors"]! == "1" ? true : false
             }
             
 //TODO: fix the path
@@ -176,9 +199,9 @@ class OptionsViewController: NSViewController {
             }
             
             if let val = arr["extractAudio"] {
-                extractAudio.state = Int(val)!
+                extractAudio.checked = val == "1" ? true : false
             } else {
-                extractAudio.state = Int(DEFAULT_SETTINGS["extractAudio"]!)!
+                extractAudio.checked = DEFAULT_SETTINGS["extractAudio"]! == "1" ? true : false
             }
             
             if let val = arr["audioFormat"] {
@@ -194,9 +217,9 @@ class OptionsViewController: NSViewController {
             }
             
             if let val = arr["keepVideo"] {
-                keepVideo.state = Int(val)!
+                keepVideo.checked = val  == "1" ? true : false
             } else {
-                keepVideo.state = Int(DEFAULT_SETTINGS["keepVideo"]!)!
+                keepVideo.checked = DEFAULT_SETTINGS["keepVideo"]! == "1" ? true : false
             }
             
             if let val = arr["videoFormat"] {
@@ -206,45 +229,45 @@ class OptionsViewController: NSViewController {
             }
             
             if let val = arr["downloadAllFormats"] {
-                downloadAllFormats.state = Int(val)!
+                downloadAllFormats.checked = val == "1" ? true : false
             } else {
-                downloadAllFormats.state = Int(DEFAULT_SETTINGS["downloadAllFormats"]!)!
+                downloadAllFormats.checked = DEFAULT_SETTINGS["downloadAllFormats"]! == "1" ? true : false
             }
             
             if let val = arr["preferFreeFormats"] {
-                preferFreeFormats.state = Int(val)!
+                preferFreeFormats.checked = val == "1" ? true : false
             } else {
-                preferFreeFormats.state = Int(DEFAULT_SETTINGS["preferFreeFormats"]!)!
+                preferFreeFormats.checked = DEFAULT_SETTINGS["preferFreeFormats"]! == "1" ? true : false
             }
             
             if let val = arr["skipDashManifest"] {
-                skipDashManifest.state = Int(val)!
+                skipDashManifest.checked = val == "1" ? true : false
             } else {
-                skipDashManifest.state = Int(DEFAULT_SETTINGS["skipDashManifest"]!)!
+                skipDashManifest.checked = DEFAULT_SETTINGS["skipDashManifest"]! == "1" ? true : false
             }
             
             if let val = arr["downloadSubs"] {
-                downloadSubs.state = Int(val)!
+                downloadSubs.checked = val == "1" ? true : false
             } else {
-                downloadSubs.state = Int(DEFAULT_SETTINGS["downloadSubs"]!)!
+                downloadSubs.checked = DEFAULT_SETTINGS["downloadSubs"]! == "1" ? true : false
             }
             
             if let val = arr["downloadAutoSubs"] {
-                downloadAutoSubs.state = Int(val)!
+                downloadAutoSubs.checked = val == "1" ? true : false
             } else {
-                downloadAutoSubs.state = Int(DEFAULT_SETTINGS["downloadAutoSubs"]!)!
+                downloadAutoSubs.checked = DEFAULT_SETTINGS["downloadAutoSubs"]! == "1" ? true : false
             }
             
             if let val = arr["downloadAllSubs"] {
-                downloadAllSubs.state = Int(val)!
+                downloadAllSubs.checked = val == "1" ? true : false
             } else {
-                downloadAllSubs.state = Int(DEFAULT_SETTINGS["downloadAllSubs"]!)!
+                downloadAllSubs.checked = DEFAULT_SETTINGS["downloadAllSubs"]! == "1" ? true : false
             }
             
             if let val = arr["embedSubs"] {
-                embedSubs.state = Int(val)!
+                embedSubs.checked = val == "1" ? true : false
             } else {
-                embedSubs.state = Int(DEFAULT_SETTINGS["embedSubs"]!)!
+                embedSubs.checked = DEFAULT_SETTINGS["embedSubs"]! == "1" ? true : false
             }
             
             if let val = arr["languageSubs"] {
@@ -254,15 +277,15 @@ class OptionsViewController: NSViewController {
             }
 
             if let val = arr["downloadPlaylist"] {
-                downloadPlaylist.state = Int(val)!
+                downloadPlaylist.checked = val == "1" ? true : false
             } else {
-                downloadPlaylist.state = Int(DEFAULT_SETTINGS["downloadPlaylist"]!)!
+                downloadPlaylist.checked = DEFAULT_SETTINGS["downloadPlaylist"]! == "1" ? true : false
             }
             
             if let val = arr["reversePlaylist"] {
-                reversePlaylist.state = Int(val)!
+                reversePlaylist.checked = val == "1" ? true : false
             } else {
-                reversePlaylist.state = Int(DEFAULT_SETTINGS["reversePlaylist"]!)!
+                reversePlaylist.checked = DEFAULT_SETTINGS["reversePlaylist"]! == "1" ? true : false
             }
             
 //            if let val = arr["flatPlaylist"] {
@@ -308,9 +331,9 @@ class OptionsViewController: NSViewController {
             }
             
             if let val = arr["netrc"] {
-                netrc.state = Int(val)!
+                netrc.checked = val == "1" ? true : false
             } else {
-                netrc.state = Int(DEFAULT_SETTINGS["netrc"]!)!
+                netrc.checked = DEFAULT_SETTINGS["netrc"]! == "1" ? true : false
             }
             
             if let val = arr["videoPassword"] {
@@ -336,14 +359,14 @@ class OptionsViewController: NSViewController {
         
         var command = "export PATH=$PATH:/usr/local/bin && youtube-dl --newline";
         
-        if downloadPlaylist.state == 1 {
+        if downloadPlaylist.checked {
             command += " --yes-playlist"
         }
         else{
             command += " --no-playlist"
         }
         
-        if reversePlaylist.state == 1 {
+        if reversePlaylist.checked {
             command += " --playlist-reverse"
         }
         
@@ -380,11 +403,11 @@ class OptionsViewController: NSViewController {
             command += " --video-password \(videoPassword.stringValue)"
         }
         
-        if netrc.state == 1 {
+        if netrc.checked {
             command += " --netrc"
         }
 
-        if extractAudio.state == 1 {
+        if extractAudio.checked {
             command += " --extract-audio"
         }
         
@@ -395,7 +418,7 @@ class OptionsViewController: NSViewController {
         let audioQ = audioQualityString.first!.characters.first
         command += " --audio-quality \(audioQ!)"
         
-        if keepVideo.state == 1 {
+        if keepVideo.checked {
             command += " --keep-video"
         }
         
@@ -404,33 +427,33 @@ class OptionsViewController: NSViewController {
             command += " --format \(videoFormatString)"
         }
         
-        if downloadAllFormats.state == 1 {
+        if downloadAllFormats.checked {
             command += " --all-formats"
         }
         
-        if preferFreeFormats.state == 1 {
+        if preferFreeFormats.checked {
             command += " --prefer-free-formats "
         }
         
-        if skipDashManifest.state == 1 {
+        if skipDashManifest.checked {
             command += " --youtube-skip-dash-manifest"
         }
         
         command += " --sub-format srt"  //always SRT
         
-        if downloadSubs.state == 1 {
+        if downloadSubs.checked {
             command += " --write-sub"
         }
         
-        if downloadAutoSubs.state == 1 {
+        if downloadAutoSubs.checked {
             command += " --write-auto-sub"
         }
         
-        if downloadAllSubs.state == 1 {
+        if downloadAllSubs.checked {
             command += " --all-subs"
         }
         
-        if embedSubs.state == 1 {
+        if embedSubs.checked {
             command += " --embed-subs"
         }
         
