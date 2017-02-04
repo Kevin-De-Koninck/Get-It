@@ -41,10 +41,7 @@ class ViewController: NSViewController {
     var previousProgress: CGFloat = 0.0
     var currentProgress: CGFloat = 0.0
     var downloadsDidStart: Bool = false
-    
-    
-    
-    
+
     
     
     override func awakeFromNib() {
@@ -56,50 +53,32 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //set texts
-        // inputURLS.insertText("\n\nInsert your URLs here. Seperate multiple URLS with a breakline (enter).")
-        //   outputWindow.insertText( "\n\nThis will contain some debugging information when downloading your requested files.\n\nThe default settings will download the input URLs as MP3-files.\n\nENJOY!" )
-        
-        
-        getIt.loadCmdFromSettings()
-        
     }
     
-
-
+    
+    @IBAction func openDestinationFolderBtnClicked(_ sender: Any) {
+        _ = getIt.open(folder:"~/Downloads/")
+    }
 
     @IBAction func downloadButton(_ sender: AnyObject) {
        
-        //get input URLs and devide them in an array
+        //get input URLs
         let tempString = inputURLS.string!
-        let inputURLS_array = tempString.characters.split{$0 == "\n"}.map(String.init) //array: inputURL[0] inputURL[1] ...
+        let urls = tempString.characters.split{$0 == "\n"}.map(String.init)
+        var urlStr = " "
+        for url in urls { urlStr = urlStr + url + " " }
         
-        //execute(commmandAsynchronous: "for i in {1..100}; do echo $i%; sleep 0.05; done && for i in {1..100}; do echo $i%; sleep 0.05; done")
+        print(getIt.getCommand() + urlStr)
         
-
+        
+        
+        
+        //start download
         downloadsDidStart = false
-        //DJProgressHUD.showProgress(0.0, withStatus: "Downloading file 1\n          ", from: self.view)
         DJProgressHUD.showStatus("Gathering information\n          Please wait", from: self.view)
-        execute(commmandAsynchronous: "-o ~/Downloads/'%(title)s.%(ext)s' --ignore-errors --extract-audio --audio-format mp3 --newline https://www.youtube.com/playlist?list=PLAGjOYlnEnB-OzbgblcXZtehAFtYCWy_U")
+        execute(commmandAsynchronous: getIt.getCommand() + urlStr)
         
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     func execute(commmandAsynchronous: String){
@@ -109,8 +88,8 @@ class ViewController: NSViewController {
         //Prepare command
         var arguments:[String] = []
         arguments.append("-c")
-        arguments.append( COMMAND_PREFIX + commmandAsynchronous  )
-        print( COMMAND_PREFIX + commmandAsynchronous  )
+        arguments.append( commmandAsynchronous  )
+        print( commmandAsynchronous  )
         
         //Start waiting screen
         //DJProgressHUD.showProgress(0.0, withStatus: "", from: view)
@@ -220,9 +199,7 @@ class ViewController: NSViewController {
 
 
 
-    @IBAction func openDestinationFolderBtnClicked(_ sender: Any) {
-        _ = getIt.open(folder:"~/Downloads/")
-    }
+
 
     
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A2BF1F81E460F170002C5B7 /* optionsTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2BF1F71E460F170002C5B7 /* optionsTextfield.swift */; };
+		0A2BF1FA1E4619230002C5B7 /* secureOptionsTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2BF1F91E4619230002C5B7 /* secureOptionsTextfield.swift */; };
 		0A3153191CF37A660020DBB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3153181CF37A660020DBB8 /* AppDelegate.swift */; };
 		0A31531B1CF37A660020DBB8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A31531A1CF37A660020DBB8 /* ViewController.swift */; };
 		0A31531D1CF37A660020DBB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A31531C1CF37A660020DBB8 /* Assets.xcassets */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A2BF1F71E460F170002C5B7 /* optionsTextfield.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = optionsTextfield.swift; sourceTree = "<group>"; };
+		0A2BF1F91E4619230002C5B7 /* secureOptionsTextfield.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = secureOptionsTextfield.swift; sourceTree = "<group>"; };
 		0A3153151CF37A660020DBB8 /* Get It.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Get It.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A3153181CF37A660020DBB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A31531A1CF37A660020DBB8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +110,8 @@
 				0A31531E1CF37A660020DBB8 /* Main.storyboard */,
 				0AAC75B51E3E24800086BB87 /* DownloadButton.swift */,
 				0AAC75B71E3E25820086BB87 /* GrayButton.swift */,
+				0A2BF1F71E460F170002C5B7 /* optionsTextfield.swift */,
+				0A2BF1F91E4619230002C5B7 /* secureOptionsTextfield.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -277,6 +283,8 @@
 				0A59C2721E3D09CE00E40A2B /* Constants.swift in Sources */,
 				0AAC75B81E3E25820086BB87 /* GrayButton.swift in Sources */,
 				0A8DA5DA1E3E808500148315 /* AboutViewController.swift in Sources */,
+				0A2BF1FA1E4619230002C5B7 /* secureOptionsTextfield.swift in Sources */,
+				0A2BF1F81E460F170002C5B7 /* optionsTextfield.swift in Sources */,
 				0A31531B1CF37A660020DBB8 /* ViewController.swift in Sources */,
 				0A59C2701E3D01F400E40A2B /* OptionsViewController.swift in Sources */,
 				0A59C26E1E3D01A700E40A2B /* WindowController.swift in Sources */,

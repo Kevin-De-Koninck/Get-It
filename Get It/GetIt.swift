@@ -9,20 +9,18 @@
 import Foundation
 
 class GetIt {
-    var command: String!
+    private var command: String!
 
-    
-    
     init() {
-        loadCmdFromSettings()
     }
     
-    func loadCmdFromSettings(){
+    func getCommand() -> String {
         if let cmd = UserDefaults.standard.value(forKey: SAVED_COMMAND) as? String {
             self.command = cmd
         } else {
             self.command = DEFAULT_COMMAND
         }
+        return self.command
     }
     
     func open(folder: String){

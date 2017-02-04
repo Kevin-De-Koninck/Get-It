@@ -14,7 +14,7 @@ class DownloadButton: NSButton {
         super.draw(dirtyRect)
 
         //GUI
-        self.layer?.backgroundColor = CGColor.init(red: 45.0/255, green: 135.0/255, blue: 250.0/255, alpha: 1)
+        self.layer?.backgroundColor = blueColor.cgColor
         self.layer?.cornerRadius = 15.0
         self.layer?.masksToBounds = true
         

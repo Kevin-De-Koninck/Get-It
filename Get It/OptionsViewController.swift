@@ -7,12 +7,14 @@
 //
 
 import Cocoa
+import ITSwitch
 
 class OptionsViewController: NSViewController {
 
     //General tab
     @IBOutlet weak var maxFileSize: NSTextField!
-    @IBOutlet weak var ignoreErrors: NSButton!
+    @IBOutlet weak var ignoreErrors: ITSwitch!
+    
     @IBOutlet weak var pathChooser: NSPathCell!
     @IBOutlet weak var outputTemplate: NSPopUpButton!
     
@@ -62,6 +64,10 @@ class OptionsViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.wantsLayer = true
+        
+        
+        ignoreErrors.tintColor = blueColor
+        
 
         pathChooser.pathComponentCells.removeAll()
         
@@ -73,6 +79,15 @@ class OptionsViewController: NSViewController {
             let color : CGColor = CGColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
             self.view.layer?.backgroundColor = color
         }
+    }
+    
+    override func viewWillDisappear() {
+        super.viewWillDisappear()
+        
+        //we want to save the settings
+        saveSettings()
+        UserDefaults.standard.setValue(createCommand(), forKey: SAVED_COMMAND)
+        UserDefaults.standard.synchronize()
     }
     
     
@@ -96,8 +111,8 @@ class OptionsViewController: NSViewController {
 
         
         settingsDict["maxFileSize"] = maxFileSize.stringValue
-        settingsDict["ignoreErrors"] = String(ignoreErrors.state)
-        settingsDict["path"] = pathString![0]
+        settingsDict["ignoreErrors"] = String(ignoreErrors.checked)
+        settingsDict["path"] = "~/Downloads/"//pathString![0]
         
         settingsDict["outputTemplate"] = outputTemplate.itemTitle(at: outputTemplate.indexOfSelectedItem)
         settingsDict["audioFormat"] = audioFormat.itemTitle(at: audioFormat.indexOfSelectedItem)
@@ -142,17 +157,17 @@ class OptionsViewController: NSViewController {
             }
             
             if let val = arr["ignoreErrors"], val != "" {
-                ignoreErrors.state = Int(val)!
+                ignoreErrors.checked = Bool(val)!
             } else {
-                ignoreErrors.state = Int(DEFAULT_SETTINGS["ignoreErrors"]!)!
+                ignoreErrors.checked = Bool(DEFAULT_SETTINGS["ignoreErrors"]!)!
             }
             
-            //TODO: fix the path
-            if let val = arr["path"] {
-                pathChooser.url = URL.init(fileURLWithPath: val)
-            } else {
-                pathChooser.url = URL.init(fileURLWithPath: DEFAULT_SETTINGS["path"]!)
-            }
+//TODO: fix the path
+//            if let val = arr["path"] {
+//                pathChooser.url = URL.init(fileURLWithPath: val)
+//            } else {
+//                pathChooser.url = URL.init(fileURLWithPath: DEFAULT_SETTINGS["path"]!)
+//            }
             
             if let val = arr["outputTemplate"] {
                 outputTemplate.select(outputTemplate.item(withTitle: val))
@@ -318,18 +333,9 @@ class OptionsViewController: NSViewController {
     
     
     func createCommand() -> String {
-    
-        /*****************
-         * create command *
-         ******************/
         
-        var command = "export PATH=$PATH:/usr/local/bin && youtube-dl";
+        var command = "export PATH=$PATH:/usr/local/bin && youtube-dl --newline";
         
-        /*****************
-         *  Playlist tab  *
-         ******************/
-        
-        //append "download playlist" to command
         if downloadPlaylist.state == 1 {
             command += " --yes-playlist"
         }
@@ -337,7 +343,6 @@ class OptionsViewController: NSViewController {
             command += " --no-playlist"
         }
         
-        //append "download playlist in reverse" to command
         if reversePlaylist.state == 1 {
             command += " --playlist-reverse"
         }
@@ -347,128 +352,88 @@ class OptionsViewController: NSViewController {
 //            command += " --flat-playlist"
 //        }
         
-        //append ""start at video" to command
         if !startAtVideo.stringValue.isEmpty {
             command += " --playlist-start \(startAtVideo.stringValue)"
         }
         
-        //append "stop at video" to command
         if !stopAtVideo.stringValue.isEmpty {
             command += " --playlist-end \(stopAtVideo.stringValue)"
         }
         
-        //append "download specific videos" to command
         if !downloadSpecificVideos.stringValue.isEmpty {
             command += " --playlist-items \(downloadSpecificVideos.stringValue)"
         }
-        
-        
-        /***********************
-         *  Authentication tab  *
-         ************************/
-        
-        //append "username" to command
+
         if !username.stringValue.isEmpty {
             command += " --username \(username.stringValue)"
         }
         
-        //append "password" to command
         if !password.stringValue.isEmpty {
             command += " --password \(password.stringValue)"
         }
         
-        //append "2 factor authentication code" to command
         if !twoFactorCode.stringValue.isEmpty {
             command += " --twofactor \(twoFactorCode.stringValue)"
         }
         
-        //append "video password" to command
         if !videoPassword.stringValue.isEmpty {
             command += " --video-password \(videoPassword.stringValue)"
         }
         
-        //append "netrc" to command
         if netrc.state == 1 {
             command += " --netrc"
         }
-        
-        
-        /*****************
-         *   Audio tab    *
-         ******************/
-        
-        //append extract audio to command
+
         if extractAudio.state == 1 {
             command += " --extract-audio"
         }
         
-        //append audio format to command
         let audioFormatString = audioFormat.selectedItem?.title.characters.split{$0 == "\""}.map(String.init) //item to string
         command += " --audio-format \(audioFormatString![0])"
         
-        //append audio quality to command
         let audioQualityString = audioQuality.selectedItem!.title.characters.split{$0 == "\""}.map(String.init) //item to string
         let audioQ = audioQualityString.first!.characters.first
         command += " --audio-quality \(audioQ!)"
         
-        //append "keep video" to command
         if keepVideo.state == 1 {
             command += " --keep-video"
         }
         
-        /*****************
-         *  Video tab    *
-         ******************/
-        
-        //append "video format" to command
         let videoFormatString = videoFormat.selectedItem!.tag
         if videoFormatString > 0 {
             command += " --format \(videoFormatString)"
         }
         
-        //append "download all formats" to command
         if downloadAllFormats.state == 1 {
             command += " --all-formats"
         }
         
-        //append "prefer free formats" to command
         if preferFreeFormats.state == 1 {
             command += " --prefer-free-formats "
         }
         
-        //append "skip dash manifest" to command
         if skipDashManifest.state == 1 {
             command += " --youtube-skip-dash-manifest"
         }
         
-        
-        /********************
-         *  Subtitles tab    *
-         *********************/
-        
         command += " --sub-format srt"  //always SRT
         
-        //append "download subtitles" to command
         if downloadSubs.state == 1 {
             command += " --write-sub"
         }
         
-        //append "download auto subtitles" to command
         if downloadAutoSubs.state == 1 {
             command += " --write-auto-sub"
         }
         
-        //append "download all subtitles" to command
         if downloadAllSubs.state == 1 {
             command += " --all-subs"
         }
         
-        //append "embed subtitles" to command
         if embedSubs.state == 1 {
             command += " --embed-subs"
         }
         
-        //append "language subs" to command
         if languageSubs.selectedItem!.tag > 0 {
             var subLanguage = ""
             switch languageSubs.selectedItem!.tag {
@@ -486,19 +451,11 @@ class OptionsViewController: NSViewController {
             command += " --sub-lang \(subLanguage)"
         }
         
-        
-        
-        /*****************
-         *  General tab   *
-         ******************/
-        
-        //append max file size to command
         if !maxFileSize.stringValue.isEmpty {
             command += " --max-filesize \(maxFileSize.stringValue)M"
         }
         
-        //append ignore errors to command
-        if ignoreErrors.state == 1 {
+        if ignoreErrors.checked == true {
             command += " --ignore-errors"
         }
         else{
@@ -506,33 +463,21 @@ class OptionsViewController: NSViewController {
         }
         
         //append output destination to command
-        let pathString = pathChooser.url?.path.characters.split{$0 == "\""}.map(String.init) //item to string
-        command += " -o \(pathString![0])/"
+//TODO
+//        let pathString = pathChooser.url?.path.characters.split{$0 == "\""}.map(String.init) //item to string
+//        command += " -o \(pathString![0])/"
+        command += " -o ~/Downloads/"
         
-        //append output template
         switch outputTemplate.selectedItem!.tag {
-        case 0: command += "'%(title)s.%(ext)s'"
-        case 1: command += "'%(playlist)s/%(title)s.%(ext)s'"
-        case 2: command += "'%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s'"
-        default: command += "'%(title)s.%(ext)s'"
-            
+            case 0: command += "'%(title)s.%(ext)s'"
+            case 1: command += "'%(playlist)s/%(title)s.%(ext)s'"
+            case 2: command += "'%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s'"
+            default: command += "'%(title)s.%(ext)s'"
         }
-        
-        //append input URLs to the command
-//        for url in inputURLS_array {
-//            command += " \(url)"
-//        }
-//        
         
         return command
     }
     
-    override func viewWillDisappear() {
-        super.viewWillDisappear()
-        //we want to save the settings
-        saveSettings()
-        UserDefaults.standard.setValue(createCommand(), forKey: SAVED_COMMAND)
-        UserDefaults.standard.synchronize()
-    }
+
     
 }

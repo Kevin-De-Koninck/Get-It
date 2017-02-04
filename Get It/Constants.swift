@@ -7,13 +7,14 @@
 //
 
 import Foundation
+import Cocoa
 
 // Command
-let DEFAULT_COMMAND = "export PATH=$PATH:/usr/local/bin && youtube-dl —yes-playlist —extract-audio —audio-format mp3 —audio-quality 5 —youtube-skip-dash-manifest —sub-format srt —max-filesize 15M —ignore-errors -o ~/Downloads/‘%(title)s.%(ext)s’"
-let COMMAND_PREFIX = "export PATH=$PATH:/usr/local/bin && youtube-dl --newline "
-let COMMAND_POSTFIX = " | perl -nle 'print \"$& \n\" if m{^\\[download\\].*?\\K([0-9.]+\\%|#\\d+ of \\d)}'"
+let DEFAULT_COMMAND = "export PATH=$PATH:/usr/local/bin && youtube-dl --newline —yes-playlist —extract-audio —audio-format mp3 —audio-quality 5 —youtube-skip-dash-manifest —sub-format srt —max-filesize 15M —ignore-errors -o ~/Downloads/‘%(title)s.%(ext)s’"
 let REGEX_PATTERN = "(?<=^\\[download\\].)[0-9.]+\\%"
 
+//Color
+var blueColor = NSColor.init(red: 45.0/255, green: 135.0/255, blue: 250.0/255, alpha: 1)
 
 // Settings
 let DEFAULT_SETTINGS = [    "maxFileSize"       :   "15",

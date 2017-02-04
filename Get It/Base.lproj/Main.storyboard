@@ -231,16 +231,6 @@
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <textField toolTip="Do not download any videos larger than... [MB]" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3pX-rq-V4S">
-                                                    <rect key="frame" x="326" y="102" width="201" height="22"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" placeholderString="MB" drawsBackground="YES" usesSingleLineMode="YES" id="bwk-B0-ddt">
-                                                        <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="upV-Rp-Z1r"/>
-                                                        <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                </textField>
                                                 <textField toolTip="Continue on download errors, for example to skip unavailable videos in a playlist." horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YUd-jr-IsJ">
                                                     <rect key="frame" x="15" y="82" width="86" height="17"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -250,14 +240,6 @@
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <button toolTip="Continue on download errors, for example to skip unavailable videos in a playlist." fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uqP-0o-vcq">
-                                                    <rect key="frame" x="324" y="81" width="22" height="18"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="cb9-fg-T9Y">
-                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                        <font key="font" metaFont="system"/>
-                                                    </buttonCell>
-                                                </button>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DBg-5l-KHe">
                                                     <rect key="frame" x="15" y="57" width="121" height="17"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -277,7 +259,7 @@
                                                     </textFieldCell>
                                                 </textField>
                                                 <pathControl verticalHuggingPriority="750" fixedFrame="YES" tag="1" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BJn-jR-6jQ">
-                                                    <rect key="frame" x="316" y="52" width="207" height="26"/>
+                                                    <rect key="frame" x="231" y="57" width="207" height="26"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <pathCell key="cell" selectable="YES" editable="YES" alignment="left" pathStyle="popUp" id="Z8J-bx-eH9">
                                                         <font key="font" metaFont="system"/>
@@ -285,7 +267,7 @@
                                                     </pathCell>
                                                 </pathControl>
                                                 <popUpButton verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GVv-b9-3xw">
-                                                    <rect key="frame" x="324" y="26" width="206" height="26"/>
+                                                    <rect key="frame" x="232" y="27" width="206" height="26"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="201" id="bLG-jG-ye0"/>
                                                     </constraints>
@@ -301,6 +283,20 @@
                                                         </menu>
                                                     </popUpButtonCell>
                                                 </popUpButton>
+                                                <customView appearanceType="aqua" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4pH-QS-9z0" customClass="ITSwitch">
+                                                    <rect key="frame" x="234" y="82" width="28" height="17"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                </customView>
+                                                <textField toolTip="Do not download any videos larger than... [MB]" focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3pX-rq-V4S" customClass="optionsTextfield" customModule="Get_It" customModuleProvider="target">
+                                                    <rect key="frame" x="234" y="105" width="201" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" placeholderString="MB" drawsBackground="YES" usesSingleLineMode="YES" id="bwk-B0-ddt">
+                                                        <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="upV-Rp-Z1r"/>
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
                                             </subviews>
                                         </view>
                                     </tabViewItem>
@@ -354,7 +350,7 @@
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <textField toolTip="Login with this account ID." verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dBF-vk-0RT">
+                                                <textField toolTip="Login with this account ID." verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dBF-vk-0RT" customClass="optionsTextfield" customModule="Get_It" customModuleProvider="target">
                                                     <rect key="frame" x="206" y="104" width="100" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="96" id="Bqq-5c-GtW"/>
@@ -365,7 +361,7 @@
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <secureTextField toolTip="Account password." verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XOo-FL-D72">
+                                                <secureTextField toolTip="Account password." verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XOo-FL-D72" customClass="secureOptionsTextfield" customModule="Get_It" customModuleProvider="target">
                                                     <rect key="frame" x="208" y="79" width="96" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="96" id="CvM-Ap-STQ"/>
@@ -379,7 +375,7 @@
                                                         </allowedInputSourceLocales>
                                                     </secureTextFieldCell>
                                                 </secureTextField>
-                                                <secureTextField toolTip="Two-factor auth code." verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oKK-rG-X7n">
+                                                <secureTextField toolTip="Two-factor auth code." verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oKK-rG-X7n" customClass="secureOptionsTextfield" customModule="Get_It" customModuleProvider="target">
                                                     <rect key="frame" x="208" y="54" width="96" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="96" id="AzE-Gk-j8t"/>
@@ -393,7 +389,7 @@
                                                         </allowedInputSourceLocales>
                                                     </secureTextFieldCell>
                                                 </secureTextField>
-                                                <secureTextField toolTip="Video password (vimeo, smotri, youku)." verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7z3-Y1-nMX">
+                                                <secureTextField toolTip="Video password (vimeo, smotri, youku)." verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7z3-Y1-nMX" customClass="secureOptionsTextfield" customModule="Get_It" customModuleProvider="target">
                                                     <rect key="frame" x="208" y="4" width="96" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="96" id="N7I-1y-b1d"/>
@@ -694,7 +690,7 @@
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <textField toolTip="Playlist video to end at (default is last)." verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XWE-3Z-NoL">
+                                                <textField toolTip="Playlist video to end at (default is last)." verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XWE-3Z-NoL" customClass="optionsTextfield" customModule="Get_It" customModuleProvider="target">
                                                     <rect key="frame" x="263" y="53" width="33" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="96" id="EY9-ad-ANn"/>
@@ -715,7 +711,7 @@
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <textField toolTip="Playlist video to start at (default is 1)." verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U6T-aK-Xnk">
+                                                <textField toolTip="Playlist video to start at (default is 1)." verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U6T-aK-Xnk" customClass="optionsTextfield" customModule="Get_It" customModuleProvider="target">
                                                     <rect key="frame" x="222" y="53" width="33" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="96" id="5X3-tX-npE"/>
@@ -727,7 +723,7 @@
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <textField toolTip="Playlist video items to download. Specify indices of the videos in the playlist. E.g. 1-3,7,10-13" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nec-cA-tY9">
+                                                <textField toolTip="Playlist video items to download. Specify indices of the videos in the playlist. E.g. 1-3,7,10-13" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nec-cA-tY9" customClass="optionsTextfield" customModule="Get_It" customModuleProvider="target">
                                                     <rect key="frame" x="200" y="26" width="96" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="96" id="w0T-ST-mRE"/>
@@ -876,7 +872,7 @@
                         <outlet property="downloadSubs" destination="m5i-Kb-r1t" id="tVE-Ur-xQt"/>
                         <outlet property="embedSubs" destination="MR0-Bt-uyA" id="sZ8-Yz-Z5a"/>
                         <outlet property="extractAudio" destination="RpZ-jx-IAK" id="pad-VI-0az"/>
-                        <outlet property="ignoreErrors" destination="uqP-0o-vcq" id="udH-kp-uH8"/>
+                        <outlet property="ignoreErrors" destination="4pH-QS-9z0" id="gKb-lS-LVN"/>
                         <outlet property="keepVideo" destination="piS-fl-rjZ" id="qi6-XA-WlN"/>
                         <outlet property="languageSubs" destination="dgx-dx-gii" id="pgp-l4-Sbm"/>
                         <outlet property="maxFileSize" destination="3pX-rq-V4S" id="sAf-bf-9OU"/>
@@ -915,7 +911,7 @@
                                     <rect key="frame" x="1" y="1" width="289" height="164"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textView ambiguous="YES" importsGraphics="NO" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" smartInsertDelete="YES" id="7x6-CY-4t8">
+                                        <textView ambiguous="YES" importsGraphics="NO" richText="NO" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" linkDetection="YES" textCompletion="NO" smartInsertDelete="YES" id="7x6-CY-4t8">
                                             <rect key="frame" x="0.0" y="0.0" width="289" height="164"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
