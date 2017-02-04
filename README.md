@@ -1,4 +1,8 @@
 # Get It
+THIS IS STILL IN DEVELOPMENT BUT A FIRST RELEASE WILL COME SOON (SEE DEVELOMPENT BRANCH).
+CURRENTLY TODO:
+- ADD DYNAMIC INSTALLATION GUIDE
+- ADD UPDATE FRAMEWORK
 
 <img src="https://github.com/Kevin-De-Koninck/Get-It/blob/master/ReadMe%20Resources/Get%20It%20v0.2.png?raw=true" width="400" />
 <img src="https://github.com/Kevin-De-Koninck/Get-It/blob/master/ReadMe%20Resources/Get%20It%20v0.2%20(2).png?raw=true" width="400" />
