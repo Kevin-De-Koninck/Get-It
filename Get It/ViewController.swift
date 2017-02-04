@@ -221,7 +221,7 @@ class ViewController: NSViewController {
 
 
     @IBAction func openDestinationFolderBtnClicked(_ sender: Any) {
-        _ = getIt.execute(commandSynchronous: "open ~/Downloads/")
+        _ = getIt.open(folder:"~/Downloads/")
     }
 
     

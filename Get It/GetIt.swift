@@ -10,17 +10,10 @@ import Foundation
 
 class GetIt {
     var command: String!
-    var progress: CGFloat {
-        didSet{
-            if progress != oldValue {
-                progressChanged()
-            }
-        }
-    }
+
     
     
     init() {
-        progress = 0.0
         loadCmdFromSettings()
     }
     
@@ -32,9 +25,10 @@ class GetIt {
         }
     }
     
-    func progressChanged(){
-        
+    func open(folder: String){
+        _ = self.execute(commandSynchronous: "open \(folder)")
     }
+    
     
     func execute(commandSynchronous: String) -> String {
         var arguments:[String] = []
