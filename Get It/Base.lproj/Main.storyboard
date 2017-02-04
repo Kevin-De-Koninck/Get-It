@@ -184,9 +184,8 @@
                     </connections>
                 </application>
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Get_It" customModuleProvider="target"/>
-                <customObject id="8nX-VK-Rdu" customClass="NSFontManager"/>
             </objects>
-            <point key="canvasLocation" x="59" y="-64"/>
+            <point key="canvasLocation" x="76" y="-23"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -950,10 +949,13 @@
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SGD-KR-TCl" customClass="GrayButton" customModule="Get_It" customModuleProvider="target">
                                 <rect key="frame" x="20" y="60" width="291" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="bevel" title="Open log-file" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="3uQ-eK-NEk">
+                                <buttonCell key="cell" type="bevel" title="Open destination folder" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="3uQ-eK-NEk">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="openDestinationFolderBtnClicked:" target="XfG-lQ-9wD" id="HG6-hW-eXV"/>
+                                </connections>
                             </button>
                             <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CAr-Wq-0Fh">
                                 <rect key="frame" x="100" y="274" width="132" height="114"/>
