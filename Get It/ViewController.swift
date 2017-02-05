@@ -23,6 +23,12 @@ import DJProgressHUD_OSX
 class ViewController: NSViewController {
 
     @IBOutlet var inputURLS: NSTextView!
+    @IBOutlet weak var settingsBtn: NSButton!
+    @IBOutlet weak var openDestinationFolderBtn: GrayButton!
+    @IBOutlet weak var downloadBtn: DownloadButton!
+    @IBOutlet weak var installationGuideBtn: NSButton!
+    @IBOutlet weak var refreshInstallationBtn: NSButton!
+    
     
     //global variables
     var getIt = GetIt()
@@ -30,6 +36,7 @@ class ViewController: NSViewController {
     var previousProgress: CGFloat = 0.0
     var currentProgress: CGFloat = 0.0
     var downloadsDidStart: Bool = false
+
 
 
     override func awakeFromNib() {
@@ -43,6 +50,33 @@ class ViewController: NSViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        
+        getIt.checkIfSoftwareIsInstalled()
+//        installationGuideViewSetUp(activate: !isYTDLInstalled)
+        installationGuideViewSetUp(activate: true)
+    }
+    
+    func installationGuideViewSetUp(activate: Bool) {
+        inputURLS.isEditable = !activate
+        settingsBtn.isEnabled = !activate
+        openDestinationFolderBtn.isEnabled = !activate
+        downloadBtn.isEnabled = !activate
+        installationGuideBtn.isEnabled = activate
+        installationGuideBtn.isHidden = !activate
+        refreshInstallationBtn.isEnabled = activate
+        refreshInstallationBtn.isHidden = !activate
+    }
+    
+    @IBAction func refreshInstallationBtnClicked(_ sender: Any) {
+        getIt.checkIfSoftwareIsInstalled()
+//        installationGuideViewSetUp(activate: !isYTDLInstalled)
+        installationGuideViewSetUp(activate: true)
+    }
+    
+    @IBAction func InstallGuideBtnClicked(_ sender: Any) {
+    }
     
     @IBAction func openDestinationFolderBtnClicked(_ sender: Any) {
         _ = getIt.open(folder:"~/Downloads/")

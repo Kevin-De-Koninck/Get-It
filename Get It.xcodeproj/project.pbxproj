@@ -20,6 +20,8 @@
 		0A8DA5DA1E3E808500148315 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8DA5D91E3E808500148315 /* AboutViewController.swift */; };
 		0AAC75B61E3E24800086BB87 /* DownloadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC75B51E3E24800086BB87 /* DownloadButton.swift */; };
 		0AAC75B81E3E25820086BB87 /* GrayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC75B71E3E25820086BB87 /* GrayButton.swift */; };
+		0AF763CF1E474D2A00403BA1 /* InstallationGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF763CD1E474D2A00403BA1 /* InstallationGuideViewController.swift */; };
+		0AF763D21E476D4C00403BA1 /* openTerminalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF763D11E476D4C00403BA1 /* openTerminalButton.swift */; };
 		57A713EE30F5529EC97CABA2 /* Pods_Youtube_dl_GUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 685C0FDD28B58EDB6BF51860 /* Pods_Youtube_dl_GUI.framework */; };
 		656FE9E68E618252B653F728 /* Pods_Get_It.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F840AEEA491FC0DE6DE63CC /* Pods_Get_It.framework */; };
 /* End PBXBuildFile section */
@@ -40,6 +42,8 @@
 		0A8DA5D91E3E808500148315 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		0AAC75B51E3E24800086BB87 /* DownloadButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadButton.swift; sourceTree = "<group>"; };
 		0AAC75B71E3E25820086BB87 /* GrayButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrayButton.swift; sourceTree = "<group>"; };
+		0AF763CD1E474D2A00403BA1 /* InstallationGuideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstallationGuideViewController.swift; sourceTree = "<group>"; };
+		0AF763D11E476D4C00403BA1 /* openTerminalButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = openTerminalButton.swift; sourceTree = "<group>"; };
 		2F2FF097A134B03DBD16D354 /* Pods-Youtube-dl-GUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Youtube-dl-GUI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Youtube-dl-GUI/Pods-Youtube-dl-GUI.debug.xcconfig"; sourceTree = "<group>"; };
 		3D0235652B5434027EFB9C78 /* Pods-Get It.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Get It.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Get It/Pods-Get It.debug.xcconfig"; sourceTree = "<group>"; };
 		3F840AEEA491FC0DE6DE63CC /* Pods_Get_It.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Get_It.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,6 +104,7 @@
 				0A59C26D1E3D01A700E40A2B /* WindowController.swift */,
 				0A59C26F1E3D01F400E40A2B /* OptionsViewController.swift */,
 				0A8DA5D91E3E808500148315 /* AboutViewController.swift */,
+				0AF763CD1E474D2A00403BA1 /* InstallationGuideViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -112,6 +117,7 @@
 				0AAC75B71E3E25820086BB87 /* GrayButton.swift */,
 				0A2BF1F71E460F170002C5B7 /* optionsTextfield.swift */,
 				0A2BF1F91E4619230002C5B7 /* secureOptionsTextfield.swift */,
+				0AF763D11E476D4C00403BA1 /* openTerminalButton.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -281,6 +287,7 @@
 			files = (
 				0AAC75B61E3E24800086BB87 /* DownloadButton.swift in Sources */,
 				0A59C2721E3D09CE00E40A2B /* Constants.swift in Sources */,
+				0AF763D21E476D4C00403BA1 /* openTerminalButton.swift in Sources */,
 				0AAC75B81E3E25820086BB87 /* GrayButton.swift in Sources */,
 				0A8DA5DA1E3E808500148315 /* AboutViewController.swift in Sources */,
 				0A2BF1FA1E4619230002C5B7 /* secureOptionsTextfield.swift in Sources */,
@@ -290,6 +297,7 @@
 				0A59C26E1E3D01A700E40A2B /* WindowController.swift in Sources */,
 				0A3153191CF37A660020DBB8 /* AppDelegate.swift in Sources */,
 				0A59C2741E3D0C0E00E40A2B /* GetIt.swift in Sources */,
+				0AF763CF1E474D2A00403BA1 /* InstallationGuideViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -992,7 +992,138 @@
                 </viewController>
                 <customObject id="qfN-P7-ONt" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="306" y="418"/>
+            <point key="canvasLocation" x="306" y="270"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="Zgg-lz-KoH">
+            <objects>
+                <windowController id="TVW-7d-GRi" customClass="WindowController" customModule="Get_It" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" title="Get It Installation Guide" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="Tkd-6d-x5p">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" texturedBackground="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="426" y="524" width="236" height="60"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                    </window>
+                    <connections>
+                        <segue destination="7TU-zM-7EV" kind="relationship" relationship="window.shadowedContentViewController" id="rO6-fM-EUc"/>
+                    </connections>
+                </windowController>
+                <customObject id="zQP-Ps-hIV" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-758" y="150"/>
+        </scene>
+        <!--Installation Guide View Controller-->
+        <scene sceneID="0CD-kl-tJb">
+            <objects>
+                <viewController id="7TU-zM-7EV" customClass="InstallationGuideViewController" customModule="Get_It" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" appearanceType="aqua" id="tyQ-Oc-9g9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="AKl-V2-VAQ">
+                                <rect key="frame" x="548" y="0.0" width="52" height="300"/>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="right arrow" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="6tT-h0-YTY">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="nextPageBtnClicked:" target="7TU-zM-7EV" id="g5S-pC-I5o"/>
+                                </connections>
+                            </button>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="MqU-tW-Gu6">
+                                <rect key="frame" x="0.0" y="0.0" width="52" height="300"/>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="left arrow" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="30J-7y-4qn">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="previousPageBtnClicked:" target="7TU-zM-7EV" id="4Ad-SO-4vi"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VMd-5w-2AW" customClass="openTerminalButton" customModule="Get_It" customModuleProvider="target">
+                                <rect key="frame" x="155" y="20" width="291" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="291" id="yN5-Yx-GNK"/>
+                                </constraints>
+                                <buttonCell key="cell" type="bevel" title="Open the Terminal app" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="xgC-Jb-cAL">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system" size="18"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="openTerminalBtnClicked:" target="7TU-zM-7EV" id="sNn-Q2-Ei4"/>
+                                </connections>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NvZ-KG-FeY">
+                                <rect key="frame" x="63" y="277" width="474" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="17" id="17b-xb-EvS"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Introduction" id="kdG-eZ-psX">
+                                    <font key="font" metaFont="systemBold" size="16"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="wNP-mt-jZW">
+                                <rect key="frame" x="75" y="128" width="452" height="136"/>
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="fsA-qR-zEd">
+                                    <font key="font" metaFont="system"/>
+                                    <string key="title">Homebrew is the missing package manager for macOS. Homebrew can install software that apple did not provide.
+
+We will be using Homebrew to install all the software that is needed for 
+Get It.
+
+Enter the following command in the Terminal app and follow the instructions. When finished, proceed to the next page.</string>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xz6-v7-hke" customClass="optionsTextfield" customModule="Get_It" customModuleProvider="target">
+                                <rect key="frame" x="100" y="82" width="400" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="400" id="VfL-nO-HPW"/>
+                                    <constraint firstAttribute="height" constant="22" id="qAW-RO-a6c"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" state="on" title="/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;" drawsBackground="YES" id="EmD-JU-kRJ">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" red="0.0" green="0.59548611111111116" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="AKl-V2-VAQ" firstAttribute="leading" secondItem="Xz6-v7-hke" secondAttribute="trailing" constant="48" id="2Pa-c6-oZA"/>
+                            <constraint firstItem="MqU-tW-Gu6" firstAttribute="top" secondItem="AKl-V2-VAQ" secondAttribute="top" id="2eC-yb-CGw"/>
+                            <constraint firstAttribute="bottom" secondItem="Xz6-v7-hke" secondAttribute="bottom" constant="82" id="4cb-y1-ADK"/>
+                            <constraint firstItem="Xz6-v7-hke" firstAttribute="centerX" secondItem="VMd-5w-2AW" secondAttribute="centerX" id="Gvf-vX-ino"/>
+                            <constraint firstItem="MqU-tW-Gu6" firstAttribute="top" secondItem="tyQ-Oc-9g9" secondAttribute="top" id="IfK-9G-2a7"/>
+                            <constraint firstItem="AKl-V2-VAQ" firstAttribute="leading" secondItem="wNP-mt-jZW" secondAttribute="trailing" constant="23" id="K3R-TY-rzT"/>
+                            <constraint firstAttribute="bottom" secondItem="NvZ-KG-FeY" secondAttribute="bottom" constant="277" id="KZ0-Rx-8A2"/>
+                            <constraint firstItem="MqU-tW-Gu6" firstAttribute="bottom" secondItem="AKl-V2-VAQ" secondAttribute="bottom" id="Kgx-QL-rPy"/>
+                            <constraint firstAttribute="bottom" secondItem="MqU-tW-Gu6" secondAttribute="bottom" id="PCY-RT-YQH"/>
+                            <constraint firstItem="Xz6-v7-hke" firstAttribute="centerX" secondItem="NvZ-KG-FeY" secondAttribute="centerX" id="Rcj-Rl-jqo"/>
+                            <constraint firstItem="wNP-mt-jZW" firstAttribute="top" secondItem="NvZ-KG-FeY" secondAttribute="bottom" constant="13" id="VG1-TW-NCB"/>
+                            <constraint firstItem="VMd-5w-2AW" firstAttribute="top" secondItem="Xz6-v7-hke" secondAttribute="bottom" constant="30" id="czC-Xe-kgr"/>
+                            <constraint firstItem="MqU-tW-Gu6" firstAttribute="leading" secondItem="tyQ-Oc-9g9" secondAttribute="leading" id="eu4-4D-gxA"/>
+                            <constraint firstItem="Xz6-v7-hke" firstAttribute="centerX" secondItem="tyQ-Oc-9g9" secondAttribute="centerX" id="gyx-XZ-C1B"/>
+                            <constraint firstItem="Xz6-v7-hke" firstAttribute="leading" secondItem="MqU-tW-Gu6" secondAttribute="trailing" constant="48" id="ib3-9e-m8m"/>
+                            <constraint firstItem="Xz6-v7-hke" firstAttribute="top" secondItem="wNP-mt-jZW" secondAttribute="bottom" constant="24" id="l1S-Cs-pJB"/>
+                            <constraint firstItem="NvZ-KG-FeY" firstAttribute="leading" secondItem="MqU-tW-Gu6" secondAttribute="trailing" constant="13" id="q2B-HO-CoQ"/>
+                            <constraint firstAttribute="trailing" secondItem="AKl-V2-VAQ" secondAttribute="trailing" id="sNJ-R9-2Ta"/>
+                            <constraint firstItem="wNP-mt-jZW" firstAttribute="centerX" secondItem="VMd-5w-2AW" secondAttribute="centerX" id="xyz-tm-ta7"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bodyText" destination="wNP-mt-jZW" id="6TT-6r-zEn"/>
+                        <outlet property="commandTextField" destination="Xz6-v7-hke" id="79I-pb-jKU"/>
+                        <outlet property="nextPageBtn" destination="AKl-V2-VAQ" id="dzq-UU-SKk"/>
+                        <outlet property="previousPageBtn" destination="MqU-tW-Gu6" id="Aln-IW-Co5"/>
+                        <outlet property="titleText" destination="NvZ-KG-FeY" id="iBM-S6-PZh"/>
+                    </connections>
+                </viewController>
+                <customObject id="Oxp-Gb-gXy" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-758" y="489"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
@@ -1080,7 +1211,24 @@
                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="package" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="SfQ-Iq-zhf">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
+                                    <connections>
+                                        <action selector="InstallGuideBtnClicked:" target="XfG-lQ-9wD" id="Qne-4i-dZH"/>
+                                    </connections>
                                 </buttonCell>
+                                <connections>
+                                    <segue destination="TVW-7d-GRi" kind="show" id="lSN-IA-ncA"/>
+                                </connections>
+                            </button>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qaK-My-rOG">
+                                <rect key="frame" x="284" y="285" width="24" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="refresh" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="p8t-Iq-WEE">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="refreshInstallationBtnClicked:" target="XfG-lQ-9wD" id="9YC-ex-V2W"/>
+                                </connections>
                             </button>
                         </subviews>
                         <shadow key="shadow">
@@ -1088,7 +1236,12 @@
                         </shadow>
                     </view>
                     <connections>
+                        <outlet property="downloadBtn" destination="eoJ-ib-ihB" id="oJe-4A-1EC"/>
                         <outlet property="inputURLS" destination="7x6-CY-4t8" id="fsP-Il-dvb"/>
+                        <outlet property="installationGuideBtn" destination="Gih-DJ-UYv" id="JDK-gm-7gO"/>
+                        <outlet property="openDestinationFolderBtn" destination="SGD-KR-TCl" id="BcM-UQ-fxc"/>
+                        <outlet property="refreshInstallationBtn" destination="qaK-My-rOG" id="qi9-kQ-Cia"/>
+                        <outlet property="settingsBtn" destination="AoL-t3-F2Z" id="J49-jk-pqX"/>
                     </connections>
                 </viewController>
             </objects>
@@ -1115,7 +1268,7 @@
                                                     <rect key="frame" x="17" y="124" width="370" height="73"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" drawsBackground="YES" id="gw9-hd-Ulr">
-                                                        <font key="font" metaFont="system" size="12"/>
+                                                        <font key="font" metaFont="cellTitle"/>
                                                         <string key="title">The core of this app is the YouTube-DL command-line program. Without this Get It would not exist.  So if you like Get It, then please star the project on GitHub, share it with your friends and buy a coffee for the devs of YouTube-DL.</string>
                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -1306,7 +1459,7 @@ For more information, visit GitHub and my website.</string>
                 </viewController>
                 <customObject id="e7J-ZB-3Kb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="306" y="722"/>
+            <point key="canvasLocation" x="306" y="566"/>
         </scene>
     </scenes>
     <resources>
@@ -1314,8 +1467,11 @@ For more information, visit GitHub and my website.</string>
         <image name="Settings" width="122.87999725341797" height="122.87999725341797"/>
         <image name="arrow-download-icon" width="256" height="256"/>
         <image name="github" width="351.08572387695312" height="351.08572387695312"/>
+        <image name="left arrow" width="626" height="626"/>
         <image name="package" width="300" height="300"/>
         <image name="paypal" width="206" height="204"/>
+        <image name="refresh" width="512" height="512"/>
+        <image name="right arrow" width="626" height="626"/>
         <image name="safari" width="1024" height="1024"/>
     </resources>
 </document>

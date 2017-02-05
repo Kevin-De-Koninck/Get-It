@@ -49,3 +49,6 @@ let DEFAULT_SETTINGS = [    "maxFileSize"       :   "15",
 // User Defaults - keys
 let SAVED_COMMAND = "savedCommand"
 let SETTINGS_KEY = "settings"
+let YTDL = "isYTDLInstalled"
+let BREW = "isBrewInstalled"
+let FFMPEG = "isFfmpegInstalled"
