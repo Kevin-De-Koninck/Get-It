@@ -12,6 +12,10 @@ class openTerminalButton: NSButton {
     
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
         
         self.layer?.backgroundColor = blueColor.cgColor
         self.layer?.cornerRadius = 15.0
@@ -21,7 +25,7 @@ class openTerminalButton: NSButton {
         let style = NSMutableParagraphStyle()
         style.alignment = .center
         self.attributedTitle = NSAttributedString(string: "Open the Terminal app", attributes: [ NSForegroundColorAttributeName : NSColor.white,
-                                                                                    NSParagraphStyleAttributeName : style,
-                                                                                    NSFontAttributeName: NSFont(name: "Arial", size: 18)!])
+                                                                                                 NSParagraphStyleAttributeName : style,
+                                                                                                 NSFontAttributeName: NSFont(name: "Arial", size: 18)!])
     }
 }

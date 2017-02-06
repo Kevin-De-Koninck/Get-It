@@ -12,13 +12,13 @@ class GetIt {
     var isYTDLInstalled: Bool = false
     var isBrewInstalled: Bool = false
     var isFfmpegInstalled: Bool = false
-
+    var isPythonInstalled: Bool = false
+    var isXcodeInstalled: Bool = false
     
     init() {
         //Get installed software
         //This is needed for the installation guide
         if let installed = UserDefaults.standard.value(forKey: YTDL) as? String {
-            print(installed)
             self.isYTDLInstalled = installed == "true" ? true : false
         } else {
             self.isYTDLInstalled = false
@@ -34,6 +34,18 @@ class GetIt {
             self.isFfmpegInstalled = installed == "true" ? true : false
         } else {
             self.isFfmpegInstalled = false
+        }
+        
+        if let installed = UserDefaults.standard.value(forKey: PYTHON) as? String {
+            self.isPythonInstalled = installed == "true" ? true : false
+        } else {
+            self.isPythonInstalled = false
+        }
+        
+        if let installed = UserDefaults.standard.value(forKey: XCODE) as? String {
+            self.isXcodeInstalled = installed == "true" ? true : false
+        } else {
+            self.isXcodeInstalled = false
         }
     }
     
@@ -85,10 +97,20 @@ class GetIt {
         temp = result.components(separatedBy: "\n")
         isFfmpegInstalled = temp[0] == "INSTALLED" ? true : false
         
+        result = self.execute(commandSynchronous: "export PATH=$PATH:/usr/local/bin && if brew ls --versions python3 > /dev/null; then echo INSTALLED; else echo NOT INSTALLED; fi")
+        temp = result.components(separatedBy: "\n")
+        isPythonInstalled = temp[0] == "INSTALLED" ? true : false
+        
+        result = self.execute(commandSynchronous: "export PATH=$PATH:/usr/local/bin && [ ! -f \"`which xcode-select`\" ]  && echo NOT INSTALLED")
+        temp = result.components(separatedBy: "\n")
+        isXcodeInstalled = temp[0] == "NOT INSTALLED" ? false : true
+        
         //save it so we can use it everywhere (installation guide)
         UserDefaults.standard.setValue("\(isBrewInstalled)", forKey: BREW)
         UserDefaults.standard.setValue("\(isYTDLInstalled)", forKey: YTDL)
         UserDefaults.standard.setValue("\(isFfmpegInstalled)", forKey: FFMPEG)
+        UserDefaults.standard.setValue("\(isPythonInstalled)", forKey: PYTHON)
+        UserDefaults.standard.setValue("\(isXcodeInstalled)", forKey: XCODE)
         UserDefaults.standard.synchronize()
     }
     

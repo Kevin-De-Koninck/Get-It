@@ -1047,7 +1047,7 @@
                                 </constraints>
                                 <buttonCell key="cell" type="bevel" title="Open the Terminal app" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="xgC-Jb-cAL">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system" size="18"/>
+                                    <font key="font" metaFont="system" size="16"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="openTerminalBtnClicked:" target="7TU-zM-7EV" id="sNn-Q2-Ei4"/>
@@ -1078,7 +1078,7 @@ Enter the following command in the Terminal app and follow the instructions. Whe
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xz6-v7-hke" customClass="optionsTextfield" customModule="Get_It" customModuleProvider="target">
+                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xz6-v7-hke" customClass="installationGuideTextField" customModule="Get_It" customModuleProvider="target">
                                 <rect key="frame" x="100" y="82" width="400" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="400" id="VfL-nO-HPW"/>
@@ -1090,6 +1090,17 @@ Enter the following command in the Terminal app and follow the instructions. Whe
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0QF-OZ-3Ai">
+                                <rect key="frame" x="288" y="137" width="24" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="refresh" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="vKv-s0-QGa">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="refreshInstallationBtnClicked:" target="XfG-lQ-9wD" id="YBN-dI-dYk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="AKl-V2-VAQ" firstAttribute="leading" secondItem="Xz6-v7-hke" secondAttribute="trailing" constant="48" id="2Pa-c6-oZA"/>
@@ -1117,7 +1128,9 @@ Enter the following command in the Terminal app and follow the instructions. Whe
                         <outlet property="bodyText" destination="wNP-mt-jZW" id="6TT-6r-zEn"/>
                         <outlet property="commandTextField" destination="Xz6-v7-hke" id="79I-pb-jKU"/>
                         <outlet property="nextPageBtn" destination="AKl-V2-VAQ" id="dzq-UU-SKk"/>
+                        <outlet property="openTerminalButton" destination="VMd-5w-2AW" id="d29-6n-fol"/>
                         <outlet property="previousPageBtn" destination="MqU-tW-Gu6" id="Aln-IW-Co5"/>
+                        <outlet property="refreshImage" destination="0QF-OZ-3Ai" id="8vN-Yi-g46"/>
                         <outlet property="titleText" destination="NvZ-KG-FeY" id="iBM-S6-PZh"/>
                     </connections>
                 </viewController>
@@ -1161,7 +1174,7 @@ Enter the following command in the Terminal app and follow the instructions. Whe
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eoJ-ib-ihB" customClass="DownloadButton" customModule="Get_It" customModuleProvider="target">
+                            <button autoresizesSubviews="NO" verticalHuggingPriority="750" fixedFrame="YES" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eoJ-ib-ihB" customClass="DownloadButton" customModule="Get_It" customModuleProvider="target">
                                 <rect key="frame" x="20" y="20" width="291" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="bevel" title="Download" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="2Wl-gw-9kz">
@@ -1177,7 +1190,7 @@ Enter the following command in the Terminal app and follow the instructions. Whe
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="bevel" title="Open destination folder" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="3uQ-eK-NEk">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="system" size="14"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="openDestinationFolderBtnClicked:" target="XfG-lQ-9wD" id="HG6-hW-eXV"/>

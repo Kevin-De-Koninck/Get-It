@@ -54,8 +54,9 @@ class ViewController: NSViewController {
         super.viewWillAppear()
         
         getIt.checkIfSoftwareIsInstalled()
-//        installationGuideViewSetUp(activate: !isYTDLInstalled)
-        installationGuideViewSetUp(activate: true)
+        let activate = (!getIt.isYTDLInstalled) || (!getIt.isFfmpegInstalled)
+        installationGuideViewSetUp(activate: activate)
+//        installationGuideViewSetUp(activate: true)
     }
     
     func installationGuideViewSetUp(activate: Bool) {
@@ -71,8 +72,9 @@ class ViewController: NSViewController {
     
     @IBAction func refreshInstallationBtnClicked(_ sender: Any) {
         getIt.checkIfSoftwareIsInstalled()
-//        installationGuideViewSetUp(activate: !isYTDLInstalled)
-        installationGuideViewSetUp(activate: true)
+        let activate = (!getIt.isYTDLInstalled) || (!getIt.isFfmpegInstalled)
+        installationGuideViewSetUp(activate: activate)
+//        installationGuideViewSetUp(activate: true)
     }
     
     @IBAction func InstallGuideBtnClicked(_ sender: Any) {
