@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class openTerminalButton: NSButton {
+class installButton: NSButton {
     
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
@@ -24,7 +24,7 @@ class openTerminalButton: NSButton {
         //text
         let style = NSMutableParagraphStyle()
         style.alignment = .center
-        self.attributedTitle = NSAttributedString(string: "Open the Terminal app", attributes: [ NSForegroundColorAttributeName : NSColor.white,
+        self.attributedTitle = NSAttributedString(string: "Install", attributes: [ NSForegroundColorAttributeName : NSColor.white,
                                                                                                  NSParagraphStyleAttributeName : style,
                                                                                                  NSFontAttributeName: NSFont(name: "Arial", size: 18)!])
     }

@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import DJProgressHUD_OSX
 
 class InstallationGuideViewController: NSViewController {
     
@@ -33,7 +34,8 @@ class InstallationGuideViewController: NSViewController {
     @IBOutlet weak var commandTextField: optionsTextfield!
     @IBOutlet weak var titleText: NSTextField!
     @IBOutlet weak var refreshImage: NSButton!
-    @IBOutlet weak var openTerminalButton: openTerminalButton!
+    @IBOutlet weak var openTerminalButton: NSButton!
+    @IBOutlet weak var installButton: installButton!
     
     var currentPage: Int = 0 //intro
     
@@ -53,9 +55,9 @@ class InstallationGuideViewController: NSViewController {
 //        print(getIt.isPythonInstalled)
 //        print(getIt.isYTDLInstalled)
 //        
-//        getIt.isXcodeInstalled = true
+//        getIt.isXcodeInstalled = false
 //        getIt.isPythonInstalled = false
-//        getIt.isBrewInstalled = true
+//        getIt.isBrewInstalled = false
     }
     
     override func awakeFromNib() {
@@ -67,34 +69,59 @@ class InstallationGuideViewController: NSViewController {
     
     
     func displayPage() {
+        installButton.isEnabled = true
         switch currentPage {
         case 0:
             previousPageBtn.isHidden = true
             nextPageBtn.isHidden = false
             commandTextField.isHidden = true
             refreshImage.isHidden = true
+            openTerminalButton.isHidden = true
+            installButton.isHidden = true
+        case 2:
+            previousPageBtn.isHidden = false
+            nextPageBtn.isHidden = false
+            commandTextField.isHidden = false
+            refreshImage.isHidden = true
             openTerminalButton.isHidden = false
+            installButton.isHidden = true
         case 5:
             previousPageBtn.isHidden = false
             nextPageBtn.isHidden = true
             commandTextField.isHidden = true
             refreshImage.isHidden = false
             openTerminalButton.isHidden = true
+            installButton.isHidden = true
         default:
             previousPageBtn.isHidden = false
             nextPageBtn.isHidden = false
-            commandTextField.isHidden = false
+            commandTextField.isHidden = true
             refreshImage.isHidden = true
-            openTerminalButton.isHidden = false
+            openTerminalButton.isHidden = true
+            installButton.isHidden = false
         }
         
         titleText.stringValue = TITLE[PAGES[currentPage]]!
         bodyText.stringValue = BODY[PAGES[currentPage]]!
         commandTextField.stringValue = INSTALLATION_COMMANDS[PAGES[currentPage]]!
     }
-
-    @IBAction func openTerminalBtnClicked(_ sender: Any) {
+    @IBAction func openTerminalButtonClicked(_ sender: Any) {
         _ = getIt.execute(commandSynchronous: "open /Applications/Utilities/Terminal.app")
+    }
+
+    @IBAction func installBtnClicked(_ sender: Any) {
+        var cmd = ""
+        
+        switch currentPage {
+        case 1: cmd = "export PATH=$PATH:/usr/local/bin && " + INSTALLATION_COMMANDS["xcode"]!
+        case 3: cmd = "export PATH=$PATH:/usr/local/bin && " + INSTALLATION_COMMANDS["python"]!
+        default: cmd = "export PATH=$PATH:/usr/local/bin && " + INSTALLATION_COMMANDS["ytdl"]!
+        }
+        
+        DJProgressHUD.showStatus("   Installing\nPlease wait...", from: self.view)
+        _ = getIt.execute(commandSynchronous: cmd)
+        DJProgressHUD.dismiss()
+        installButton.isEnabled = false
     }
     
     @IBAction func nextPageBtnClicked(_ sender: Any) {

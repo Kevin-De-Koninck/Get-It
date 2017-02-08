@@ -56,7 +56,7 @@ class ViewController: NSViewController {
         getIt.checkIfSoftwareIsInstalled()
         let activate = (!getIt.isYTDLInstalled) || (!getIt.isFfmpegInstalled)
         installationGuideViewSetUp(activate: activate)
-//        installationGuideViewSetUp(activate: true)
+//        installationGuideViewSetUp(activate: true)  //TODO - remove (is for testing purposes)
     }
     
     func installationGuideViewSetUp(activate: Bool) {
@@ -74,7 +74,7 @@ class ViewController: NSViewController {
         getIt.checkIfSoftwareIsInstalled()
         let activate = (!getIt.isYTDLInstalled) || (!getIt.isFfmpegInstalled)
         installationGuideViewSetUp(activate: activate)
-//        installationGuideViewSetUp(activate: true)
+//        installationGuideViewSetUp(activate: true)  //TODO - remove (is for testing purposes)
     }
     
     @IBAction func InstallGuideBtnClicked(_ sender: Any) {
@@ -130,18 +130,29 @@ class ViewController: NSViewController {
                 if let s = NSString(data: data, encoding: String.Encoding.utf8.rawValue) {
                     //RECEIVED OUTPUT
                     
+                    print("RECEIVED \(s)")
+                    print("--------------")
+                    
                     var status: String!
+                    let matchesError = [String]()
                     
                     //Received value preprocessing
-                    var str = s.components(separatedBy: "\n")[0]
-                    str = str.replacingOccurrences(of: " ", with: "")
+                    let receivedStr = s.components(separatedBy: "\n")[0]
+                    var str = receivedStr.replacingOccurrences(of: " ", with: "")
                     
                     //Get percentage using a regular expression
                     do{
+                        //regex for downloadbar
                         let regex = try NSRegularExpression(pattern: REGEX_PATTERN, options: [])
                         let matches = regex.matches(in: str, options: [], range: NSRange(location: 0, length: str.characters.count))
+                        //regex for error
+                        let regexError = try NSRegularExpression(pattern: "ERROR", options: [])
+                        let matchesError = regexError.matches(in: str, options: [], range: NSRange(location: 0, length: str.characters.count))
                         
-                        if matches.count > 0 {
+                        if matchesError.count > 0 {
+                        print(receivedStr)
+                            
+                        }else if matches.count > 0 {
                             let rangeOfMatch = matches[0].rangeAt(0)
                             var index = str.index(str.startIndex, offsetBy: rangeOfMatch.location + rangeOfMatch.length - 1)
                             str = str.substring(to: index)
@@ -160,25 +171,32 @@ class ViewController: NSViewController {
                         }
                     } catch _ { }
 
-                    //Set and update the waiting screen based on the received percentage
-                    if(str == "100"){
-                        self.downloadingFileNr = self.downloadingFileNr + 1
-                        status = "Processing file \(self.downloadingFileNr)\n          \(self.currentProgress)%"
-                        self.previousProgress = 0.0
-                    } else if (str == "-1" && self.downloadingFileNr > 1){
-                        status = "Processing file \(self.downloadingFileNr - 1)\n          "
-                    } else if (str == "-1") {
-                        status = "Downloading file \(self.downloadingFileNr)\n             \(self.currentProgress)%"
-                    } else if (self.currentProgress <= 100){
-                        status = "Downloading file \(self.downloadingFileNr)\n             \(self.currentProgress)%"
-                        self.previousProgress = self.currentProgress
-                        self.downloadsDidStart = true
-                    } else {
-                        status = "Processing file \(self.downloadingFileNr)\n          \(self.currentProgress)%"
-                        self.previousProgress = self.currentProgress
+                    //Set and update the waiting screen based on the received percentage/data/error
+                    if matchesError.count == 0 {
+                        if(str == "100"){
+                            self.downloadingFileNr = self.downloadingFileNr + 1
+                            status = "Processing file \(self.downloadingFileNr)\n          \(self.currentProgress)%"
+                            self.previousProgress = 0.0
+                        } else if (str == "-1" && self.downloadingFileNr > 1){
+                            status = "Processing file \(self.downloadingFileNr - 1)\n          "
+                        } else if (str == "-1") {
+                            status = "Downloading file \(self.downloadingFileNr)\n             \(self.currentProgress)%"
+                        } else if (self.currentProgress <= 100){
+                            status = "Downloading file \(self.downloadingFileNr)\n             \(self.currentProgress)%"
+                            self.previousProgress = self.currentProgress
+                            self.downloadsDidStart = true
+                        } else {
+                            status = "Processing file \(self.downloadingFileNr)\n          \(self.currentProgress)%"
+                            self.previousProgress = self.currentProgress
+                        }
+                        if(self.downloadsDidStart) {
+                            DJProgressHUD.showProgress(self.currentProgress/100.0, withStatus: status, from: self.view)
+                        }
                     }
-                    if(self.downloadsDidStart) {
-                        DJProgressHUD.showProgress(self.currentProgress/100.0, withStatus: status, from: self.view)
+                    //error received
+                    else
+                    {
+                        DJProgressHUD.showStatus("ERROR\n\(receivedStr)", from: self.view)
                     }
                 }
                 outHandle.waitForDataInBackgroundAndNotify()

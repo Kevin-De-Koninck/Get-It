@@ -245,7 +245,7 @@ class OptionsViewController: NSViewController {
     
     func createCommand() -> String {
         //Start of creating the command
-        var command = "export PATH=$PATH:/usr/local/bin && youtube-dl --newline";
+        var command = "export PATH=$PATH:/usr/local/bin && youtube-dl --newline --prefer-ffmpeg";
         
         //Preprocessing
         let audioFormatString = audioFormat.selectedItem?.title.characters.split{$0 == "\""}.map(String.init)
