@@ -89,13 +89,20 @@ class ViewController: NSViewController {
         //get input URLs
         let tempString = inputURLS.string!
         let urls = tempString.characters.split{$0 == "\n"}.map(String.init)
-        var urlStr = " "
-        for url in urls { urlStr = urlStr + url + " " }
-
-        //start download
-        downloadsDidStart = false
-        DJProgressHUD.showStatus("Gathering information\n          Please wait", from: self.view)
-        execute(commmandAsynchronous: getIt.getCommand() + urlStr)
+        if(urls.count > 0){
+            var urlStr = " "
+            for url in urls { urlStr = urlStr + url + " " }
+            
+            //start download
+            downloadsDidStart = false
+            DJProgressHUD.showStatus("Gathering information\n          Please wait", from: self.view)
+            execute(commmandAsynchronous: getIt.getCommand() + urlStr)
+        } else {
+            DJProgressHUD.showStatus("Can't download nothing", from: self.view)
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
+                DJProgressHUD.dismiss()
+            })
+        }
     }
     
     
