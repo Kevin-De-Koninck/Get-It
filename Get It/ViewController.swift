@@ -109,10 +109,6 @@ class ViewController: NSViewController {
         arguments.append( commmandAsynchronous  )
         print( commmandAsynchronous  )
         
-        //Start waiting screen
-        //DJProgressHUD.showProgress(0.0, withStatus: "", from: view)
-        
-        
         //Start execution of command
         let task = Process()
         task.launchPath = "/bin/sh"
@@ -169,7 +165,7 @@ class ViewController: NSViewController {
                         } else {
                             str = "-1"
                         }
-                    } catch _ { }
+                    } catch _ { } // don't care
 
                     //Set and update the waiting screen based on the received percentage/data/error
                     if matchesError.count == 0 {
@@ -203,6 +199,13 @@ class ViewController: NSViewController {
             } else {
                 //EOF ON STDOUT FROM PROCESS
                 NotificationCenter.default.removeObserver(obs1)
+                if(self.downloadingFileNr < 2){
+                    DJProgressHUD.dismiss()
+                    DJProgressHUD.showStatus("          Download failed\n\n    Video not available or\nvideo format not available", from: self.view)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
+                        DJProgressHUD.dismiss()
+                    })
+                }
             }
         }
         
