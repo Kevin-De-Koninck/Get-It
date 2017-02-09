@@ -119,6 +119,7 @@ class OptionsViewController: NSViewController {
 
     @IBAction func loadDefaultsBtnClicked(_ sender: Any) {
         UserDefaults.standard.set(DEFAULT_SETTINGS, forKey: SETTINGS_KEY)
+        UserDefaults.standard.setValue(DEFAULT_SETTINGS["path"]!, forKey: OUTPUT_PATH)
         UserDefaults.standard.synchronize()
         loadSettingsAndSetElements()
     }
@@ -128,7 +129,7 @@ class OptionsViewController: NSViewController {
 
         settingsDict["maxFileSize"] = maxFileSize.stringValue
         settingsDict["ignoreErrors"] = String(ignoreErrors.checked) == "true" ? "1" : "0"
-        settingsDict["path"] = UserDefaults.standard.value(forKey: OUTPUT_PATH) as! String
+        settingsDict["path"] = UserDefaults.standard.value(forKey: OUTPUT_PATH) as? String
         settingsDict["outputTemplate"] = outputTemplate.itemTitle(at: outputTemplate.indexOfSelectedItem)
         settingsDict["audioFormat"] = audioFormat.itemTitle(at: audioFormat.indexOfSelectedItem)
         settingsDict["audioQuality"] = audioQuality.itemTitle(at: audioQuality.indexOfSelectedItem)
@@ -340,8 +341,8 @@ class OptionsViewController: NSViewController {
             }
         }
         
-        
-        //TODO open settings view again
+        //post notification to viewcontroller.swift to open the settingsview again (segue)
+        NotificationCenter.default.post(NSNotification(name: NSNotification.Name(rawValue: "openSettingsView"), object: nil) as Notification)
         
     }
  

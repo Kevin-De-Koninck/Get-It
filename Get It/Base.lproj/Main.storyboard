@@ -254,8 +254,11 @@
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <popUpButton verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GVv-b9-3xw">
+                                                <popUpButton verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GVv-b9-3xw">
                                                     <rect key="frame" x="233" y="27" width="205" height="26"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="200" id="ldN-ch-fdo"/>
+                                                    </constraints>
                                                     <popUpButtonCell key="cell" type="push" title="Title.extension" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="ij1-hj-WYz" id="Iat-Kw-AUH">
                                                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="menu"/>
@@ -268,8 +271,11 @@
                                                         </menu>
                                                     </popUpButtonCell>
                                                 </popUpButton>
-                                                <textField toolTip="Do not download any videos larger than... [MB]" focusRingType="none" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3pX-rq-V4S" customClass="optionsTextfield" customModule="Get_It" customModuleProvider="target">
+                                                <textField toolTip="Do not download any videos larger than... [MB]" focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3pX-rq-V4S" customClass="optionsTextfield" customModule="Get_It" customModuleProvider="target">
                                                     <rect key="frame" x="235" y="105" width="200" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="196" id="PCe-th-M0d"/>
+                                                    </constraints>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" placeholderString="MB" usesSingleLineMode="YES" id="bwk-B0-ddt">
                                                         <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="upV-Rp-Z1r"/>
                                                         <font key="font" metaFont="system"/>
@@ -1236,7 +1242,7 @@ Enter the following command in the Terminal app and follow the instructions. Whe
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <segue destination="Igh-3R-yf8" kind="popover" popoverAnchorView="AoL-t3-F2Z" popoverBehavior="t" preferredEdge="maxY" id="g0o-eO-lPT"/>
+                                    <segue destination="Igh-3R-yf8" kind="popover" identifier="settingsSegue" popoverAnchorView="AoL-t3-F2Z" popoverBehavior="t" preferredEdge="maxY" id="g0o-eO-lPT"/>
                                 </connections>
                             </button>
                             <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gih-DJ-UYv">

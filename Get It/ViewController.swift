@@ -48,6 +48,10 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(openSettingsView), name: NSNotification.Name(rawValue: "openSettingsView"), object: nil)
+    }
+    func openSettingsView(notif: AnyObject) {
+        self.performSegue(withIdentifier: "settingsSegue", sender: self)
     }
     
     override func viewWillAppear() {
