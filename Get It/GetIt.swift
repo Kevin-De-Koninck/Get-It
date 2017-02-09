@@ -58,6 +58,22 @@ class GetIt {
         }
     }
     
+    func getOutputPath() -> String {
+        if let path = UserDefaults.standard.value(forKey: OUTPUT_PATH) as? String {
+            return path + "/"
+        } else {
+            return DEFAULT_SETTINGS["path"]! + "/"
+        }
+    }
+    
+    func getOutputTemplate() -> String {
+        if let template = UserDefaults.standard.value(forKey: OUTPUT_TEMPLATE) as? String {
+            return template + " "
+        } else {
+            return DEFAULT_SETTINGS["outputTemplate"]! + " "
+        }
+    }
+    
     
     func open(folder: String){
         _ = self.execute(commandSynchronous: "open \(folder)")

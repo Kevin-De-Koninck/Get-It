@@ -14,8 +14,9 @@ class OptionsViewController: NSViewController {
     //General tab
     @IBOutlet weak var maxFileSize: NSTextField!
     @IBOutlet weak var ignoreErrors: ITSwitch!
-    @IBOutlet weak var pathChooser: NSPathCell!
     @IBOutlet weak var outputTemplate: NSPopUpButton!
+    @IBOutlet weak var selectedPath: NSTextField!
+    
     
     //audio tab
     @IBOutlet weak var extractAudio: ITSwitch!
@@ -49,6 +50,12 @@ class OptionsViewController: NSViewController {
     @IBOutlet weak var twoFactorCode: NSSecureTextField!
     @IBOutlet weak var netrc: ITSwitch!
     @IBOutlet weak var videoPassword: NSSecureTextField!
+    
+    
+    
+    
+    
+
 
 
     override func viewDidLoad() {
@@ -79,8 +86,6 @@ class OptionsViewController: NSViewController {
         startAtVideo.placeholderString = "From"
         stopAtVideo.placeholderString = "To"
         downloadSpecificVideos.placeholderString = "E.g. 1-3,7,10-13"
-
-        pathChooser.pathComponentCells.removeAll()
         
         loadSettingsAndSetElements()
     }
@@ -98,6 +103,17 @@ class OptionsViewController: NSViewController {
         //we want to save the settings
         saveSettings()
         UserDefaults.standard.setValue(createCommand(), forKey: SAVED_COMMAND)
+
+        //save output template
+        var template: String = ""
+        switch outputTemplate.selectedItem!.tag {
+        case 0: template = "'%(title)s.%(ext)s'"
+        case 1: template = "'%(playlist)s/%(title)s.%(ext)s'"
+        case 2: template = "'%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s'"
+        default: template = "'%(title)s.%(ext)s'"
+        }
+        
+        UserDefaults.standard.setValue(template, forKey: OUTPUT_TEMPLATE)
         UserDefaults.standard.synchronize()
     }
 
@@ -109,12 +125,10 @@ class OptionsViewController: NSViewController {
     
     func saveSettings() {
         var settingsDict = [String: String]()
-        
-        let pathString = pathChooser.url?.path.characters.split{$0 == "\""}.map(String.init) //item to string
 
         settingsDict["maxFileSize"] = maxFileSize.stringValue
         settingsDict["ignoreErrors"] = String(ignoreErrors.checked) == "true" ? "1" : "0"
-        settingsDict["path"] = "~/Downloads/"//pathString![0]
+        settingsDict["path"] = UserDefaults.standard.value(forKey: OUTPUT_PATH) as! String
         settingsDict["outputTemplate"] = outputTemplate.itemTitle(at: outputTemplate.indexOfSelectedItem)
         settingsDict["audioFormat"] = audioFormat.itemTitle(at: audioFormat.indexOfSelectedItem)
         settingsDict["audioQuality"] = audioQuality.itemTitle(at: audioQuality.indexOfSelectedItem)
@@ -147,15 +161,12 @@ class OptionsViewController: NSViewController {
     func loadSettingsAndSetElements() {
         
         if let arr = UserDefaults.standard.value(forKey: SETTINGS_KEY) as? [String:String] {
-            
-            //TODO: fix the path
-            //            if let val = arr["path"] {
-            //                pathChooser.url = URL.init(fileURLWithPath: val)
-            //            } else {
-            //                pathChooser.url = URL.init(fileURLWithPath: DEFAULT_SETTINGS["path"]!)
-            //            }
+
             
             //Get and set all saved settings
+            
+            if arr["path"] != nil { selectedPath.stringValue = NSURL(fileURLWithPath: (UserDefaults.standard.value(forKey: OUTPUT_PATH) as! String)).lastPathComponent! }
+            else { selectedPath.stringValue = DEFAULT_SETTINGS["path"]! }
             
             if let val = arr["maxFileSize"] { maxFileSize.stringValue = val }
             else { maxFileSize.stringValue = DEFAULT_SETTINGS["maxFileSize"]! }
@@ -297,19 +308,41 @@ class OptionsViewController: NSViewController {
             }
             command += " --sub-lang \(subLanguage)"
         }
-
-        //append output destination to command
-//        let pathString = pathChooser.url?.path.characters.split{$0 == "\""}.map(String.init) //item to string
-//        command += " -o \(pathString![0])/"
-        command += " -o ~/Downloads/"
-        switch outputTemplate.selectedItem!.tag {
-            case 0: command += "'%(title)s.%(ext)s'"
-            case 1: command += "'%(playlist)s/%(title)s.%(ext)s'"
-            case 2: command += "'%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s'"
-            default: command += "'%(title)s.%(ext)s'"
-        }
         
         return command
+    }
+    
+    
+    @IBAction func folderIconClicked(_ sender: Any) {
+        let dialog = NSOpenPanel();
+        
+        dialog.title                   = "Choose a folder"
+        dialog.showsResizeIndicator    = true
+        dialog.showsHiddenFiles        = false
+        dialog.canChooseFiles          = false
+        dialog.canChooseDirectories    = true
+        dialog.canCreateDirectories    = true
+        dialog.allowsMultipleSelection = false
+        
+        if (dialog.runModal() == NSModalResponseOK) {
+            let result = dialog.url
+            if (result != nil) {
+                let path = result!.path
+                UserDefaults.standard.setValue(path, forKey: OUTPUT_PATH)
+                UserDefaults.standard.synchronize()
+                
+                
+                
+                selectedPath.stringValue = NSURL(fileURLWithPath: path).lastPathComponent!
+                
+                print(path)
+                print(selectedPath.stringValue)
+            }
+        }
+        
+        
+        //TODO open settings view again
+        
     }
  
 }

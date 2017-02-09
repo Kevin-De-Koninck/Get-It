@@ -223,8 +223,8 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <textField toolTip="Do not download any videos larger than... [MB]" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hSv-0K-HSK">
-                                                    <rect key="frame" x="15" y="107" width="116" height="17"/>
-                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Maximum file size:" id="4pd-DK-fsY">
+                                                    <rect key="frame" x="15" y="107" width="154" height="17"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Maximum file size in MB:" id="4pd-DK-fsY">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -254,14 +254,7 @@
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <pathControl verticalHuggingPriority="750" tag="1" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BJn-jR-6jQ">
-                                                    <rect key="frame" x="232" y="52" width="206" height="26"/>
-                                                    <pathCell key="cell" selectable="YES" editable="YES" alignment="left" pathStyle="popUp" id="Z8J-bx-eH9">
-                                                        <font key="font" metaFont="system"/>
-                                                        <url key="url" string="file:///var/"/>
-                                                    </pathCell>
-                                                </pathControl>
-                                                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GVv-b9-3xw">
+                                                <popUpButton verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GVv-b9-3xw">
                                                     <rect key="frame" x="233" y="27" width="205" height="26"/>
                                                     <popUpButtonCell key="cell" type="push" title="Title.extension" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="ij1-hj-WYz" id="Iat-Kw-AUH">
                                                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -275,7 +268,7 @@
                                                         </menu>
                                                     </popUpButtonCell>
                                                 </popUpButton>
-                                                <textField toolTip="Do not download any videos larger than... [MB]" focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3pX-rq-V4S" customClass="optionsTextfield" customModule="Get_It" customModuleProvider="target">
+                                                <textField toolTip="Do not download any videos larger than... [MB]" focusRingType="none" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3pX-rq-V4S" customClass="optionsTextfield" customModule="Get_It" customModuleProvider="target">
                                                     <rect key="frame" x="235" y="105" width="200" height="22"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" placeholderString="MB" usesSingleLineMode="YES" id="bwk-B0-ddt">
                                                         <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="upV-Rp-Z1r"/>
@@ -290,13 +283,30 @@
                                                         <constraint firstAttribute="width" constant="28" id="xF8-yL-TSH"/>
                                                     </constraints>
                                                 </customView>
+                                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E2g-pg-Lkd">
+                                                    <rect key="frame" x="237" y="55" width="25" height="25"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Folder-icon" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="SKQ-JD-k6p">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="folderIconClicked:" target="Igh-3R-yf8" id="oqJ-pw-bdr"/>
+                                                    </connections>
+                                                </button>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jzS-2Q-oeP">
+                                                    <rect key="frame" x="268" y="59" width="167" height="17"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="~/Downloads" id="hQv-OP-7CA">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="YUd-jr-IsJ" firstAttribute="leading" secondItem="DBg-5l-KHe" secondAttribute="leading" id="04H-3a-71A"/>
-                                                <constraint firstItem="BJn-jR-6jQ" firstAttribute="trailing" secondItem="GVv-b9-3xw" secondAttribute="trailing" id="1qe-AH-yHj"/>
-                                                <constraint firstAttribute="trailing" secondItem="BJn-jR-6jQ" secondAttribute="trailing" constant="3" id="3ed-6Y-LiU"/>
                                                 <constraint firstItem="hSv-0K-HSK" firstAttribute="centerY" secondItem="3pX-rq-V4S" secondAttribute="centerY" id="4lI-7o-WRk"/>
-                                                <constraint firstItem="4pH-QS-9z0" firstAttribute="leading" secondItem="BJn-jR-6jQ" secondAttribute="leading" id="8u7-yI-MaL"/>
                                                 <constraint firstAttribute="bottom" secondItem="GVv-b9-3xw" secondAttribute="bottom" constant="30" id="AR5-4Q-XKF"/>
                                                 <constraint firstItem="hSv-0K-HSK" firstAttribute="leading" secondItem="TLS-HV-qXB" secondAttribute="leading" constant="17" id="DMI-HB-kIY"/>
                                                 <constraint firstAttribute="trailing" secondItem="3pX-rq-V4S" secondAttribute="trailing" constant="5" id="E66-Mf-7vH"/>
@@ -305,14 +315,11 @@
                                                 <constraint firstItem="4pH-QS-9z0" firstAttribute="top" secondItem="3pX-rq-V4S" secondAttribute="bottom" constant="6" id="I8j-rd-S82"/>
                                                 <constraint firstAttribute="trailing" secondItem="4pH-QS-9z0" secondAttribute="trailing" constant="175" id="IwN-ca-x5Q"/>
                                                 <constraint firstItem="Um9-h0-AJH" firstAttribute="top" secondItem="DBg-5l-KHe" secondAttribute="bottom" constant="8" symbolic="YES" id="J9R-2g-WvM"/>
-                                                <constraint firstItem="3pX-rq-V4S" firstAttribute="centerX" secondItem="BJn-jR-6jQ" secondAttribute="centerX" id="NTB-Wh-wHR"/>
                                                 <constraint firstItem="YUd-jr-IsJ" firstAttribute="bottom" secondItem="4pH-QS-9z0" secondAttribute="bottom" id="NZq-cF-i0m"/>
                                                 <constraint firstItem="Um9-h0-AJH" firstAttribute="centerY" secondItem="GVv-b9-3xw" secondAttribute="centerY" id="cGT-cd-NTU"/>
                                                 <constraint firstItem="YUd-jr-IsJ" firstAttribute="top" secondItem="hSv-0K-HSK" secondAttribute="bottom" constant="8" symbolic="YES" id="h7O-cr-EQ4"/>
                                                 <constraint firstItem="DBg-5l-KHe" firstAttribute="top" secondItem="YUd-jr-IsJ" secondAttribute="bottom" constant="8" symbolic="YES" id="hZz-9J-ibS"/>
-                                                <constraint firstItem="BJn-jR-6jQ" firstAttribute="leading" secondItem="GVv-b9-3xw" secondAttribute="leading" id="jdf-f2-5Cz"/>
                                                 <constraint firstItem="DBg-5l-KHe" firstAttribute="leading" secondItem="Um9-h0-AJH" secondAttribute="leading" id="q57-sY-4QG"/>
-                                                <constraint firstItem="DBg-5l-KHe" firstAttribute="centerY" secondItem="BJn-jR-6jQ" secondAttribute="centerY" id="vH1-Qc-mfM"/>
                                                 <constraint firstItem="hSv-0K-HSK" firstAttribute="leading" secondItem="YUd-jr-IsJ" secondAttribute="leading" id="zMA-5j-i6S"/>
                                             </constraints>
                                         </view>
@@ -978,9 +985,9 @@
                         <outlet property="netrc" destination="oFp-TW-xIO" id="aOG-U8-7pm"/>
                         <outlet property="outputTemplate" destination="GVv-b9-3xw" id="HYf-7q-nmG"/>
                         <outlet property="password" destination="XOo-FL-D72" id="j2n-9P-Ar0"/>
-                        <outlet property="pathChooser" destination="Z8J-bx-eH9" id="n4P-Oa-j4v"/>
                         <outlet property="preferFreeFormats" destination="DEL-fZ-Ac1" id="gRy-kd-ary"/>
                         <outlet property="reversePlaylist" destination="BSB-HQ-y2M" id="XSr-xO-NI6"/>
+                        <outlet property="selectedPath" destination="jzS-2Q-oeP" id="8uR-kn-B5K"/>
                         <outlet property="skipDashManifest" destination="e20-D7-JjB" id="31L-95-qQm"/>
                         <outlet property="startAtVideo" destination="U6T-aK-Xnk" id="njB-UZ-8Yi"/>
                         <outlet property="stopAtVideo" destination="XWE-3Z-NoL" id="Av1-wg-3rJ"/>
@@ -992,7 +999,7 @@
                 </viewController>
                 <customObject id="qfN-P7-ONt" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="306" y="270"/>
+            <point key="canvasLocation" x="306" y="269.5"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="Zgg-lz-KoH">
@@ -1200,7 +1207,7 @@ Enter the following command in the Terminal app and follow the instructions. Whe
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SGD-KR-TCl" customClass="GrayButton" customModule="Get_It" customModuleProvider="target">
-                                <rect key="frame" x="20" y="60" width="291" height="30"/>
+                                <rect key="frame" x="20" y="60" width="292" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="bevel" title="Open destination folder" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="3uQ-eK-NEk">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1490,6 +1497,7 @@ For more information, visit GitHub and my website.</string>
         </scene>
     </scenes>
     <resources>
+        <image name="Folder-icon" width="512" height="512"/>
         <image name="K" width="210" height="145"/>
         <image name="Settings" width="122.87999725341797" height="122.87999725341797"/>
         <image name="arrow-download-icon" width="256" height="256"/>

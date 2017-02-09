@@ -81,7 +81,7 @@ class ViewController: NSViewController {
     }
     
     @IBAction func openDestinationFolderBtnClicked(_ sender: Any) {
-        _ = getIt.open(folder:"~/Downloads/")
+        _ = getIt.open(folder: UserDefaults.standard.value(forKey: OUTPUT_PATH) as! String)
     }
     
 
@@ -96,7 +96,7 @@ class ViewController: NSViewController {
             //start download
             downloadsDidStart = false
             DJProgressHUD.showStatus("Gathering information\n          Please wait", from: self.view)
-            execute(commmandAsynchronous: getIt.getCommand() + urlStr)
+            execute(commmandAsynchronous: getIt.getCommand() + " -o " + getIt.getOutputPath() + getIt.getOutputTemplate() + urlStr)
         } else {
             DJProgressHUD.showStatus("Can't download nothing", from: self.view)
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
