@@ -12,9 +12,12 @@ class DownloadButton: NSButton {
     
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
-
-        //GUI
-        self.layer?.backgroundColor = CGColor.init(red: 45.0/255, green: 135.0/255, blue: 250.0/255, alpha: 1)
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        self.layer?.backgroundColor = blueColor.cgColor
         self.layer?.cornerRadius = 15.0
         self.layer?.masksToBounds = true
         
@@ -22,7 +25,7 @@ class DownloadButton: NSButton {
         let style = NSMutableParagraphStyle()
         style.alignment = .center
         self.attributedTitle = NSAttributedString(string: "Download", attributes: [ NSForegroundColorAttributeName : NSColor.white,
-                                                                                   NSParagraphStyleAttributeName : style,
-                                                                                   NSFontAttributeName: NSFont(name: "Arial", size: 18)!])
+                                                                                    NSParagraphStyleAttributeName : style,
+                                                                                    NSFontAttributeName: NSFont(name: "Arial", size: 18)!])
     }
 }
