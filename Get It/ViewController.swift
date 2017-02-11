@@ -48,6 +48,8 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         NotificationCenter.default.addObserver(self, selector: #selector(openSettingsView), name: NSNotification.Name(rawValue: "openSettingsView"), object: nil)
     }
     func openSettingsView(notif: AnyObject) {
@@ -60,7 +62,7 @@ class ViewController: NSViewController {
         getIt.checkIfSoftwareIsInstalled()
         let activate = (!getIt.isYTDLInstalled) || (!getIt.isFfmpegInstalled)
         installationGuideViewSetUp(activate: activate)
-//        installationGuideViewSetUp(activate: true)  //TODO - remove (is for testing purposes)
+        installationGuideViewSetUp(activate: true)  //TODO - remove (is for testing purposes)
     }
     
     func installationGuideViewSetUp(activate: Bool) {

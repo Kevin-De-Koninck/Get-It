@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Get It/OptionsViewController.swift"
-            timestampString = "508360239.668341"
+            timestampString = "508530891.185216"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
             landmarkName = "loadSettingsAndSetElements()"
             landmarkType = "7">
          </BreakpointContent>

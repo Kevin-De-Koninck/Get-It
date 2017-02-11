@@ -51,11 +51,6 @@ class OptionsViewController: NSViewController {
     @IBOutlet weak var netrc: ITSwitch!
     @IBOutlet weak var videoPassword: NSSecureTextField!
     
-    
-    
-    
-    
-
 
 
     override func viewDidLoad() {
