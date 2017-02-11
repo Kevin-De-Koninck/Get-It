@@ -7,7 +7,7 @@ A native macOS video/audio downloader. Think of it as a youtube downloader that 
 
 # Installation
 
-Download it [here](https://github.com/Kevin-De-Koninck/Get-It/releases/download/v0.5/Get.It.app.zip), unzip it and open it.
+Download it [here](https://github.com/Kevin-De-Koninck/Get-It/releases/download/v0.5.1/Get.It.app.zip), unzip it and open it.
 If a yellow package button is visible on the main screen, click on it and follow the guide (to install the dependencies).
 
 
