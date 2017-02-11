@@ -62,7 +62,7 @@ class ViewController: NSViewController {
         getIt.checkIfSoftwareIsInstalled()
         let activate = (!getIt.isYTDLInstalled) || (!getIt.isFfmpegInstalled)
         installationGuideViewSetUp(activate: activate)
-        installationGuideViewSetUp(activate: true)  //TODO - remove (is for testing purposes)
+//        installationGuideViewSetUp(activate: true)  //TODO - remove (is for testing purposes)
     }
     
     func installationGuideViewSetUp(activate: Bool) {

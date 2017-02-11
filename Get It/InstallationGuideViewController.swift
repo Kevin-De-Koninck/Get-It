@@ -55,9 +55,9 @@ class InstallationGuideViewController: NSViewController {
 //        print(getIt.isPythonInstalled)
 //        print(getIt.isYTDLInstalled)
 //        
-        getIt.isXcodeInstalled = false
-        getIt.isPythonInstalled = false
-        getIt.isBrewInstalled = false
+//        getIt.isXcodeInstalled = false
+//        getIt.isPythonInstalled = false
+//        getIt.isBrewInstalled = false
     }
     
     override func awakeFromNib() {
