@@ -24,7 +24,6 @@
 		0AF763D21E476D4C00403BA1 /* openTerminalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF763D11E476D4C00403BA1 /* openTerminalButton.swift */; };
 		0AF763D41E47B90D00403BA1 /* InstallationGuideTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF763D31E47B90D00403BA1 /* InstallationGuideTexts.swift */; };
 		0AF763D61E47C71500403BA1 /* installationGuideTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF763D51E47C71500403BA1 /* installationGuideTextField.swift */; };
-		57A713EE30F5529EC97CABA2 /* Pods_Youtube_dl_GUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 685C0FDD28B58EDB6BF51860 /* Pods_Youtube_dl_GUI.framework */; };
 		656FE9E68E618252B653F728 /* Pods_Get_It.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F840AEEA491FC0DE6DE63CC /* Pods_Get_It.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,7 +60,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57A713EE30F5529EC97CABA2 /* Pods_Youtube_dl_GUI.framework in Frameworks */,
 				656FE9E68E618252B653F728 /* Pods_Get_It.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
