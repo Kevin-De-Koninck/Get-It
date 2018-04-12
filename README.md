@@ -1,7 +1,7 @@
 # Get It
 A native macOS video/audio downloader. Think of it as a youtube downloader that works on many sites.
 
-<img src="https://github.com/Kevin-De-Koninck/Get-It/blob/master/ReadMe%20Resources/MainWindow.png?raw=true" width="400" /><img src="https://github.com/Kevin-De-Koninck/Get-It/blob/master/ReadMe%20Resources/Settings.png?raw=true" width="400" />
+<img src="https://github.com/Kevin-De-Koninck/Get-It/blob/master/ReadMe%20Resources/MainWindow.png?raw=true" height="400" /><img src="https://github.com/Kevin-De-Koninck/Get-It/blob/master/ReadMe%20Resources/Settings.png?raw=true" height="400" />
 
 
 # Installation
