@@ -43,6 +43,16 @@ Public domain
 Version History
 ---------------
 
+* 1.24
+	- Add PFMoveIsInProgress function
+	- Update project for Xcode 9.1
+
+* 1.23
+	- Fix localization not being used when built as a framework
+	- Fix backwards compatibility with OS X 10.9 and earlier being broken
+	- Make usable for Electron based apps or other apps that do not have access to the main thread dispatch queue
+	- Update Russian localization
+
 * 1.22
 	- Fix not deleting or trashing itself after copying to /Applications in macOS Sierra
 
@@ -166,12 +176,14 @@ Code Contributors:
 * Nick Moore
 * Nicholas Riley
 * Matt Prowse
+* Maxim Ananov
+* Charlie Stigler
 
 
 Translators:
 ------------
 * Eita Hayashi (Japanese)
-* Gleb M. Borisov (Russian)
+* Gleb M. Borisov, Maxim Ananov (Russian)
 * Wouter Broekhof (Dutch)
 * Rasmus Andersson / Spotify (French and Spanish)
 * Markus Kirschner (German)
