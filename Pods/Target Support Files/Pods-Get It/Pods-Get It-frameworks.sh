@@ -145,12 +145,10 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/ITSwitch/ITSwitch.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/LetsMove/LetsMove.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/OGCircularBar/OGCircularBar.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/ITSwitch/ITSwitch.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/LetsMove/LetsMove.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/OGCircularBar/OGCircularBar.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait
