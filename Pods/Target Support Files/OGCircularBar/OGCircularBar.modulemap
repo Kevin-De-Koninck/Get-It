@@ -1,0 +1,6 @@
+framework module OGCircularBar {
+  umbrella header "OGCircularBar-umbrella.h"
+
+  export *
+  module * { export * }
+}

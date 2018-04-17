@@ -1,24 +1,24 @@
 PODS:
-  - DJProgressHUD_OSX (0.0.1)
   - ITSwitch (1.0)
   - LetsMove (1.24)
+  - OGCircularBar (1.2)
 
 DEPENDENCIES:
-  - DJProgressHUD_OSX
   - ITSwitch
   - LetsMove
+  - OGCircularBar
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
-    - DJProgressHUD_OSX
     - ITSwitch
     - LetsMove
+    - OGCircularBar
 
 SPEC CHECKSUMS:
-  DJProgressHUD_OSX: a8de6d2da8750dbf671fcddc649a44a9cd2807c4
   ITSwitch: 7ff745d6f2a6910e9194b23e4eab9a843258a478
   LetsMove: fefe56bc7bc7fb7d37049e28a14f297961229fc5
+  OGCircularBar: b20743ce21114e509e2e80aa48dff0b7499dec19
 
-PODFILE CHECKSUM: b1b05df537f199f1410c30e64c24cde88db79221
+PODFILE CHECKSUM: 7dcc686a35c2cf126cd5954e2bb4c35176717e5b
 
 COCOAPODS: 1.5.0

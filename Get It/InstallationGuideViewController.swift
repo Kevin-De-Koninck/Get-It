@@ -7,26 +7,10 @@
 //
 
 import Cocoa
-import DJProgressHUD_OSX
 
 class InstallationGuideViewController: NSViewController {
     
     var getIt = GetIt()
-    
-    /* 
-     * Dictoinary title  ("intro" : "introduction", "brew" : "Homebrew", ...)
-                  bodyText ("intro : "welcome to ..." , "brew" : "we will ...", ...)
-                  ...
-     
-     * variabele page: Int = 0
-       variable pages = ["intro", "brew", ...]
-     
-     * bodytext = bodyTextDict(pages[page])
-     
-     * if clicked previeous: page = page - 1 (if page > 0)
-     
-     etc
-     */
 
     @IBOutlet weak var nextPageBtn: NSButton!
     @IBOutlet weak var previousPageBtn: NSButton!
@@ -47,17 +31,6 @@ class InstallationGuideViewController: NSViewController {
         refreshImage.isHidden = true
         currentPage = 0
         displayPage()
-        
-//TODO remove
-//
-//        print(getIt.isXcodeInstalled)
-//        print(getIt.isBrewInstalled)
-//        print(getIt.isPythonInstalled)
-//        print(getIt.isYTDLInstalled)
-//        
-//        getIt.isXcodeInstalled = false
-//        getIt.isPythonInstalled = false
-//        getIt.isBrewInstalled = false
     }
     
     override func awakeFromNib() {
@@ -118,9 +91,9 @@ class InstallationGuideViewController: NSViewController {
         default: cmd = "export PATH=$PATH:/usr/local/bin && " + INSTALLATION_COMMANDS["ytdl"]!
         }
         
-        DJProgressHUD.showStatus("   Installing\nPlease wait...", from: self.view)
+        // TODO: show "Installing\nPlease wait..."
         _ = getIt.execute(commandSynchronous: cmd)
-        DJProgressHUD.dismiss()
+        // TODO dismiss viewcontroller
         installButton.isEnabled = false
     }
     

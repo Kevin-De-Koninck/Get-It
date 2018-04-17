@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -1180,14 +1181,13 @@ Enter the following command in the Terminal app and follow the instructions. Whe
                         <rect key="frame" x="0.0" y="0.0" width="332" height="390"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView toolTip="Insert your URLs here. Seperate multiple URLS with a breakline (enter)." fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="70X-2A-ilo">
+                            <scrollView toolTip="Insert your URLs here. Seperate multiple URLS with a breakline (enter)." horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="70X-2A-ilo">
                                 <rect key="frame" x="20" y="100" width="291" height="166"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <clipView key="contentView" ambiguous="YES" id="MdI-Io-aKx">
+                                <clipView key="contentView" id="MdI-Io-aKx">
                                     <rect key="frame" x="1" y="1" width="274" height="164"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textView ambiguous="YES" importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" linkDetection="YES" textCompletion="NO" smartInsertDelete="YES" id="7x6-CY-4t8">
+                                        <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" linkDetection="YES" textCompletion="NO" smartInsertDelete="YES" id="7x6-CY-4t8">
                                             <rect key="frame" x="0.0" y="0.0" width="274" height="164"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1207,9 +1207,11 @@ Enter the following command in the Terminal app and follow the instructions. Whe
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <button autoresizesSubviews="NO" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eoJ-ib-ihB" customClass="DownloadButton" customModule="Get_It" customModuleProvider="target">
+                            <button autoresizesSubviews="NO" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eoJ-ib-ihB" customClass="DownloadButton" customModule="Get_It" customModuleProvider="target">
                                 <rect key="frame" x="20" y="21" width="291" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="Zeq-Sv-N6K"/>
+                                </constraints>
                                 <buttonCell key="cell" type="bevel" title="Download" bezelStyle="regularSquare" alignment="center" imageScaling="proportionallyDown" inset="2" id="2Wl-gw-9kz">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -1218,9 +1220,11 @@ Enter the following command in the Terminal app and follow the instructions. Whe
                                     <action selector="downloadButton:" target="XfG-lQ-9wD" id="fCZ-Uv-yft"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SGD-KR-TCl" customClass="GrayButton" customModule="Get_It" customModuleProvider="target">
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SGD-KR-TCl" customClass="GrayButton" customModule="Get_It" customModuleProvider="target">
                                 <rect key="frame" x="20" y="60" width="292" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="CUh-oT-ZW6"/>
+                                </constraints>
                                 <buttonCell key="cell" type="bevel" title="Open destination folder" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="3uQ-eK-NEk">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system" size="14"/>
@@ -1229,9 +1233,8 @@ Enter the following command in the Terminal app and follow the instructions. Whe
                                     <action selector="openDestinationFolderBtnClicked:" target="XfG-lQ-9wD" id="HG6-hW-eXV"/>
                                 </connections>
                             </button>
-                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CAr-Wq-0Fh">
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="CAr-Wq-0Fh">
                                 <rect key="frame" x="100" y="274" width="132" height="114"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="arrow-download-icon" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="3jb-ZT-9gU">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -1240,9 +1243,11 @@ Enter the following command in the Terminal app and follow the instructions. Whe
                                     <segue destination="22z-Dn-UPJ" kind="popover" popoverAnchorView="CAr-Wq-0Fh" popoverBehavior="t" preferredEdge="maxY" id="PiP-l7-9X3"/>
                                 </connections>
                             </button>
-                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AoL-t3-F2Z">
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="AoL-t3-F2Z">
                                 <rect key="frame" x="282" y="360" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="WKp-LY-dnS"/>
+                                </constraints>
                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Settings" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="xgK-5l-IF3">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -1251,9 +1256,11 @@ Enter the following command in the Terminal app and follow the instructions. Whe
                                     <segue destination="Igh-3R-yf8" kind="popover" identifier="settingsSegue" popoverAnchorView="AoL-t3-F2Z" popoverBehavior="t" preferredEdge="maxY" id="g0o-eO-lPT"/>
                                 </connections>
                             </button>
-                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gih-DJ-UYv">
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="Gih-DJ-UYv">
                                 <rect key="frame" x="281" y="320" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="XXb-Jp-Nvt"/>
+                                </constraints>
                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="package" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="SfQ-Iq-zhf">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -1265,9 +1272,12 @@ Enter the following command in the Terminal app and follow the instructions. Whe
                                     <segue destination="TVW-7d-GRi" kind="show" id="lSN-IA-ncA"/>
                                 </connections>
                             </button>
-                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qaK-My-rOG">
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="qaK-My-rOG">
                                 <rect key="frame" x="284" y="285" width="24" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="ZsC-9l-Vxg"/>
+                                    <constraint firstAttribute="height" constant="25" id="sds-GY-Euy"/>
+                                </constraints>
                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="refresh" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="p8t-Iq-WEE">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -1276,7 +1286,70 @@ Enter the following command in the Terminal app and follow the instructions. Whe
                                     <action selector="refreshInstallationBtnClicked:" target="XfG-lQ-9wD" id="9YC-ex-V2W"/>
                                 </connections>
                             </button>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="TCr-WW-W4C" customClass="progressView" customModule="Get_It" customModuleProvider="target">
+                                <rect key="frame" x="45" y="108" width="243" height="150"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="38L-rH-SBn">
+                                        <rect key="frame" x="-2" y="76" width="247" height="19"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="19" id="2Nw-bp-fbM"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="yUm-Ij-IRa">
+                                            <font key="font" metaFont="systemSemibold" size="16"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wyx-tm-2Ez">
+                                        <rect key="frame" x="5" y="20" width="233" height="55"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="55" id="Via-Mv-NoM"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="4YQ-va-fYx">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="38L-rH-SBn" firstAttribute="top" secondItem="TCr-WW-W4C" secondAttribute="top" constant="55" id="AgI-3Q-Rhh"/>
+                                    <constraint firstAttribute="width" constant="243" id="Df7-dO-aR9"/>
+                                    <constraint firstAttribute="bottom" secondItem="Wyx-tm-2Ez" secondAttribute="bottom" constant="20" id="XAC-Uh-qhh"/>
+                                    <constraint firstAttribute="trailing" secondItem="Wyx-tm-2Ez" secondAttribute="trailing" constant="7" id="bDa-aA-nuX"/>
+                                    <constraint firstAttribute="trailing" secondItem="38L-rH-SBn" secondAttribute="trailing" id="dX4-xB-GAR"/>
+                                    <constraint firstAttribute="height" constant="150" id="f9Q-tJ-jy0"/>
+                                    <constraint firstItem="38L-rH-SBn" firstAttribute="leading" secondItem="TCr-WW-W4C" secondAttribute="leading" id="idm-mn-Dhm"/>
+                                    <constraint firstItem="Wyx-tm-2Ez" firstAttribute="leading" secondItem="TCr-WW-W4C" secondAttribute="leading" constant="7" id="l7n-aE-cC7"/>
+                                </constraints>
+                            </customView>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="AoL-t3-F2Z" firstAttribute="leading" secondItem="CAr-Wq-0Fh" secondAttribute="trailing" constant="50" id="4BF-gb-7Ld"/>
+                            <constraint firstItem="SGD-KR-TCl" firstAttribute="top" secondItem="70X-2A-ilo" secondAttribute="bottom" constant="10" id="5G6-pu-uoa"/>
+                            <constraint firstItem="Gih-DJ-UYv" firstAttribute="centerX" secondItem="qaK-My-rOG" secondAttribute="centerX" id="Czr-bT-faR"/>
+                            <constraint firstItem="TCr-WW-W4C" firstAttribute="top" secondItem="CAr-Wq-0Fh" secondAttribute="bottom" constant="16" id="GDN-ce-SKj"/>
+                            <constraint firstItem="TCr-WW-W4C" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="45" id="H6y-nT-dst"/>
+                            <constraint firstItem="AoL-t3-F2Z" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="JV2-fa-t2q"/>
+                            <constraint firstItem="70X-2A-ilo" firstAttribute="leading" secondItem="SGD-KR-TCl" secondAttribute="leading" id="Jsl-Ui-NCo"/>
+                            <constraint firstItem="qaK-My-rOG" firstAttribute="leading" secondItem="CAr-Wq-0Fh" secondAttribute="trailing" constant="52" id="M4Y-nt-zxd"/>
+                            <constraint firstItem="eoJ-ib-ihB" firstAttribute="top" secondItem="SGD-KR-TCl" secondAttribute="bottom" constant="10" id="PuD-xH-A2o"/>
+                            <constraint firstItem="qaK-My-rOG" firstAttribute="top" secondItem="Gih-DJ-UYv" secondAttribute="bottom" constant="10" symbolic="YES" id="RPZ-Jf-HOp"/>
+                            <constraint firstItem="70X-2A-ilo" firstAttribute="top" secondItem="CAr-Wq-0Fh" secondAttribute="bottom" constant="8" symbolic="YES" id="Rop-mm-iwM"/>
+                            <constraint firstItem="SGD-KR-TCl" firstAttribute="leading" secondItem="eoJ-ib-ihB" secondAttribute="leading" id="Wjz-c8-qKK"/>
+                            <constraint firstItem="CAr-Wq-0Fh" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="2" id="bwf-B3-mIq"/>
+                            <constraint firstItem="CAr-Wq-0Fh" firstAttribute="centerX" secondItem="70X-2A-ilo" secondAttribute="centerX" id="cLY-jL-Z7g"/>
+                            <constraint firstItem="AoL-t3-F2Z" firstAttribute="trailing" secondItem="SGD-KR-TCl" secondAttribute="trailing" id="dON-yG-7ae"/>
+                            <constraint firstItem="Gih-DJ-UYv" firstAttribute="trailing" secondItem="70X-2A-ilo" secondAttribute="trailing" id="dow-UV-5so"/>
+                            <constraint firstItem="Gih-DJ-UYv" firstAttribute="leading" secondItem="CAr-Wq-0Fh" secondAttribute="trailing" constant="49" id="exA-c8-G0X"/>
+                            <constraint firstItem="70X-2A-ilo" firstAttribute="top" secondItem="qaK-My-rOG" secondAttribute="bottom" constant="19" id="f8e-Tb-S62"/>
+                            <constraint firstItem="70X-2A-ilo" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="g2r-hN-wo5"/>
+                            <constraint firstAttribute="trailing" secondItem="AoL-t3-F2Z" secondAttribute="trailing" constant="20" symbolic="YES" id="hCi-ze-ZDw"/>
+                            <constraint firstItem="SGD-KR-TCl" firstAttribute="centerX" secondItem="eoJ-ib-ihB" secondAttribute="centerX" id="ipO-AR-uwt"/>
+                            <constraint firstItem="Gih-DJ-UYv" firstAttribute="top" secondItem="AoL-t3-F2Z" secondAttribute="bottom" constant="10" symbolic="YES" id="kA7-mz-1Vk"/>
+                            <constraint firstAttribute="bottom" secondItem="eoJ-ib-ihB" secondAttribute="bottom" constant="21" id="uNF-qJ-E1E"/>
+                            <constraint firstItem="70X-2A-ilo" firstAttribute="trailing" secondItem="eoJ-ib-ihB" secondAttribute="trailing" id="ze9-qz-O7Q"/>
+                        </constraints>
                         <shadow key="shadow">
                             <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </shadow>
@@ -1286,6 +1359,9 @@ Enter the following command in the Terminal app and follow the instructions. Whe
                         <outlet property="inputURLS" destination="7x6-CY-4t8" id="fsP-Il-dvb"/>
                         <outlet property="installationGuideBtn" destination="Gih-DJ-UYv" id="JDK-gm-7gO"/>
                         <outlet property="openDestinationFolderBtn" destination="SGD-KR-TCl" id="BcM-UQ-fxc"/>
+                        <outlet property="progressDetails" destination="Wyx-tm-2Ez" id="gKP-v3-iIw"/>
+                        <outlet property="progressTitle" destination="38L-rH-SBn" id="y49-WU-cLd"/>
+                        <outlet property="progressV" destination="TCr-WW-W4C" id="PS3-EV-bHc"/>
                         <outlet property="refreshInstallationBtn" destination="qaK-My-rOG" id="qi9-kQ-Cia"/>
                         <outlet property="settingsBtn" destination="AoL-t3-F2Z" id="J49-jk-pqX"/>
                     </connections>
