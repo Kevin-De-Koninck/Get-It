@@ -209,18 +209,18 @@ class ViewController: NSViewController {
                     if matchesError.count == 0 {
                         if(str == "100"){
                             self.downloadingFileNr = self.downloadingFileNr + 1
-                            status = "Processing file \(self.downloadingFileNr)\n          \(self.currentProgress)%"
+                            status = "Processing file \(self.downloadingFileNr)"
                             self.previousProgress = 0.0
                         } else if (str == "-1" && self.downloadingFileNr > 1){
-                            status = "Processing file \(self.downloadingFileNr - 1)\n          "
+                            status = "Processing file \(self.downloadingFileNr - 1)"
                         } else if (str == "-1") {
-                            status = "Downloading file \(self.downloadingFileNr)\n             \(self.currentProgress)%"
+                            status = "Downloading file \(self.downloadingFileNr)"
                         } else if (self.currentProgress <= 100){
-                            status = "Downloading file \(self.downloadingFileNr)\n             \(self.currentProgress)%"
+                            status = "Downloading file \(self.downloadingFileNr)"
                             self.previousProgress = self.currentProgress
                             self.downloadsDidStart = true
                         } else {
-                            status = "Processing file \(self.downloadingFileNr)\n          \(self.currentProgress)%"
+                            status = "Processing file \(self.downloadingFileNr)"
                             self.previousProgress = self.currentProgress
                         }
                         if(self.downloadsDidStart) {
