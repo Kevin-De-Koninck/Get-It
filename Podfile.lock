@@ -1,18 +1,20 @@
 PODS:
-  - DJProgressHUD_OSX (0.0.1)
   - ITSwitch (1.0)
-  - LetsMove (1.22)
+  - LetsMove (1.24)
 
 DEPENDENCIES:
-  - DJProgressHUD_OSX
   - ITSwitch
   - LetsMove
 
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - ITSwitch
+    - LetsMove
+
 SPEC CHECKSUMS:
-  DJProgressHUD_OSX: a8de6d2da8750dbf671fcddc649a44a9cd2807c4
   ITSwitch: 7ff745d6f2a6910e9194b23e4eab9a843258a478
-  LetsMove: 407d4d14815e6dc1549b6a9fe8e4b0f6aed3e305
+  LetsMove: fefe56bc7bc7fb7d37049e28a14f297961229fc5
 
-PODFILE CHECKSUM: b1b05df537f199f1410c30e64c24cde88db79221
+PODFILE CHECKSUM: f1682402e3598f271953f1ee3319595421e23b23
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.5.0

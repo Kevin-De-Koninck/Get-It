@@ -159,9 +159,16 @@ class OptionsViewController: NSViewController {
         if let arr = UserDefaults.standard.value(forKey: SETTINGS_KEY) as? [String:String] {
 
             
-            //Get and set all saved settings
-            
-            if arr["path"] != nil { selectedPath.stringValue = NSURL(fileURLWithPath: (UserDefaults.standard.value(forKey: OUTPUT_PATH) as! String)).lastPathComponent! }
+            //Get and set all saved settings            
+            if arr["path"] != nil {
+                if let temp = UserDefaults.standard.value(forKey: OUTPUT_PATH) as? String {
+                    selectedPath.stringValue = NSURL(fileURLWithPath: temp).lastPathComponent!
+                } else { // BUG FIX
+                    UserDefaults.standard.setValue(DEFAULT_OUTPUTPATH, forKey: OUTPUT_PATH)
+                    UserDefaults.standard.synchronize()
+                    selectedPath.stringValue = NSURL(fileURLWithPath: DEFAULT_OUTPUTPATH).lastPathComponent!
+                }
+            }
             else { selectedPath.stringValue = DEFAULT_SETTINGS["path"]! }
             
             if let val = arr["maxFileSize"] { maxFileSize.stringValue = val }

@@ -10,15 +10,10 @@
 //TODO: check if youtube-dl is installed on boot up: if brew ls --versions youtube-dl > /dev/null; then echo INSTALLED; else echo NOT INSTALLED; fi
 // if not, then disable all buttons except the package icon that will start a guide on how to install it.
 
-//TODO: check if homebrew is installed: [ ! -f "`which breww`" ]  && echo NOT INSTALLED           (check on output: NOT INSTALLED)
-
-//TODO: make a guide
-
 //TODO: regex check for urls in input field
 
 
 import Cocoa
-import DJProgressHUD_OSX
 
 class ViewController: NSViewController {
 
@@ -28,6 +23,9 @@ class ViewController: NSViewController {
     @IBOutlet weak var downloadBtn: DownloadButton!
     @IBOutlet weak var installationGuideBtn: NSButton!
     @IBOutlet weak var refreshInstallationBtn: NSButton!
+    @IBOutlet weak var progressV: progressView!
+    @IBOutlet weak var progressTitle: NSTextField!
+    @IBOutlet weak var progressDetails: NSTextField!
     
     
     //global variables
@@ -36,8 +34,6 @@ class ViewController: NSViewController {
     var previousProgress: CGFloat = 0.0
     var currentProgress: CGFloat = 0.0
     var downloadsDidStart: Bool = false
-
-
 
     override func awakeFromNib() {
         if self.view.layer != nil {
@@ -62,7 +58,6 @@ class ViewController: NSViewController {
         getIt.checkIfSoftwareIsInstalled()
         let activate = (!getIt.isYTDLInstalled) || (!getIt.isFfmpegInstalled)
         installationGuideViewSetUp(activate: activate)
-        installationGuideViewSetUp(activate: true)  //TODO - remove (is for testing purposes)
     }
     
     func installationGuideViewSetUp(activate: Bool) {
@@ -74,13 +69,43 @@ class ViewController: NSViewController {
         installationGuideBtn.isHidden = !activate
         refreshInstallationBtn.isEnabled = activate
         refreshInstallationBtn.isHidden = !activate
+        progressV.isHidden = true
+        progressTitle.isHidden = true
+        progressDetails.isHidden = true
+    }
+    
+    func disableAll() {
+        inputURLS.isEditable = false
+        settingsBtn.isEnabled = false
+        openDestinationFolderBtn.isEnabled = false
+        downloadBtn.isEnabled = false
+        installationGuideBtn.isEnabled = false
+        installationGuideBtn.isHidden = true
+        refreshInstallationBtn.isEnabled = false
+        refreshInstallationBtn.isHidden = true
+    }
+    
+    // TODO fill in popover menu
+    func dismissProgressView() {
+        self.installationGuideViewSetUp(activate: false)
+        progressV.isHidden = true
+        progressTitle.isHidden = true
+        progressDetails.isHidden = true
+    }
+    
+    func showInProgressView(title: String, details: String) {
+        self.disableAll()
+        progressV.isHidden = false
+        progressTitle.isHidden = false
+        progressDetails.isHidden = false
+        progressTitle.stringValue = title
+        progressDetails.stringValue = details
     }
     
     @IBAction func refreshInstallationBtnClicked(_ sender: Any) {
         getIt.checkIfSoftwareIsInstalled()
         let activate = (!getIt.isYTDLInstalled) || (!getIt.isFfmpegInstalled)
         installationGuideViewSetUp(activate: activate)
-//        installationGuideViewSetUp(activate: true)  //TODO - remove (is for testing purposes)
     }
     
     @IBAction func InstallGuideBtnClicked(_ sender: Any) {
@@ -101,12 +126,12 @@ class ViewController: NSViewController {
             
             //start download
             downloadsDidStart = false
-            DJProgressHUD.showStatus("Gathering information\n          Please wait", from: self.view)
+            self.showInProgressView(title: "Gathering information", details: "Please wait")
             execute(commmandAsynchronous: getIt.getCommand() + " -o " + getIt.getOutputPath() + getIt.getOutputTemplate() + urlStr)
         } else {
-            DJProgressHUD.showStatus("Can't download nothing", from: self.view)
+            self.showInProgressView(title: "Whoops", details: "Can't download nothing")
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
-                DJProgressHUD.dismiss()
+                self.dismissProgressView()
             })
         }
     }
@@ -184,28 +209,27 @@ class ViewController: NSViewController {
                     if matchesError.count == 0 {
                         if(str == "100"){
                             self.downloadingFileNr = self.downloadingFileNr + 1
-                            status = "Processing file \(self.downloadingFileNr)\n          \(self.currentProgress)%"
+                            status = "Processing file \(self.downloadingFileNr)"
                             self.previousProgress = 0.0
                         } else if (str == "-1" && self.downloadingFileNr > 1){
-                            status = "Processing file \(self.downloadingFileNr - 1)\n          "
+                            status = "Processing file \(self.downloadingFileNr - 1)"
                         } else if (str == "-1") {
-                            status = "Downloading file \(self.downloadingFileNr)\n             \(self.currentProgress)%"
+                            status = "Downloading file \(self.downloadingFileNr)"
                         } else if (self.currentProgress <= 100){
-                            status = "Downloading file \(self.downloadingFileNr)\n             \(self.currentProgress)%"
+                            status = "Downloading file \(self.downloadingFileNr)"
                             self.previousProgress = self.currentProgress
                             self.downloadsDidStart = true
                         } else {
-                            status = "Processing file \(self.downloadingFileNr)\n          \(self.currentProgress)%"
+                            status = "Processing file \(self.downloadingFileNr)"
                             self.previousProgress = self.currentProgress
                         }
                         if(self.downloadsDidStart) {
-                            DJProgressHUD.showProgress(self.currentProgress/100.0, withStatus: status, from: self.view)
+                            self.showInProgressView(title: status, details: "\(self.currentProgress)%")
                         }
                     }
                     //error received
-                    else
-                    {
-                        DJProgressHUD.showStatus("ERROR\n\(receivedStr)", from: self.view)
+                    else {
+                        self.showInProgressView(title: "Error!", details: "\(receivedStr)")
                     }
                 }
                 outHandle.waitForDataInBackgroundAndNotify()
@@ -213,10 +237,9 @@ class ViewController: NSViewController {
                 //EOF ON STDOUT FROM PROCESS
                 NotificationCenter.default.removeObserver(obs1)
                 if(self.downloadingFileNr < 2){
-                    DJProgressHUD.dismiss()
-                    DJProgressHUD.showStatus("          Download failed\n\n    Video not available or\nvideo format not available", from: self.view)
+                    self.showInProgressView(title: "Failed...", details: "Video not available or video format not available")
                     DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
-                        DJProgressHUD.dismiss()
+                        self.dismissProgressView()
                     })
                 }
             }
@@ -226,8 +249,7 @@ class ViewController: NSViewController {
         obs2 = NotificationCenter.default.addObserver(forName: Process.didTerminateNotification, object: task, queue: nil) { notification -> Void in
             //PROCESS TERMINATED
             NotificationCenter.default.removeObserver(obs2)
-            
-            DJProgressHUD.dismiss()
+            self.dismissProgressView()
         }
         
         task.launch()

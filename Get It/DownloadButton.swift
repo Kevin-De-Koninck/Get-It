@@ -12,14 +12,14 @@ class DownloadButton: NSButton {
     
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
         
         self.layer?.backgroundColor = blueColor.cgColor
         self.layer?.cornerRadius = 15.0
         self.layer?.masksToBounds = true
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
         
         //text
         let style = NSMutableParagraphStyle()
