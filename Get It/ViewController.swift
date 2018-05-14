@@ -146,7 +146,7 @@ class ViewController: NSViewController {
         var arguments:[String] = []
         arguments.append("-c")
         arguments.append( commmandAsynchronous  )
-        print( commmandAsynchronous  )
+        print( commmandAsynchronous + "\n\n" )
         
         //Start execution of command
         let task = Process()
@@ -164,9 +164,7 @@ class ViewController: NSViewController {
             if data.count > 0 {
                 if let s = NSString(data: data, encoding: String.Encoding.utf8.rawValue) {
                     //RECEIVED OUTPUT
-                    
-                    print("RECEIVED \(s)")
-                    print("--------------")
+                    print("\(s)")
                     
                     var status: String!
                     let matchesError = [String]()
