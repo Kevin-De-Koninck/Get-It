@@ -1306,7 +1306,7 @@ Enter the following command in the Terminal app and follow the instructions. Whe
                                             <constraint firstAttribute="height" constant="55" id="Via-Mv-NoM"/>
                                         </constraints>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="4YQ-va-fYx">
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="system" size="11"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
