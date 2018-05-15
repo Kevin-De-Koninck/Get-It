@@ -101,23 +101,23 @@ class GetIt {
     
     
     func checkIfSoftwareIsInstalled(){
-        var result = self.execute(commandSynchronous: "export PATH=$PATH:/usr/local/bin && if brew ls --versions youtube-dl > /dev/null; then echo INSTALLED; else echo NOT INSTALLED; fi")
+        var result = self.execute(commandSynchronous: EXPORT_PATH + " && if brew ls --versions youtube-dl > /dev/null; then echo INSTALLED; else echo NOT INSTALLED; fi")
         var temp = result.components(separatedBy: "\n")
         isYTDLInstalled = temp[0] == "INSTALLED" ? true : false
         
-        result = self.execute(commandSynchronous: "export PATH=$PATH:/usr/local/bin && [ ! -f \"`which brew`\" ]  && echo NOT INSTALLED")
+        result = self.execute(commandSynchronous: EXPORT_PATH + " && [ ! -f \"`which brew`\" ]  && echo NOT INSTALLED")
         temp = result.components(separatedBy: "\n")
         isBrewInstalled = temp[0] == "NOT INSTALLED" ? false : true
         
-        result = self.execute(commandSynchronous: "export PATH=$PATH:/usr/local/bin && if brew ls --versions ffmpeg > /dev/null; then echo INSTALLED; else echo NOT INSTALLED; fi")
+        result = self.execute(commandSynchronous: EXPORT_PATH + " && if brew ls --versions ffmpeg > /dev/null; then echo INSTALLED; else echo NOT INSTALLED; fi")
         temp = result.components(separatedBy: "\n")
         isFfmpegInstalled = temp[0] == "INSTALLED" ? true : false
         
-        result = self.execute(commandSynchronous: "export PATH=$PATH:/usr/local/bin && if brew ls --versions python3 > /dev/null; then echo INSTALLED; else echo NOT INSTALLED; fi")
+        result = self.execute(commandSynchronous: EXPORT_PATH + " && if brew ls --versions python3 > /dev/null; then echo INSTALLED; else echo NOT INSTALLED; fi")
         temp = result.components(separatedBy: "\n")
         isPythonInstalled = temp[0] == "INSTALLED" ? true : false
         
-        result = self.execute(commandSynchronous: "export PATH=$PATH:/usr/local/bin && [ ! -f \"`which xcode-select`\" ]  && echo NOT INSTALLED")
+        result = self.execute(commandSynchronous: EXPORT_PATH + " && [ ! -f \"`which xcode-select`\" ]  && echo NOT INSTALLED")
         temp = result.components(separatedBy: "\n")
         isXcodeInstalled = temp[0] == "NOT INSTALLED" ? false : true
         

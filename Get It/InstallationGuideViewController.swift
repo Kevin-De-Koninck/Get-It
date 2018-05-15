@@ -83,12 +83,12 @@ class InstallationGuideViewController: NSViewController {
     }
 
     @IBAction func installBtnClicked(_ sender: Any) {
-        var cmd = ""
+        var cmd = EXPORT_PATH + " && "
         
         switch currentPage {
-        case 1: cmd = "export PATH=$PATH:/usr/local/bin && " + INSTALLATION_COMMANDS["xcode"]!
-        case 3: cmd = "export PATH=$PATH:/usr/local/bin && " + INSTALLATION_COMMANDS["python"]!
-        default: cmd = "export PATH=$PATH:/usr/local/bin && " + INSTALLATION_COMMANDS["ytdl"]!
+        case 1: cmd += INSTALLATION_COMMANDS["xcode"]!
+        case 3: cmd += INSTALLATION_COMMANDS["python"]!
+        default: cmd += INSTALLATION_COMMANDS["ytdl"]!
         }
         
         // TODO: show "Installing\nPlease wait..."
