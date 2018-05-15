@@ -92,19 +92,20 @@ class InstallationGuideViewController: NSViewController {
         }
         
         // TODO: show "Installing\nPlease wait..."
-        _ = getIt.execute(commandSynchronous: cmd)
+        let debug = getIt.execute(commandSynchronous: cmd)
+        print ("\(debug)")
         // TODO dismiss viewcontroller
         installButton.isEnabled = false
     }
     
     @IBAction func nextPageBtnClicked(_ sender: Any) {
 
-        if(currentPage == 0 && getIt.isXcodeInstalled && getIt.isBrewInstalled && getIt.isPythonInstalled) { currentPage = 4 }
+        if(currentPage == 0 && getIt.isXcodeInstalled && getIt.isBrewInstalled && getIt.isPythonInstalled && getIt.isPycryptoInstalled) { currentPage = 4 }
         else if(currentPage == 0 && getIt.isXcodeInstalled && getIt.isBrewInstalled) { currentPage = 3 }
         else if(currentPage == 0 && getIt.isXcodeInstalled) { currentPage = 2 }
-        else if(currentPage == 1 && getIt.isBrewInstalled && getIt.isPythonInstalled) { currentPage = 4 }
+        else if(currentPage == 1 && getIt.isBrewInstalled && getIt.isPythonInstalled && getIt.isPycryptoInstalled) { currentPage = 4 }
         else if(currentPage == 1 && getIt.isBrewInstalled) { currentPage = 3 }
-        else if(currentPage == 2 && getIt.isPythonInstalled) { currentPage = 4 }
+        else if(currentPage == 2 && getIt.isPythonInstalled && getIt.isPycryptoInstalled) { currentPage = 4 }
         else{ currentPage = currentPage + 1 }
 
         displayPage()
@@ -112,9 +113,9 @@ class InstallationGuideViewController: NSViewController {
     
     @IBAction func previousPageBtnClicked(_ sender: Any) {
 
-        if(currentPage == 4 && getIt.isXcodeInstalled && getIt.isBrewInstalled && getIt.isPythonInstalled) { currentPage = 0 }
-        else if(currentPage == 4 && getIt.isPythonInstalled && getIt.isBrewInstalled) { currentPage = 1 }
-        else if(currentPage == 4 && getIt.isPythonInstalled) { currentPage = 2 }
+        if(currentPage == 4 && getIt.isXcodeInstalled && getIt.isBrewInstalled && getIt.isPythonInstalled && getIt.isPycryptoInstalled) { currentPage = 0 }
+        else if(currentPage == 4 && getIt.isPythonInstalled && getIt.isPycryptoInstalled && getIt.isBrewInstalled) { currentPage = 1 }
+        else if(currentPage == 4 && getIt.isPythonInstalled && getIt.isPycryptoInstalled) { currentPage = 2 }
         else if(currentPage == 3 && getIt.isXcodeInstalled && getIt.isBrewInstalled) { currentPage = 0 }
         else if(currentPage == 3 && getIt.isBrewInstalled) { currentPage = 1 }
         else if(currentPage == 2 && getIt.isXcodeInstalled) { currentPage = 0 }

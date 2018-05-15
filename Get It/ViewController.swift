@@ -56,7 +56,7 @@ class ViewController: NSViewController {
         super.viewWillAppear()
         
         getIt.checkIfSoftwareIsInstalled()
-        let activate = (!getIt.isYTDLInstalled) || (!getIt.isFfmpegInstalled)
+        let activate = (!getIt.isYTDLInstalled) || (!getIt.isFfmpegInstalled) || (!getIt.isPycryptoInstalled)
         installationGuideViewSetUp(activate: activate)
     }
     
@@ -104,7 +104,7 @@ class ViewController: NSViewController {
     
     @IBAction func refreshInstallationBtnClicked(_ sender: Any) {
         getIt.checkIfSoftwareIsInstalled()
-        let activate = (!getIt.isYTDLInstalled) || (!getIt.isFfmpegInstalled)
+        let activate = (!getIt.isYTDLInstalled) || (!getIt.isFfmpegInstalled) || (!getIt.isPycryptoInstalled)
         installationGuideViewSetUp(activate: activate)
     }
     

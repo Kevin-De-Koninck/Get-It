@@ -14,6 +14,7 @@ class GetIt {
     var isFfmpegInstalled: Bool = false
     var isPythonInstalled: Bool = false
     var isXcodeInstalled: Bool = false
+    var isPycryptoInstalled: Bool = false
     
     init() {
         //Get installed software
@@ -46,6 +47,12 @@ class GetIt {
             self.isXcodeInstalled = installed == "true" ? true : false
         } else {
             self.isXcodeInstalled = false
+        }
+        
+        if let installed = UserDefaults.standard.value(forKey: PYCRYPTO) as? String {
+            self.isPycryptoInstalled = installed == "true" ? true : false
+        } else {
+            self.isPycryptoInstalled = false
         }
     }
     
@@ -121,12 +128,17 @@ class GetIt {
         temp = result.components(separatedBy: "\n")
         isXcodeInstalled = temp[0] == "NOT INSTALLED" ? false : true
         
+        result = self.execute(commandSynchronous: EXPORT_PATH + " && if pip2.7 list | grep -i pycrypto > /dev/null; then echo INSTALLED; else echo NOT INSTALLED; fi")
+        temp = result.components(separatedBy: "\n")
+        isPycryptoInstalled = temp[0] == "NOT INSTALLED" ? false : true
+        
         //save it so we can use it everywhere (installation guide)
         UserDefaults.standard.setValue("\(isBrewInstalled)", forKey: BREW)
         UserDefaults.standard.setValue("\(isYTDLInstalled)", forKey: YTDL)
         UserDefaults.standard.setValue("\(isFfmpegInstalled)", forKey: FFMPEG)
         UserDefaults.standard.setValue("\(isPythonInstalled)", forKey: PYTHON)
         UserDefaults.standard.setValue("\(isXcodeInstalled)", forKey: XCODE)
+        UserDefaults.standard.setValue("\(isPycryptoInstalled)", forKey: PYCRYPTO)
         UserDefaults.standard.synchronize()
     }
     
