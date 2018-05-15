@@ -1040,7 +1040,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button translatesAutoresizingMaskIntoConstraints="NO" id="AKl-V2-VAQ">
+                            <button ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AKl-V2-VAQ">
                                 <rect key="frame" x="548" y="0.0" width="52" height="300"/>
                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="right arrow" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="6tT-h0-YTY">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1048,16 +1048,6 @@
                                 </buttonCell>
                                 <connections>
                                     <action selector="nextPageBtnClicked:" target="7TU-zM-7EV" id="g5S-pC-I5o"/>
-                                </connections>
-                            </button>
-                            <button translatesAutoresizingMaskIntoConstraints="NO" id="MqU-tW-Gu6">
-                                <rect key="frame" x="0.0" y="0.0" width="52" height="300"/>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="left arrow" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="30J-7y-4qn">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="previousPageBtnClicked:" target="7TU-zM-7EV" id="4Ad-SO-4vi"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VMd-5w-2AW" customClass="installButton" customModule="Get_It" customModuleProvider="target">
@@ -1074,7 +1064,7 @@
                                 </buttonCell>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NvZ-KG-FeY">
-                                <rect key="frame" x="63" y="277" width="474" height="17"/>
+                                <rect key="frame" x="250" y="277" width="100" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="17b-xb-EvS"/>
                                 </constraints>
@@ -1134,27 +1124,45 @@ Enter the following command in the Terminal app and follow the instructions. Whe
                                     <action selector="openTerminalButtonClicked:" target="7TU-zM-7EV" id="WR3-2p-EQw"/>
                                 </connections>
                             </button>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="e97-bU-Hhp" customClass="progressView" customModule="Get_It" customModuleProvider="target">
+                                <rect key="frame" x="200" y="88" width="200" height="125"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="X91-Ac-W7P">
+                                        <rect key="frame" x="-2" y="53" width="204" height="19"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="19" id="yhn-EI-LOJ"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="efF-Oh-kD5">
+                                            <font key="font" metaFont="systemSemibold" size="16"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="8SC-X8-pfT"/>
+                                    <constraint firstItem="X91-Ac-W7P" firstAttribute="centerY" secondItem="e97-bU-Hhp" secondAttribute="centerY" id="8Sz-Ns-Szg"/>
+                                    <constraint firstAttribute="height" constant="125" id="Xcd-1q-es6"/>
+                                    <constraint firstItem="X91-Ac-W7P" firstAttribute="leading" secondItem="e97-bU-Hhp" secondAttribute="leading" id="eCw-pS-l0T"/>
+                                    <constraint firstAttribute="trailing" secondItem="X91-Ac-W7P" secondAttribute="trailing" id="lSR-89-Nn2"/>
+                                </constraints>
+                            </customView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="AKl-V2-VAQ" firstAttribute="leading" secondItem="Xz6-v7-hke" secondAttribute="trailing" constant="48" id="2Pa-c6-oZA"/>
-                            <constraint firstItem="MqU-tW-Gu6" firstAttribute="top" secondItem="AKl-V2-VAQ" secondAttribute="top" id="2eC-yb-CGw"/>
                             <constraint firstAttribute="bottom" secondItem="Xz6-v7-hke" secondAttribute="bottom" constant="82" id="4cb-y1-ADK"/>
                             <constraint firstItem="Xz6-v7-hke" firstAttribute="centerX" secondItem="VMd-5w-2AW" secondAttribute="centerX" id="Gvf-vX-ino"/>
-                            <constraint firstItem="MqU-tW-Gu6" firstAttribute="top" secondItem="tyQ-Oc-9g9" secondAttribute="top" id="IfK-9G-2a7"/>
+                            <constraint firstItem="e97-bU-Hhp" firstAttribute="centerX" secondItem="tyQ-Oc-9g9" secondAttribute="centerX" id="JLf-as-I3p"/>
                             <constraint firstItem="AKl-V2-VAQ" firstAttribute="leading" secondItem="wNP-mt-jZW" secondAttribute="trailing" constant="23" id="K3R-TY-rzT"/>
                             <constraint firstAttribute="bottom" secondItem="NvZ-KG-FeY" secondAttribute="bottom" constant="277" id="KZ0-Rx-8A2"/>
-                            <constraint firstItem="MqU-tW-Gu6" firstAttribute="bottom" secondItem="AKl-V2-VAQ" secondAttribute="bottom" id="Kgx-QL-rPy"/>
-                            <constraint firstAttribute="bottom" secondItem="MqU-tW-Gu6" secondAttribute="bottom" id="PCY-RT-YQH"/>
                             <constraint firstItem="Xz6-v7-hke" firstAttribute="centerX" secondItem="NvZ-KG-FeY" secondAttribute="centerX" id="Rcj-Rl-jqo"/>
                             <constraint firstItem="wNP-mt-jZW" firstAttribute="top" secondItem="NvZ-KG-FeY" secondAttribute="bottom" constant="13" id="VG1-TW-NCB"/>
                             <constraint firstItem="VMd-5w-2AW" firstAttribute="top" secondItem="Xz6-v7-hke" secondAttribute="bottom" constant="30" id="czC-Xe-kgr"/>
-                            <constraint firstItem="MqU-tW-Gu6" firstAttribute="leading" secondItem="tyQ-Oc-9g9" secondAttribute="leading" id="eu4-4D-gxA"/>
                             <constraint firstItem="Xz6-v7-hke" firstAttribute="centerX" secondItem="tyQ-Oc-9g9" secondAttribute="centerX" id="gyx-XZ-C1B"/>
-                            <constraint firstItem="Xz6-v7-hke" firstAttribute="leading" secondItem="MqU-tW-Gu6" secondAttribute="trailing" constant="48" id="ib3-9e-m8m"/>
                             <constraint firstItem="Xz6-v7-hke" firstAttribute="top" secondItem="wNP-mt-jZW" secondAttribute="bottom" constant="24" id="l1S-Cs-pJB"/>
-                            <constraint firstItem="NvZ-KG-FeY" firstAttribute="leading" secondItem="MqU-tW-Gu6" secondAttribute="trailing" constant="13" id="q2B-HO-CoQ"/>
                             <constraint firstAttribute="trailing" secondItem="AKl-V2-VAQ" secondAttribute="trailing" id="sNJ-R9-2Ta"/>
                             <constraint firstItem="wNP-mt-jZW" firstAttribute="centerX" secondItem="VMd-5w-2AW" secondAttribute="centerX" id="xyz-tm-ta7"/>
+                            <constraint firstItem="e97-bU-Hhp" firstAttribute="centerY" secondItem="tyQ-Oc-9g9" secondAttribute="centerY" id="zKH-IY-yAV"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1163,7 +1171,8 @@ Enter the following command in the Terminal app and follow the instructions. Whe
                         <outlet property="installButton" destination="VMd-5w-2AW" id="5p8-w9-P7z"/>
                         <outlet property="nextPageBtn" destination="AKl-V2-VAQ" id="dzq-UU-SKk"/>
                         <outlet property="openTerminalButton" destination="yyJ-e7-LEQ" id="A2b-Zo-Sc0"/>
-                        <outlet property="previousPageBtn" destination="MqU-tW-Gu6" id="Aln-IW-Co5"/>
+                        <outlet property="progressTitle" destination="X91-Ac-W7P" id="Nah-ul-lVX"/>
+                        <outlet property="progressV" destination="e97-bU-Hhp" id="h52-nY-Hur"/>
                         <outlet property="refreshImage" destination="0QF-OZ-3Ai" id="8vN-Yi-g46"/>
                         <outlet property="titleText" destination="NvZ-KG-FeY" id="iBM-S6-PZh"/>
                     </connections>
@@ -1184,14 +1193,14 @@ Enter the following command in the Terminal app and follow the instructions. Whe
                             <scrollView toolTip="Insert your URLs here. Seperate multiple URLS with a breakline (enter)." horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="70X-2A-ilo">
                                 <rect key="frame" x="20" y="100" width="291" height="166"/>
                                 <clipView key="contentView" id="MdI-Io-aKx">
-                                    <rect key="frame" x="1" y="1" width="274" height="164"/>
+                                    <rect key="frame" x="1" y="1" width="289" height="164"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" linkDetection="YES" textCompletion="NO" smartInsertDelete="YES" id="7x6-CY-4t8">
-                                            <rect key="frame" x="0.0" y="0.0" width="274" height="164"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="289" height="164"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <size key="minSize" width="274" height="164"/>
+                                            <size key="minSize" width="289" height="164"/>
                                             <size key="maxSize" width="548" height="10000000"/>
                                             <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                         </textView>
@@ -1203,7 +1212,7 @@ Enter the following command in the Terminal app and follow the instructions. Whe
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="RPz-US-rpq">
-                                    <rect key="frame" x="275" y="1" width="15" height="164"/>
+                                    <rect key="frame" x="274" y="1" width="16" height="164"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -1306,7 +1315,7 @@ Enter the following command in the Terminal app and follow the instructions. Whe
                                             <constraint firstAttribute="height" constant="55" id="Via-Mv-NoM"/>
                                         </constraints>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="4YQ-va-fYx">
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
@@ -1590,7 +1599,6 @@ For more information, visit GitHub and my website.</string>
         <image name="Settings" width="122.87999725341797" height="122.87999725341797"/>
         <image name="arrow-download-icon" width="256" height="256"/>
         <image name="github" width="351.08572387695312" height="351.08572387695312"/>
-        <image name="left arrow" width="626" height="626"/>
         <image name="package" width="300" height="300"/>
         <image name="paypal" width="206" height="204"/>
         <image name="refresh" width="512" height="512"/>
