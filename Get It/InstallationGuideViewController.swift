@@ -11,6 +11,7 @@ import Cocoa
 class InstallationGuideViewController: NSViewController {
     
     var getIt = GetIt()
+    var logger = Logger()
 
     @IBOutlet weak var nextPageBtn: NSButton!
     @IBOutlet weak var bodyText: NSTextField!
@@ -112,7 +113,7 @@ class InstallationGuideViewController: NSViewController {
         
         showInProgressView(title: "Please wait...")
         let debug = getIt.execute(commandSynchronous: cmd)
-        print ("\(debug)")
+        self.logger.logInstall(tag: "[INSTALL]", str: "\(debug)")
         dismissProgressView()
         installButton.isEnabled = false
         nextPageBtn.isEnabled = true
