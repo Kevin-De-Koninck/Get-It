@@ -90,7 +90,7 @@ class GetIt {
     func execute(commandSynchronous: String) -> String {
         var arguments:[String] = []
         arguments.append("-c")
-        arguments.append( commandSynchronous )
+        arguments.append( commandSynchronous + " 2>&1")
         
         let task = Process()
         task.launchPath = "/bin/sh"
