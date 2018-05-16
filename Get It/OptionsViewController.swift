@@ -334,12 +334,7 @@ class OptionsViewController: NSViewController {
                 UserDefaults.standard.setValue(path, forKey: OUTPUT_PATH)
                 UserDefaults.standard.synchronize()
                 
-                
-                
                 selectedPath.stringValue = NSURL(fileURLWithPath: path).lastPathComponent!
-                
-                print(path)
-                print(selectedPath.stringValue)
             }
         }
         

@@ -30,6 +30,7 @@ class ViewController: NSViewController {
     
     //global variables
     var getIt = GetIt()
+    var logger = Logger()
     var downloadingFileNr: Int = 1
     var previousProgress: CGFloat = 0.0
     var currentProgress: CGFloat = 0.0
@@ -100,6 +101,7 @@ class ViewController: NSViewController {
         progressDetails.isHidden = false
         progressTitle.stringValue = title
         progressDetails.stringValue = details
+        logger.log(tag: "[PROGRESS VIEW]", str: "\(title): \(details)")
     }
     
     @IBAction func refreshInstallationBtnClicked(_ sender: Any) {
@@ -109,6 +111,7 @@ class ViewController: NSViewController {
     }
     
     @IBAction func InstallGuideBtnClicked(_ sender: Any) {
+        logger.resetInstallLog()
     }
     
     @IBAction func openDestinationFolderBtnClicked(_ sender: Any) {
@@ -117,6 +120,8 @@ class ViewController: NSViewController {
     
 
     @IBAction func downloadButton(_ sender: AnyObject) {
+        logger.reset()
+        
         //get input URLs
         let tempString = inputURLS.string!
         let urls = tempString.characters.split{$0 == "\n"}.map(String.init)
@@ -145,8 +150,8 @@ class ViewController: NSViewController {
         //Prepare command
         var arguments:[String] = []
         arguments.append("-c")
-        arguments.append( commmandAsynchronous  )
-        print( commmandAsynchronous + "\n\n" )
+        arguments.append(commmandAsynchronous + " 2>&1")
+        logger.log(tag: "[COMMAND]", str: "\(commmandAsynchronous) 2>&1")
         
         //Start execution of command
         let task = Process()
@@ -164,7 +169,7 @@ class ViewController: NSViewController {
             if data.count > 0 {
                 if let s = NSString(data: data, encoding: String.Encoding.utf8.rawValue) {
                     //RECEIVED OUTPUT
-                    print("\(s)")
+                    self.logger.log(tag: "[RECEIVED]", str: "\(s)")
                     
                     var status: String!
                     let matchesError = [String]()

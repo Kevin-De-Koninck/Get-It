@@ -6,7 +6,7 @@ A native macOS video/audio downloader. Think of it as a youtube downloader that 
 
 # Installation
 
-Download it [here](https://github.com/Kevin-De-Koninck/Get-It/releases/download/v0.6/Get.It.app.zip), unzip it and open it.
+Download it [here](https://github.com/Kevin-De-Koninck/Get-It/releases/download/v0.6.1/Get.It.app.zip), unzip it and open it.
 If a yellow package button is visible on the main screen, click on it and follow the guide (to install the dependencies).
 
 
@@ -22,6 +22,20 @@ Get It will check if the dependencies that it needs are installed. If not all de
 the following image is a screenshot of a step in the installation guide:
 <img src="https://github.com/Kevin-De-Koninck/Get-It/blob/master/ReadMe%20Resources/InstallationGuide.png?raw=true" width="400" />
 
+
+# Submit a bug
+
+You can submit a bug here on Github. Please provide the following:
+- The URL(s) that you try to download.
+- Your settings.
+
+Also, open the Terminal app on your MacBook and issue the following commands:
+```
+cat cat /tmp/getit_install
+cat /tmp/getit_logs
+```
+
+Provide the output of the first command of you have an issue while installing the required software and provide the output of the second command of you have problems while downloading your URLs.
 
 # THANKS
 
