@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
-        <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -193,7 +191,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" customClass="WindowController" customModule="Get_It" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" title="Get It" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" tabbingMode="disallowed" titlebarAppearsTransparent="YES" id="IQv-IB-iLA">
+                    <window key="window" title="Get It" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" tabbingMode="disallowed" titlebarAppearsTransparent="YES" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" texturedBackground="YES"/>
                         <rect key="contentRect" x="316" y="275" width="236" height="61"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
@@ -259,7 +257,7 @@
                                                     </textFieldCell>
                                                 </textField>
                                                 <popUpButton verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GVv-b9-3xw">
-                                                    <rect key="frame" x="233" y="27" width="205" height="26"/>
+                                                    <rect key="frame" x="233" y="27" width="205" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="200" id="ldN-ch-fdo"/>
                                                     </constraints>
@@ -276,14 +274,14 @@
                                                     </popUpButtonCell>
                                                 </popUpButton>
                                                 <textField toolTip="Do not download any videos larger than... [MB]" focusRingType="none" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3pX-rq-V4S" customClass="optionsTextfield" customModule="Get_It" customModuleProvider="target">
-                                                    <rect key="frame" x="235" y="105" width="200" height="22"/>
+                                                    <rect key="frame" x="235" y="105" width="200" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="196" id="PCe-th-M0d"/>
                                                     </constraints>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" placeholderString="MB" usesSingleLineMode="YES" id="bwk-B0-ddt">
                                                         <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="upV-Rp-Z1r"/>
                                                         <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
@@ -335,12 +333,12 @@
                                         </view>
                                     </tabViewItem>
                                     <tabViewItem label="Authentication" identifier="1" id="nQe-Ig-lpx">
-                                        <view key="view" id="feV-YF-baS">
+                                        <view key="view" misplaced="YES" id="feV-YF-baS">
                                             <rect key="frame" x="10" y="33" width="438" height="127"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <textField toolTip="Login with this account ID." horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cq7-lq-buu">
-                                                    <rect key="frame" x="15" y="107" width="70" height="17"/>
+                                                    <rect key="frame" x="15" y="106" width="70" height="17"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Username:" id="rde-Ek-tE0">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -348,7 +346,7 @@
                                                     </textFieldCell>
                                                 </textField>
                                                 <textField toolTip="Account password." horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kPw-pm-uzD">
-                                                    <rect key="frame" x="15" y="82" width="66" height="17"/>
+                                                    <rect key="frame" x="15" y="81" width="66" height="17"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Password:" id="3dl-Oh-K3n">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -356,7 +354,7 @@
                                                     </textFieldCell>
                                                 </textField>
                                                 <textField toolTip="Two-factor auth code." horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QCZ-p4-s9r">
-                                                    <rect key="frame" x="15" y="57" width="126" height="17"/>
+                                                    <rect key="frame" x="15" y="56" width="126" height="17"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="2-factor auth. code:" id="5Pl-g9-mvf">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -364,7 +362,7 @@
                                                     </textFieldCell>
                                                 </textField>
                                                 <textField toolTip="Use .netrc authentication data." horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VgU-RJ-wme">
-                                                    <rect key="frame" x="15" y="32" width="43" height="17"/>
+                                                    <rect key="frame" x="15" y="31" width="43" height="17"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title=".netrc:" id="mVl-wb-Dwj">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -372,7 +370,7 @@
                                                     </textFieldCell>
                                                 </textField>
                                                 <textField toolTip="Video password (vimeo, smotri, youku)." horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XT7-mz-0Ty">
-                                                    <rect key="frame" x="15" y="7" width="105" height="17"/>
+                                                    <rect key="frame" x="15" y="6" width="105" height="17"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Video password:" id="Ccx-Sr-IKu">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -380,18 +378,18 @@
                                                     </textFieldCell>
                                                 </textField>
                                                 <textField toolTip="Login with this account ID." verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dBF-vk-0RT" customClass="optionsTextfield" customModule="Get_It" customModuleProvider="target">
-                                                    <rect key="frame" x="233" y="104" width="204" height="22"/>
+                                                    <rect key="frame" x="233" y="103" width="204" height="23"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" id="rks-dF-EiC">
                                                         <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
                                                 <secureTextField toolTip="Account password." verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XOo-FL-D72" customClass="secureOptionsTextfield" customModule="Get_It" customModuleProvider="target">
-                                                    <rect key="frame" x="235" y="79" width="200" height="22"/>
+                                                    <rect key="frame" x="235" y="79" width="200" height="21"/>
                                                     <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" usesSingleLineMode="YES" id="cXC-NM-zft">
                                                         <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         <allowedInputSourceLocales>
                                                             <string>NSAllRomanInputSourcesLocaleIdentifier</string>
@@ -399,10 +397,10 @@
                                                     </secureTextFieldCell>
                                                 </secureTextField>
                                                 <secureTextField toolTip="Two-factor auth code." verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oKK-rG-X7n" customClass="secureOptionsTextfield" customModule="Get_It" customModuleProvider="target">
-                                                    <rect key="frame" x="235" y="54" width="200" height="22"/>
+                                                    <rect key="frame" x="235" y="53" width="200" height="23"/>
                                                     <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" usesSingleLineMode="YES" id="tsX-JF-j9l">
                                                         <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         <allowedInputSourceLocales>
                                                             <string>NSAllRomanInputSourcesLocaleIdentifier</string>
@@ -410,10 +408,10 @@
                                                     </secureTextFieldCell>
                                                 </secureTextField>
                                                 <secureTextField toolTip="Video password (vimeo, smotri, youku)." verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7z3-Y1-nMX" customClass="secureOptionsTextfield" customModule="Get_It" customModuleProvider="target">
-                                                    <rect key="frame" x="235" y="4" width="200" height="22"/>
+                                                    <rect key="frame" x="235" y="4" width="200" height="21"/>
                                                     <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" usesSingleLineMode="YES" id="nh1-q6-ChQ">
                                                         <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         <allowedInputSourceLocales>
                                                             <string>NSAllRomanInputSourcesLocaleIdentifier</string>
@@ -421,7 +419,7 @@
                                                     </secureTextFieldCell>
                                                 </secureTextField>
                                                 <customView appearanceType="aqua" translatesAutoresizingMaskIntoConstraints="NO" id="oFp-TW-xIO" customClass="ITSwitch">
-                                                    <rect key="frame" x="235" y="32" width="28" height="17"/>
+                                                    <rect key="frame" x="235" y="31" width="28" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="28" id="tHP-Af-pND"/>
                                                     </constraints>
@@ -491,7 +489,7 @@
                                                     </textFieldCell>
                                                 </textField>
                                                 <popUpButton toolTip="Specify audio format. &quot;best&quot; by default." verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="COd-kj-c2S">
-                                                    <rect key="frame" x="233" y="75" width="205" height="26"/>
+                                                    <rect key="frame" x="233" y="75" width="205" height="25"/>
                                                     <popUpButtonCell key="cell" type="push" title="mp3" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="nG7-Yr-dNV" id="hkc-5f-how">
                                                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="menu"/>
@@ -517,7 +515,7 @@
                                                     </textFieldCell>
                                                 </textField>
                                                 <popUpButton toolTip="Specify ffmpeg/avconv audio quality." verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NTZ-jV-G7e">
-                                                    <rect key="frame" x="233" y="50" width="205" height="26"/>
+                                                    <rect key="frame" x="233" y="50" width="205" height="25"/>
                                                     <popUpButtonCell key="cell" type="push" title="5 - default" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="93A-J4-ydT" id="rdW-HE-pLn">
                                                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="menu"/>
@@ -612,7 +610,7 @@
                                                     </textFieldCell>
                                                 </textField>
                                                 <popUpButton toolTip="Video format code." verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eWL-eG-ysb">
-                                                    <rect key="frame" x="233" y="102" width="205" height="26"/>
+                                                    <rect key="frame" x="233" y="102" width="205" height="25"/>
                                                     <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="oE5-Sb-yT5" id="NMF-8y-sbu">
                                                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="menu"/>
@@ -728,7 +726,7 @@
                                                     </textFieldCell>
                                                 </textField>
                                                 <textField toolTip="Playlist video to start at (default is 1)." horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wAC-uf-GyV">
-                                                    <rect key="frame" x="15" y="56" width="122" height="17"/>
+                                                    <rect key="frame" x="15" y="56" width="122" height="16"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Start/Stop at video:" id="lMd-M7-jrK">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -751,7 +749,7 @@
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" id="1gT-cD-UP8">
                                                         <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="IVM-v5-5bW"/>
                                                         <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
@@ -759,7 +757,7 @@
                                                     <rect key="frame" x="235" y="26" width="200" height="22"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" id="f03-ni-3zk">
                                                         <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
@@ -783,7 +781,7 @@
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" id="9mB-9d-8BW">
                                                         <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="KRO-L8-OTZ"/>
                                                         <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
@@ -869,7 +867,7 @@
                                                     </textFieldCell>
                                                 </textField>
                                                 <popUpButton toolTip="Languages of the subtitles to download." verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dgx-dx-gii">
-                                                    <rect key="frame" x="233" y="27" width="205" height="26"/>
+                                                    <rect key="frame" x="233" y="27" width="205" height="25"/>
                                                     <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="OSc-kZ-ZkZ" id="dST-Kk-zjE">
                                                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="menu"/>
@@ -1009,13 +1007,13 @@
                 </viewController>
                 <customObject id="qfN-P7-ONt" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="306" y="269.5"/>
+            <point key="canvasLocation" x="485" y="255"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="Zgg-lz-KoH">
             <objects>
                 <windowController id="TVW-7d-GRi" customClass="WindowController" customModule="Get_It" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" title="Get It Installation Guide" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" id="Tkd-6d-x5p">
+                    <window key="window" title="Get It Installation Guide" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" id="Tkd-6d-x5p">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" texturedBackground="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="426" y="524" width="236" height="60"/>
@@ -1036,12 +1034,12 @@
         <scene sceneID="0CD-kl-tJb">
             <objects>
                 <viewController id="7TU-zM-7EV" customClass="InstallationGuideViewController" customModule="Get_It" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" appearanceType="aqua" id="tyQ-Oc-9g9">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
+                    <view key="view" appearanceType="aqua" misplaced="YES" id="tyQ-Oc-9g9">
+                        <rect key="frame" x="0.0" y="0.0" width="1626" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AKl-V2-VAQ">
-                                <rect key="frame" x="548" y="0.0" width="52" height="300"/>
+                                <rect key="frame" x="1122" y="0.0" width="626" height="300"/>
                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="right arrow" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="6tT-h0-YTY">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -1051,7 +1049,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VMd-5w-2AW" customClass="installButton" customModule="Get_It" customModuleProvider="target">
-                                <rect key="frame" x="155" y="20" width="291" height="32"/>
+                                <rect key="frame" x="729" y="33" width="291" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="291" id="yN5-Yx-GNK"/>
                                 </constraints>
@@ -1064,7 +1062,7 @@
                                 </buttonCell>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NvZ-KG-FeY">
-                                <rect key="frame" x="250" y="277" width="100" height="17"/>
+                                <rect key="frame" x="824" y="277" width="100" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="17b-xb-EvS"/>
                                 </constraints>
@@ -1075,7 +1073,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wNP-mt-jZW">
-                                <rect key="frame" x="75" y="128" width="452" height="136"/>
+                                <rect key="frame" x="647" y="128" width="454" height="136"/>
                                 <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="fsA-qR-zEd">
                                     <font key="font" metaFont="system"/>
                                     <string key="title">Homebrew is the missing package manager for macOS. Homebrew can install software that apple did not provide.
@@ -1089,7 +1087,7 @@ Enter the following command in the Terminal app and follow the instructions. Whe
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Xz6-v7-hke" customClass="installationGuideTextField" customModule="Get_It" customModuleProvider="target">
-                                <rect key="frame" x="100" y="82" width="400" height="22"/>
+                                <rect key="frame" x="674" y="82" width="400" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="400" id="VfL-nO-HPW"/>
                                     <constraint firstAttribute="height" constant="22" id="qAW-RO-a6c"/>
@@ -1125,7 +1123,7 @@ Enter the following command in the Terminal app and follow the instructions. Whe
                                 </connections>
                             </button>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="e97-bU-Hhp" customClass="progressView" customModule="Get_It" customModuleProvider="target">
-                                <rect key="frame" x="200" y="88" width="200" height="125"/>
+                                <rect key="frame" x="774" y="88" width="200" height="125"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="X91-Ac-W7P">
                                         <rect key="frame" x="-2" y="53" width="204" height="19"/>
@@ -1179,7 +1177,7 @@ Enter the following command in the Terminal app and follow the instructions. Whe
                 </viewController>
                 <customObject id="Oxp-Gb-gXy" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-758" y="489"/>
+            <point key="canvasLocation" x="-325" y="1076"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
@@ -1187,37 +1185,37 @@ Enter the following command in the Terminal app and follow the instructions. Whe
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Get_It" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" autoresizesSubviews="NO" wantsLayer="YES" appearanceType="aqua" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="332" height="390"/>
+                        <rect key="frame" x="0.0" y="0.0" width="454" height="390"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView toolTip="Insert your URLs here. Seperate multiple URLS with a breakline (enter)." horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="70X-2A-ilo">
-                                <rect key="frame" x="20" y="100" width="291" height="166"/>
-                                <clipView key="contentView" id="MdI-Io-aKx">
-                                    <rect key="frame" x="1" y="1" width="289" height="164"/>
+                                <rect key="frame" x="20" y="100" width="414" height="166"/>
+                                <clipView key="contentView" drawsBackground="NO" id="MdI-Io-aKx">
+                                    <rect key="frame" x="1" y="1" width="412" height="164"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" linkDetection="YES" textCompletion="NO" smartInsertDelete="YES" id="7x6-CY-4t8">
-                                            <rect key="frame" x="0.0" y="0.0" width="289" height="164"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="412" height="164"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <size key="minSize" width="289" height="164"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <size key="minSize" width="412" height="164"/>
                                             <size key="maxSize" width="548" height="10000000"/>
                                             <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                         </textView>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="oFw-vl-dn8">
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="oFw-vl-dn8">
                                     <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="RPz-US-rpq">
-                                    <rect key="frame" x="274" y="1" width="16" height="164"/>
+                                <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="RPz-US-rpq">
+                                    <rect key="frame" x="397" y="1" width="16" height="164"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
                             <button autoresizesSubviews="NO" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eoJ-ib-ihB" customClass="DownloadButton" customModule="Get_It" customModuleProvider="target">
-                                <rect key="frame" x="20" y="21" width="291" height="29"/>
+                                <rect key="frame" x="20" y="21" width="414" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="Zeq-Sv-N6K"/>
                                 </constraints>
@@ -1230,7 +1228,7 @@ Enter the following command in the Terminal app and follow the instructions. Whe
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SGD-KR-TCl" customClass="GrayButton" customModule="Get_It" customModuleProvider="target">
-                                <rect key="frame" x="20" y="60" width="292" height="30"/>
+                                <rect key="frame" x="20" y="60" width="414" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="CUh-oT-ZW6"/>
                                 </constraints>
@@ -1243,7 +1241,7 @@ Enter the following command in the Terminal app and follow the instructions. Whe
                                 </connections>
                             </button>
                             <button translatesAutoresizingMaskIntoConstraints="NO" id="CAr-Wq-0Fh">
-                                <rect key="frame" x="100" y="274" width="132" height="114"/>
+                                <rect key="frame" x="99" y="274" width="256" height="114"/>
                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="arrow-download-icon" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="3jb-ZT-9gU">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -1253,7 +1251,7 @@ Enter the following command in the Terminal app and follow the instructions. Whe
                                 </connections>
                             </button>
                             <button translatesAutoresizingMaskIntoConstraints="NO" id="AoL-t3-F2Z">
-                                <rect key="frame" x="282" y="360" width="30" height="30"/>
+                                <rect key="frame" x="405" y="360" width="29" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="WKp-LY-dnS"/>
                                 </constraints>
@@ -1266,7 +1264,7 @@ Enter the following command in the Terminal app and follow the instructions. Whe
                                 </connections>
                             </button>
                             <button translatesAutoresizingMaskIntoConstraints="NO" id="Gih-DJ-UYv">
-                                <rect key="frame" x="281" y="320" width="30" height="30"/>
+                                <rect key="frame" x="404" y="320" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="XXb-Jp-Nvt"/>
                                 </constraints>
@@ -1282,7 +1280,7 @@ Enter the following command in the Terminal app and follow the instructions. Whe
                                 </connections>
                             </button>
                             <button translatesAutoresizingMaskIntoConstraints="NO" id="qaK-My-rOG">
-                                <rect key="frame" x="284" y="285" width="24" height="25"/>
+                                <rect key="frame" x="407" y="285" width="24" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="24" id="ZsC-9l-Vxg"/>
                                     <constraint firstAttribute="height" constant="25" id="sds-GY-Euy"/>
@@ -1504,9 +1502,12 @@ Get It supports.</string>
                                             <rect key="frame" x="10" y="33" width="404" height="200"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zah-bb-HCF">
-                                                    <rect key="frame" x="54" y="17" width="90" height="92"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <button translatesAutoresizingMaskIntoConstraints="NO" id="zah-bb-HCF">
+                                                    <rect key="frame" x="26" y="17" width="352" height="92"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="92" id="Xmx-gd-J8T"/>
+                                                        <constraint firstAttribute="width" constant="352" id="aWm-bf-R5X"/>
+                                                    </constraints>
                                                     <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="github" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="DKn-rC-Jim">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -1527,15 +1528,6 @@ For more information, visit GitHub and my website.</string>
                                                         <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gok-WD-mJe">
-                                                    <rect key="frame" x="35" y="-1" width="129" height="17"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="GitHub Repository" drawsBackground="YES" id="chZ-G8-YaV">
-                                                        <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </textFieldCell>
-                                                </textField>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qJg-b5-ciO">
                                                     <rect key="frame" x="18" y="180" width="40" height="17"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -1545,26 +1537,6 @@ For more information, visit GitHub and my website.</string>
                                                         <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cGh-ix-qbo">
-                                                    <rect key="frame" x="224" y="-1" width="132" height="17"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Developer's website" drawsBackground="YES" id="cpd-dh-udP">
-                                                        <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </textFieldCell>
-                                                </textField>
-                                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CEw-C9-2w5">
-                                                    <rect key="frame" x="230" y="17" width="120" height="83"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="K" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="PW4-Xf-MsT">
-                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                        <font key="font" metaFont="system"/>
-                                                    </buttonCell>
-                                                    <connections>
-                                                        <action selector="kBtnClicked:" target="22z-Dn-UPJ" id="ovR-FT-ciz"/>
-                                                    </connections>
-                                                </button>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2mT-62-1Za">
                                                     <rect key="frame" x="18" y="129" width="40" height="17"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -1574,7 +1546,25 @@ For more information, visit GitHub and my website.</string>
                                                         <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     </textFieldCell>
                                                 </textField>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gok-WD-mJe">
+                                                    <rect key="frame" x="138" y="1" width="129" height="17"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="17" id="1bn-vQ-DXH"/>
+                                                        <constraint firstAttribute="width" constant="129" id="Jwc-3V-wn4"/>
+                                                    </constraints>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="GitHub Repository" drawsBackground="YES" id="chZ-G8-YaV">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </textFieldCell>
+                                                </textField>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="gok-WD-mJe" firstAttribute="centerX" secondItem="Z7n-de-qmn" secondAttribute="centerX" id="SNE-Za-pzc"/>
+                                                <constraint firstAttribute="bottom" secondItem="zah-bb-HCF" secondAttribute="bottom" constant="17" id="dbK-s2-RTF"/>
+                                                <constraint firstItem="zah-bb-HCF" firstAttribute="centerX" secondItem="Z7n-de-qmn" secondAttribute="centerX" id="hSK-JN-o1r"/>
+                                                <constraint firstAttribute="bottom" secondItem="gok-WD-mJe" secondAttribute="bottom" constant="1" id="vcN-kJ-1IC"/>
+                                            </constraints>
                                         </view>
                                     </tabViewItem>
                                 </tabViewItems>
@@ -1590,12 +1580,11 @@ For more information, visit GitHub and my website.</string>
                 </viewController>
                 <customObject id="e7J-ZB-3Kb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="306" y="566"/>
+            <point key="canvasLocation" x="440" y="662"/>
         </scene>
     </scenes>
     <resources>
         <image name="Folder-icon" width="512" height="512"/>
-        <image name="K" width="210" height="145"/>
         <image name="Settings" width="122.87999725341797" height="122.87999725341797"/>
         <image name="arrow-download-icon" width="256" height="256"/>
         <image name="github" width="351.08572387695312" height="351.08572387695312"/>

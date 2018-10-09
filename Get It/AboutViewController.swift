@@ -26,10 +26,6 @@ class AboutViewController: NSViewController {
         open(website: "https://github.com/Kevin-De-Koninck/Get-It")
     }
     
-    @IBAction func kBtnClicked(_ sender: Any) {
-        open(website: "https://kevindekoninck.com")
-    }
-    
     @IBAction func supportedSitesBtnClicked(_ sender: Any) {
         open(website: "https://rg3.github.io/youtube-dl/supportedsites.html")
     }
