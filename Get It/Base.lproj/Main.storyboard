@@ -212,20 +212,20 @@
             <objects>
                 <viewController id="Igh-3R-yf8" customClass="OptionsViewController" customModule="Get_It" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" autoresizesSubviews="NO" appearanceType="aqua" id="JYB-pR-edy">
-                        <rect key="frame" x="0.0" y="0.0" width="484" height="225"/>
+                        <rect key="frame" x="0.0" y="0.0" width="484" height="224"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tabView appearanceType="aqua" translatesAutoresizingMaskIntoConstraints="NO" id="Thg-ew-X1n">
-                                <rect key="frame" x="13" y="48" width="458" height="173"/>
+                                <rect key="frame" x="13" y="48" width="458" height="172"/>
                                 <font key="font" metaFont="system"/>
                                 <tabViewItems>
                                     <tabViewItem label="General" identifier="1" id="6h1-Wr-GoT">
                                         <view key="view" id="TLS-HV-qXB">
-                                            <rect key="frame" x="10" y="33" width="438" height="127"/>
+                                            <rect key="frame" x="10" y="33" width="438" height="126"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <textField toolTip="Do not download any videos larger than... [MB]" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hSv-0K-HSK">
-                                                    <rect key="frame" x="15" y="107" width="154" height="17"/>
+                                                    <rect key="frame" x="15" y="107" width="154" height="16"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Maximum file size in MB:" id="4pd-DK-fsY">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -274,7 +274,7 @@
                                                     </popUpButtonCell>
                                                 </popUpButton>
                                                 <textField toolTip="Do not download any videos larger than... [MB]" focusRingType="none" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3pX-rq-V4S" customClass="optionsTextfield" customModule="Get_It" customModuleProvider="target">
-                                                    <rect key="frame" x="235" y="105" width="200" height="21"/>
+                                                    <rect key="frame" x="235" y="105" width="200" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="196" id="PCe-th-M0d"/>
                                                     </constraints>
@@ -283,6 +283,9 @@
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        <allowedInputSourceLocales>
+                                                            <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                                        </allowedInputSourceLocales>
                                                     </textFieldCell>
                                                 </textField>
                                                 <customView appearanceType="aqua" translatesAutoresizingMaskIntoConstraints="NO" id="4pH-QS-9z0" customClass="ITSwitch">
@@ -292,7 +295,7 @@
                                                     </constraints>
                                                 </customView>
                                                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E2g-pg-Lkd">
-                                                    <rect key="frame" x="237" y="55" width="25" height="25"/>
+                                                    <rect key="frame" x="237" y="54" width="25" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Folder-icon" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="SKQ-JD-k6p">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -303,7 +306,7 @@
                                                     </connections>
                                                 </button>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jzS-2Q-oeP">
-                                                    <rect key="frame" x="268" y="59" width="167" height="17"/>
+                                                    <rect key="frame" x="268" y="58" width="167" height="17"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="~/Downloads" id="hQv-OP-7CA">
                                                         <font key="font" metaFont="system"/>
@@ -333,8 +336,8 @@
                                         </view>
                                     </tabViewItem>
                                     <tabViewItem label="Authentication" identifier="1" id="nQe-Ig-lpx">
-                                        <view key="view" misplaced="YES" id="feV-YF-baS">
-                                            <rect key="frame" x="10" y="33" width="438" height="127"/>
+                                        <view key="view" id="feV-YF-baS">
+                                            <rect key="frame" x="10" y="33" width="438" height="126"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <textField toolTip="Login with this account ID." horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cq7-lq-buu">

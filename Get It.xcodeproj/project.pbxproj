@@ -26,7 +26,7 @@
 		0AF763D41E47B90D00403BA1 /* InstallationGuideTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF763D31E47B90D00403BA1 /* InstallationGuideTexts.swift */; };
 		0AF763D61E47C71500403BA1 /* installationGuideTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF763D51E47C71500403BA1 /* installationGuideTextField.swift */; };
 		0AFE6EDE20ACB49E002C7693 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE6EDD20ACB49E002C7693 /* Logger.swift */; };
-		656FE9E68E618252B653F728 /* Pods_Get_It.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F840AEEA491FC0DE6DE63CC /* Pods_Get_It.framework */; };
+		89FEC36FE494806C0C0FAF5E /* Pods_Get_It.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F840AEEA491FC0DE6DE63CC /* Pods_Get_It.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,7 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				656FE9E68E618252B653F728 /* Pods_Get_It.framework in Frameworks */,
+				89FEC36FE494806C0C0FAF5E /* Pods_Get_It.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +216,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -266,7 +267,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Get It/Pods-Get It-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Get It/Pods-Get It-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ITSwitch/ITSwitch.framework",
 				"${BUILT_PRODUCTS_DIR}/LetsMove/LetsMove.framework",
 			);
@@ -277,8 +278,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Get It/Pods-Get It-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Get It/Pods-Get It-frameworks.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -360,7 +360,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -401,7 +401,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -419,7 +419,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.KevinDeKoninck.GetIt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -434,7 +434,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.KevinDeKoninck.GetIt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

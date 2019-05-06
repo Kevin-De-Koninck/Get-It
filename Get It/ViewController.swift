@@ -49,7 +49,7 @@ class ViewController: NSViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(openSettingsView), name: NSNotification.Name(rawValue: "openSettingsView"), object: nil)
     }
-    func openSettingsView(notif: AnyObject) {
+    @objc func openSettingsView(notif: AnyObject) {
         self.performSegue(withIdentifier: "settingsSegue", sender: self)
     }
     
@@ -123,8 +123,8 @@ class ViewController: NSViewController {
         logger.reset()
         
         //get input URLs
-        let tempString = inputURLS.string!
-        let urls = tempString.characters.split{$0 == "\n"}.map(String.init)
+        let tempString = inputURLS.string
+        let urls = tempString.split{$0 == "\n"}.map(String.init)
         if(urls.count > 0){
             var urlStr = " "
             for url in urls { urlStr = urlStr + url + " " }
@@ -182,13 +182,13 @@ class ViewController: NSViewController {
                     do{
                         //regex for downloadbar
                         let regex = try NSRegularExpression(pattern: REGEX_PATTERN, options: [])
-                        let matches = regex.matches(in: str, options: [], range: NSRange(location: 0, length: str.characters.count))
+                        let matches = regex.matches(in: str, options: [], range: NSRange(location: 0, length: str.count))
                         //regex for error
                         let regexError = try NSRegularExpression(pattern: "ERROR", options: [])
-                        let matchesError = regexError.matches(in: str, options: [], range: NSRange(location: 0, length: str.characters.count))
+                        let matchesError = regexError.matches(in: str, options: [], range: NSRange(location: 0, length: str.count))
                         
                         if matches.count > 0 {
-                            let rangeOfMatch = matches[0].rangeAt(0)
+                            let rangeOfMatch = matches[0].range(at: 0)
                             var index = str.index(str.startIndex, offsetBy: rangeOfMatch.location + rangeOfMatch.length - 1)
                             str = str.substring(to: index)
                             index = str.index(str.startIndex, offsetBy: rangeOfMatch.location - 1)

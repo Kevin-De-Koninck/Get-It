@@ -122,7 +122,7 @@ class OptionsViewController: NSViewController {
     func saveSettings() {
         var settingsDict = [String: String]()
 
-        settingsDict["maxFileSize"] = maxFileSize.stringValue
+        settingsDict["maxFileSize"] = maxFileSize.stringValue.replacingOccurrences(of: ".", with: "").replacingOccurrences(of: ",", with: "")
         settingsDict["ignoreErrors"] = String(ignoreErrors.checked) == "true" ? "1" : "0"
         settingsDict["path"] = UserDefaults.standard.value(forKey: OUTPUT_PATH) as? String
         settingsDict["outputTemplate"] = outputTemplate.itemTitle(at: outputTemplate.indexOfSelectedItem)
@@ -262,10 +262,10 @@ class OptionsViewController: NSViewController {
         var command = EXPORT_PATH + " && youtube-dl --newline --prefer-ffmpeg";
         
         //Preprocessing
-        let audioFormatString = audioFormat.selectedItem?.title.characters.split{$0 == "\""}.map(String.init)
-        let audioQualityString = audioQuality.selectedItem!.title.characters.split{$0 == "\""}.map(String.init)
+        let audioFormatString = audioFormat.selectedItem?.title.split{$0 == "\""}.map(String.init)
+        let audioQualityString = audioQuality.selectedItem!.title.split{$0 == "\""}.map(String.init)
         let videoFormatString = videoFormat.selectedItem!.tag
-        let audioQ = audioQualityString.first!.characters.first
+        let audioQ = audioQualityString.first!.first
         
         //Creating the command
         if downloadPlaylist.checked { command += " --yes-playlist" } else { command += " --no-playlist" }
@@ -288,7 +288,7 @@ class OptionsViewController: NSViewController {
         if downloadAutoSubs.checked { command += " --write-auto-sub" }
         if downloadAllSubs.checked { command += " --all-subs" }
         if embedSubs.checked { command += " --embed-subs" }
-        if !maxFileSize.stringValue.isEmpty { command += " --max-filesize \(maxFileSize.stringValue)M" }
+        if !maxFileSize.stringValue.isEmpty { command += " --max-filesize \(maxFileSize.stringValue.replacingOccurrences(of: ".", with: "").replacingOccurrences(of: ",", with: ""))M" }
         if ignoreErrors.checked == true { command += " --ignore-errors" } else { command += " --abort-on-error" }
         
         command += " --audio-format \(audioFormatString![0])"
@@ -327,7 +327,7 @@ class OptionsViewController: NSViewController {
         dialog.canCreateDirectories    = true
         dialog.allowsMultipleSelection = false
         
-        if (dialog.runModal() == NSModalResponseOK) {
+        if (dialog.runModal() == NSApplication.ModalResponse.OK) {
             let result = dialog.url
             if (result != nil) {
                 let path = result!.path

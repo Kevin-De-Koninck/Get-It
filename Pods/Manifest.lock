@@ -7,7 +7,7 @@ DEPENDENCIES:
   - LetsMove
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - ITSwitch
     - LetsMove
 
@@ -17,4 +17,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: f1682402e3598f271953f1ee3319595421e23b23
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.7.0.rc.1

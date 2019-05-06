@@ -19,7 +19,7 @@ let REGEX_PATTERN = "(?<=^\\[download\\].)[0-9.]+\\%"
 var blueColor = NSColor.init(red: 45.0/255, green: 135.0/255, blue: 250.0/255, alpha: 1)
 
 // Settings
-let DEFAULT_SETTINGS = [    "maxFileSize"       :   "15",
+let DEFAULT_SETTINGS = [    "maxFileSize"       :   "",
                             "ignoreErrors"      :   "1", //bool
                             "path"              :   "~/Downloads/",
                             "outputTemplate"    :   "Title.extension",
