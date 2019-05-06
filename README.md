@@ -3,11 +3,12 @@ A native macOS video/audio downloader. Think of it as a youtube downloader that 
 
 <img src="https://github.com/Kevin-De-Koninck/Get-It/blob/master/ReadMe%20Resources/MainWindow.png?raw=true" height="400" /><img src="https://github.com/Kevin-De-Koninck/Get-It/blob/master/ReadMe%20Resources/Settings.png?raw=true" height="400" />
 
-
 # Installation
 
 Download it [here](https://github.com/Kevin-De-Koninck/Get-It/releases/download/v0.6.1/Get.It.app.zip), unzip it and open it.
 If a yellow package button is visible on the main screen, click on it and follow the guide (to install the dependencies).
+
+**Note**: Get It requires _Homebrew_. The required dependencies will be installed with _Homebrew_.
 
 
 # About
