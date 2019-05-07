@@ -23,7 +23,7 @@ class AboutViewController: NSViewController {
     }
     
     @IBAction func githubBtnClicked(_ sender: Any) {
-        open(website: "https://github.com/Kevin-De-Koninck/Get-It")
+        open(website: "https://kevin-de-koninck.github.io/Get-It/")
     }
     
     @IBAction func supportedSitesBtnClicked(_ sender: Any) {
