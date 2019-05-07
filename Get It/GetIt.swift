@@ -103,7 +103,7 @@ class GetIt {
         task.waitUntilExit()
         let data = pipe.fileHandleForReading.readDataToEndOfFile()
         
-        return(NSString(data: data, encoding: String.Encoding.utf8.rawValue) as! String)
+        return(NSString(data: data, encoding: String.Encoding.utf8.rawValue)! as String)
     }
     
     

@@ -185,14 +185,14 @@ class ViewController: NSViewController {
                         let matches = regex.matches(in: str, options: [], range: NSRange(location: 0, length: str.count))
                         //regex for error
                         let regexError = try NSRegularExpression(pattern: "ERROR", options: [])
-                        let matchesError = regexError.matches(in: str, options: [], range: NSRange(location: 0, length: str.count))
+                        _ = regexError.matches(in: str, options: [], range: NSRange(location: 0, length: str.count))
                         
                         if matches.count > 0 {
                             let rangeOfMatch = matches[0].range(at: 0)
                             var index = str.index(str.startIndex, offsetBy: rangeOfMatch.location + rangeOfMatch.length - 1)
-                            str = str.substring(to: index)
+                            str = String(str[..<index])
                             index = str.index(str.startIndex, offsetBy: rangeOfMatch.location - 1)
-                            str = str.substring(from: index)
+                            str = String(str[index...])
                             
                             self.currentProgress = CGFloat(Double(round(100 * (str as NSString).doubleValue) / 100 ))
                             if( self.currentProgress < self.previousProgress){
@@ -236,7 +236,7 @@ class ViewController: NSViewController {
                 outHandle.waitForDataInBackgroundAndNotify()
             } else {
                 //EOF ON STDOUT FROM PROCESS
-                NotificationCenter.default.removeObserver(obs1)
+                NotificationCenter.default.removeObserver(obs1 as Any)
                 if(self.downloadingFileNr < 2){
                     self.showInProgressView(title: "Failed...", details: "Something went wrong. Please try other settings or report this issue on github if the problem doesn't magically disappears.")
                     DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
@@ -249,7 +249,7 @@ class ViewController: NSViewController {
         var obs2 : NSObjectProtocol!
         obs2 = NotificationCenter.default.addObserver(forName: Process.didTerminateNotification, object: task, queue: nil) { notification -> Void in
             //PROCESS TERMINATED
-            NotificationCenter.default.removeObserver(obs2)
+            NotificationCenter.default.removeObserver(obs2 as Any)
             self.dismissProgressView()
         }
         
