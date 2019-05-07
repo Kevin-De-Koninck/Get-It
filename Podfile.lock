@@ -1,20 +1,24 @@
 PODS:
   - ITSwitch (1.0)
   - LetsMove (1.24)
+  - STPrivilegedTask (1.0.1)
 
 DEPENDENCIES:
   - ITSwitch
   - LetsMove
+  - STPrivilegedTask
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - ITSwitch
     - LetsMove
+    - STPrivilegedTask
 
 SPEC CHECKSUMS:
   ITSwitch: 7ff745d6f2a6910e9194b23e4eab9a843258a478
   LetsMove: fefe56bc7bc7fb7d37049e28a14f297961229fc5
+  STPrivilegedTask: 103f97827454e786074640cf89d303be344498c7
 
-PODFILE CHECKSUM: f1682402e3598f271953f1ee3319595421e23b23
+PODFILE CHECKSUM: 4dca32d4d6791341e27820d98c0efe1419299b51
 
 COCOAPODS: 1.7.0.rc.1

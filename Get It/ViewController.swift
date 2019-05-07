@@ -21,8 +21,6 @@ class ViewController: NSViewController {
     @IBOutlet weak var settingsBtn: NSButton!
     @IBOutlet weak var openDestinationFolderBtn: GrayButton!
     @IBOutlet weak var downloadBtn: DownloadButton!
-    @IBOutlet weak var installationGuideBtn: NSButton!
-    @IBOutlet weak var refreshInstallationBtn: NSButton!
     @IBOutlet weak var progressV: progressView!
     @IBOutlet weak var progressTitle: NSTextField!
     @IBOutlet weak var progressDetails: NSTextField!
@@ -55,47 +53,25 @@ class ViewController: NSViewController {
     
     override func viewWillAppear() {
         super.viewWillAppear()
-        
-        getIt.checkIfSoftwareIsInstalled()
-        let activate = (!getIt.isYTDLInstalled) || (!getIt.isFfmpegInstalled) || (!getIt.isPycryptoInstalled)
-        installationGuideViewSetUp(activate: activate)
+        dismissProgressView()
     }
     
-    func installationGuideViewSetUp(activate: Bool) {
-        inputURLS.isEditable = !activate
-        settingsBtn.isEnabled = !activate
-        openDestinationFolderBtn.isEnabled = !activate
-        downloadBtn.isEnabled = !activate
-        installationGuideBtn.isEnabled = activate
-        installationGuideBtn.isHidden = !activate
-        refreshInstallationBtn.isEnabled = activate
-        refreshInstallationBtn.isHidden = !activate
-        progressV.isHidden = true
-        progressTitle.isHidden = true
-        progressDetails.isHidden = true
+    func activateComponents(activate: Bool) {
+        inputURLS.isEditable = activate
+        settingsBtn.isEnabled = activate
+        openDestinationFolderBtn.isEnabled = activate
+        downloadBtn.isEnabled = activate
     }
     
-    func disableAll() {
-        inputURLS.isEditable = false
-        settingsBtn.isEnabled = false
-        openDestinationFolderBtn.isEnabled = false
-        downloadBtn.isEnabled = false
-        installationGuideBtn.isEnabled = false
-        installationGuideBtn.isHidden = true
-        refreshInstallationBtn.isEnabled = false
-        refreshInstallationBtn.isHidden = true
-    }
-    
-    // TODO fill in popover menu
     func dismissProgressView() {
-        self.installationGuideViewSetUp(activate: false)
+        self.activateComponents(activate: true)
         progressV.isHidden = true
         progressTitle.isHidden = true
         progressDetails.isHidden = true
     }
     
     func showInProgressView(title: String, details: String) {
-        self.disableAll()
+        self.activateComponents(activate: false)
         progressV.isHidden = false
         progressTitle.isHidden = false
         progressDetails.isHidden = false
@@ -104,20 +80,9 @@ class ViewController: NSViewController {
         logger.log(tag: "[PROGRESS VIEW]", str: "\(title): \(details)")
     }
     
-    @IBAction func refreshInstallationBtnClicked(_ sender: Any) {
-        getIt.checkIfSoftwareIsInstalled()
-        let activate = (!getIt.isYTDLInstalled) || (!getIt.isFfmpegInstalled) || (!getIt.isPycryptoInstalled)
-        installationGuideViewSetUp(activate: activate)
-    }
-    
-    @IBAction func InstallGuideBtnClicked(_ sender: Any) {
-        logger.resetInstallLog()
-    }
-    
     @IBAction func openDestinationFolderBtnClicked(_ sender: Any) {
         _ = getIt.open(folder: UserDefaults.standard.value(forKey: OUTPUT_PATH) as! String)
     }
-    
 
     @IBAction func downloadButton(_ sender: AnyObject) {
         logger.reset()
@@ -140,7 +105,6 @@ class ViewController: NSViewController {
             })
         }
     }
-    
     
     func execute(commmandAsynchronous: String){
         

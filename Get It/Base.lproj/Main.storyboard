@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -193,7 +193,7 @@
                 <windowController id="B8D-0N-5wS" customClass="WindowController" customModule="Get_It" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Get It" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" tabbingMode="disallowed" titlebarAppearsTransparent="YES" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" texturedBackground="YES"/>
-                        <rect key="contentRect" x="316" y="275" width="236" height="61"/>
+                        <rect key="contentRect" x="316" y="275" width="234" height="61"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="nbQ-ii-R9S"/>
@@ -954,6 +954,27 @@
                                     </tabViewItem>
                                 </tabViewItems>
                             </tabView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="pNa-9O-W4T" customClass="progressView" customModule="Get_It" customModuleProvider="target">
+                                <rect key="frame" x="8" y="8" width="468" height="208"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="01C-M7-gNR">
+                                        <rect key="frame" x="111" y="85" width="247" height="38"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="243" id="9rB-zr-LQr"/>
+                                            <constraint firstAttribute="height" constant="38" id="XHs-gH-N9g"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Please wait... This can take a while." id="hiu-ci-vo6">
+                                            <font key="font" metaFont="systemSemibold" size="16"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="01C-M7-gNR" firstAttribute="centerY" secondItem="pNa-9O-W4T" secondAttribute="centerY" id="9xB-8a-EDq"/>
+                                    <constraint firstItem="01C-M7-gNR" firstAttribute="centerX" secondItem="pNa-9O-W4T" secondAttribute="centerX" id="FMq-vb-FoJ"/>
+                                </constraints>
+                            </customView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5cG-jL-fhF" customClass="GrayButton" customModule="Get_It" customModuleProvider="target">
                                 <rect key="frame" x="303" y="20" width="161" height="30"/>
                                 <constraints>
@@ -968,14 +989,36 @@
                                     <action selector="loadDefaultsBtnClicked:" target="Igh-3R-yf8" id="PwE-Kk-BJT"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1Kd-VN-9S6" customClass="GrayButton" customModule="Get_It" customModuleProvider="target">
+                                <rect key="frame" x="20" y="20" width="161" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="DVt-bj-Kd7"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="161" id="KsI-Sv-g9Y"/>
+                                    <constraint firstAttribute="width" constant="161" id="SEi-e2-ur6"/>
+                                </constraints>
+                                <buttonCell key="cell" type="squareTextured" title="Install/update software" bezelStyle="texturedSquare" alignment="center" imageScaling="proportionallyDown" inset="2" id="S9o-LZ-UyG">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <connections>
+                                        <action selector="installSoftwareBtnClicked:" target="Igh-3R-yf8" id="QVM-7W-lVP"/>
+                                    </connections>
+                                </buttonCell>
+                            </button>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="1Kd-VN-9S6" firstAttribute="top" secondItem="Thg-ew-X1n" secondAttribute="bottom" constant="8" id="89E-VG-SFn"/>
+                            <constraint firstItem="pNa-9O-W4T" firstAttribute="leading" secondItem="JYB-pR-edy" secondAttribute="leading" constant="8" id="92P-1g-TuC"/>
                             <constraint firstAttribute="bottom" secondItem="5cG-jL-fhF" secondAttribute="bottom" constant="20" symbolic="YES" id="HnB-AH-iHN"/>
+                            <constraint firstAttribute="bottom" secondItem="1Kd-VN-9S6" secondAttribute="bottom" constant="20" id="Rny-pK-eE8"/>
                             <constraint firstAttribute="trailing" secondItem="Thg-ew-X1n" secondAttribute="trailing" constant="20" symbolic="YES" id="T0Q-Ko-ZIx"/>
                             <constraint firstItem="Thg-ew-X1n" firstAttribute="trailing" secondItem="5cG-jL-fhF" secondAttribute="trailing" id="bLJ-O4-K9Z"/>
                             <constraint firstItem="Thg-ew-X1n" firstAttribute="top" secondItem="JYB-pR-edy" secondAttribute="top" constant="10" id="cKg-oK-Cby"/>
+                            <constraint firstItem="pNa-9O-W4T" firstAttribute="top" secondItem="JYB-pR-edy" secondAttribute="top" constant="8" id="igk-c4-995"/>
+                            <constraint firstAttribute="trailing" secondItem="pNa-9O-W4T" secondAttribute="trailing" constant="8" id="j5e-J8-u9B"/>
                             <constraint firstItem="Thg-ew-X1n" firstAttribute="leading" secondItem="JYB-pR-edy" secondAttribute="leading" constant="20" symbolic="YES" id="jp2-AV-HTe"/>
                             <constraint firstItem="5cG-jL-fhF" firstAttribute="top" secondItem="Thg-ew-X1n" secondAttribute="bottom" constant="8" symbolic="YES" id="oKw-pX-kUC"/>
+                            <constraint firstAttribute="bottom" secondItem="pNa-9O-W4T" secondAttribute="bottom" constant="8" id="qHu-ee-d9q"/>
+                            <constraint firstItem="1Kd-VN-9S6" firstAttribute="leading" secondItem="Thg-ew-X1n" secondAttribute="leading" id="rQP-PF-eRw"/>
                         </constraints>
                     </view>
                     <connections>
@@ -990,6 +1033,8 @@
                         <outlet property="embedSubs" destination="qZO-hk-m7W" id="AlN-XP-lKj"/>
                         <outlet property="extractAudio" destination="x2Q-ob-Edw" id="fAL-4g-keF"/>
                         <outlet property="ignoreErrors" destination="4pH-QS-9z0" id="gKb-lS-LVN"/>
+                        <outlet property="installProgressText" destination="01C-M7-gNR" id="Nel-zL-hxI"/>
+                        <outlet property="installProgressView" destination="pNa-9O-W4T" id="JoS-ky-S5E"/>
                         <outlet property="keepVideo" destination="9Bd-2o-Ck1" id="62E-eI-GmQ"/>
                         <outlet property="languageSubs" destination="dgx-dx-gii" id="pgp-l4-Sbm"/>
                         <outlet property="maxFileSize" destination="3pX-rq-V4S" id="sAf-bf-9OU"/>
@@ -1025,162 +1070,10 @@
                             <outlet property="delegate" destination="TVW-7d-GRi" id="mpp-Us-RbT"/>
                         </connections>
                     </window>
-                    <connections>
-                        <segue destination="7TU-zM-7EV" kind="relationship" relationship="window.shadowedContentViewController" id="rO6-fM-EUc"/>
-                    </connections>
                 </windowController>
                 <customObject id="zQP-Ps-hIV" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-758" y="150"/>
-        </scene>
-        <!--Installation Guide View Controller-->
-        <scene sceneID="0CD-kl-tJb">
-            <objects>
-                <viewController id="7TU-zM-7EV" customClass="InstallationGuideViewController" customModule="Get_It" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" appearanceType="aqua" misplaced="YES" id="tyQ-Oc-9g9">
-                        <rect key="frame" x="0.0" y="0.0" width="1626" height="300"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <button ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AKl-V2-VAQ">
-                                <rect key="frame" x="1122" y="0.0" width="626" height="300"/>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="right arrow" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="6tT-h0-YTY">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="nextPageBtnClicked:" target="7TU-zM-7EV" id="g5S-pC-I5o"/>
-                                </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VMd-5w-2AW" customClass="installButton" customModule="Get_It" customModuleProvider="target">
-                                <rect key="frame" x="729" y="33" width="291" height="19"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="291" id="yN5-Yx-GNK"/>
-                                </constraints>
-                                <buttonCell key="cell" type="bevel" title="Install" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="xgC-Jb-cAL">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system" size="16"/>
-                                    <connections>
-                                        <action selector="installBtnClicked:" target="7TU-zM-7EV" id="jpC-3X-raM"/>
-                                    </connections>
-                                </buttonCell>
-                            </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NvZ-KG-FeY">
-                                <rect key="frame" x="824" y="277" width="100" height="17"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="17" id="17b-xb-EvS"/>
-                                </constraints>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Introduction" id="kdG-eZ-psX">
-                                    <font key="font" metaFont="systemBold" size="16"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wNP-mt-jZW">
-                                <rect key="frame" x="647" y="128" width="454" height="136"/>
-                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="fsA-qR-zEd">
-                                    <font key="font" metaFont="system"/>
-                                    <string key="title">Homebrew is the missing package manager for macOS. Homebrew can install software that apple did not provide.
-
-We will be using Homebrew to install all the software that is needed for 
-Get It.
-
-Enter the following command in the Terminal app and follow the instructions. When finished, proceed to the next page.</string>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Xz6-v7-hke" customClass="installationGuideTextField" customModule="Get_It" customModuleProvider="target">
-                                <rect key="frame" x="674" y="82" width="400" height="22"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="400" id="VfL-nO-HPW"/>
-                                    <constraint firstAttribute="height" constant="22" id="qAW-RO-a6c"/>
-                                </constraints>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" state="on" title="/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;" drawsBackground="YES" id="EmD-JU-kRJ">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" red="0.0" green="0.59548611111111116" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0QF-OZ-3Ai">
-                                <rect key="frame" x="288" y="137" width="24" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="refresh" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="vKv-s0-QGa">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="refreshInstallationBtnClicked:" target="XfG-lQ-9wD" id="YBN-dI-dYk"/>
-                                </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" ambiguous="YES" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yyJ-e7-LEQ" customClass="GrayButton" customModule="Get_It" customModuleProvider="target">
-                                <rect key="frame" x="155" y="20" width="291" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="291" id="zAu-ec-oMN"/>
-                                </constraints>
-                                <buttonCell key="cell" type="bevel" title="Open the Terminal app" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="U7f-Lz-FHb">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system" size="16"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="openTerminalButtonClicked:" target="7TU-zM-7EV" id="WR3-2p-EQw"/>
-                                </connections>
-                            </button>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="e97-bU-Hhp" customClass="progressView" customModule="Get_It" customModuleProvider="target">
-                                <rect key="frame" x="774" y="88" width="200" height="125"/>
-                                <subviews>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="X91-Ac-W7P">
-                                        <rect key="frame" x="-2" y="53" width="204" height="19"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="19" id="yhn-EI-LOJ"/>
-                                        </constraints>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="efF-Oh-kD5">
-                                            <font key="font" metaFont="systemSemibold" size="16"/>
-                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                        </textFieldCell>
-                                    </textField>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="8SC-X8-pfT"/>
-                                    <constraint firstItem="X91-Ac-W7P" firstAttribute="centerY" secondItem="e97-bU-Hhp" secondAttribute="centerY" id="8Sz-Ns-Szg"/>
-                                    <constraint firstAttribute="height" constant="125" id="Xcd-1q-es6"/>
-                                    <constraint firstItem="X91-Ac-W7P" firstAttribute="leading" secondItem="e97-bU-Hhp" secondAttribute="leading" id="eCw-pS-l0T"/>
-                                    <constraint firstAttribute="trailing" secondItem="X91-Ac-W7P" secondAttribute="trailing" id="lSR-89-Nn2"/>
-                                </constraints>
-                            </customView>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="AKl-V2-VAQ" firstAttribute="leading" secondItem="Xz6-v7-hke" secondAttribute="trailing" constant="48" id="2Pa-c6-oZA"/>
-                            <constraint firstAttribute="bottom" secondItem="Xz6-v7-hke" secondAttribute="bottom" constant="82" id="4cb-y1-ADK"/>
-                            <constraint firstItem="Xz6-v7-hke" firstAttribute="centerX" secondItem="VMd-5w-2AW" secondAttribute="centerX" id="Gvf-vX-ino"/>
-                            <constraint firstItem="e97-bU-Hhp" firstAttribute="centerX" secondItem="tyQ-Oc-9g9" secondAttribute="centerX" id="JLf-as-I3p"/>
-                            <constraint firstItem="AKl-V2-VAQ" firstAttribute="leading" secondItem="wNP-mt-jZW" secondAttribute="trailing" constant="23" id="K3R-TY-rzT"/>
-                            <constraint firstAttribute="bottom" secondItem="NvZ-KG-FeY" secondAttribute="bottom" constant="277" id="KZ0-Rx-8A2"/>
-                            <constraint firstItem="Xz6-v7-hke" firstAttribute="centerX" secondItem="NvZ-KG-FeY" secondAttribute="centerX" id="Rcj-Rl-jqo"/>
-                            <constraint firstItem="wNP-mt-jZW" firstAttribute="top" secondItem="NvZ-KG-FeY" secondAttribute="bottom" constant="13" id="VG1-TW-NCB"/>
-                            <constraint firstItem="VMd-5w-2AW" firstAttribute="top" secondItem="Xz6-v7-hke" secondAttribute="bottom" constant="30" id="czC-Xe-kgr"/>
-                            <constraint firstItem="Xz6-v7-hke" firstAttribute="centerX" secondItem="tyQ-Oc-9g9" secondAttribute="centerX" id="gyx-XZ-C1B"/>
-                            <constraint firstItem="Xz6-v7-hke" firstAttribute="top" secondItem="wNP-mt-jZW" secondAttribute="bottom" constant="24" id="l1S-Cs-pJB"/>
-                            <constraint firstAttribute="trailing" secondItem="AKl-V2-VAQ" secondAttribute="trailing" id="sNJ-R9-2Ta"/>
-                            <constraint firstItem="wNP-mt-jZW" firstAttribute="centerX" secondItem="VMd-5w-2AW" secondAttribute="centerX" id="xyz-tm-ta7"/>
-                            <constraint firstItem="e97-bU-Hhp" firstAttribute="centerY" secondItem="tyQ-Oc-9g9" secondAttribute="centerY" id="zKH-IY-yAV"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="bodyText" destination="wNP-mt-jZW" id="6TT-6r-zEn"/>
-                        <outlet property="commandTextField" destination="Xz6-v7-hke" id="79I-pb-jKU"/>
-                        <outlet property="installButton" destination="VMd-5w-2AW" id="5p8-w9-P7z"/>
-                        <outlet property="nextPageBtn" destination="AKl-V2-VAQ" id="dzq-UU-SKk"/>
-                        <outlet property="openTerminalButton" destination="yyJ-e7-LEQ" id="A2b-Zo-Sc0"/>
-                        <outlet property="progressTitle" destination="X91-Ac-W7P" id="Nah-ul-lVX"/>
-                        <outlet property="progressV" destination="e97-bU-Hhp" id="h52-nY-Hur"/>
-                        <outlet property="refreshImage" destination="0QF-OZ-3Ai" id="8vN-Yi-g46"/>
-                        <outlet property="titleText" destination="NvZ-KG-FeY" id="iBM-S6-PZh"/>
-                    </connections>
-                </viewController>
-                <customObject id="Oxp-Gb-gXy" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-325" y="1076"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
@@ -1188,39 +1081,43 @@ Enter the following command in the Terminal app and follow the instructions. Whe
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Get_It" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" autoresizesSubviews="NO" wantsLayer="YES" appearanceType="aqua" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="454" height="390"/>
+                        <rect key="frame" x="0.0" y="0.0" width="386" height="427"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView toolTip="Insert your URLs here. Seperate multiple URLS with a breakline (enter)." horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="70X-2A-ilo">
-                                <rect key="frame" x="20" y="100" width="414" height="166"/>
+                                <rect key="frame" x="20" y="95" width="346" height="216"/>
                                 <clipView key="contentView" drawsBackground="NO" id="MdI-Io-aKx">
-                                    <rect key="frame" x="1" y="1" width="412" height="164"/>
+                                    <rect key="frame" x="1" y="1" width="344" height="214"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" linkDetection="YES" textCompletion="NO" smartInsertDelete="YES" id="7x6-CY-4t8">
-                                            <rect key="frame" x="0.0" y="0.0" width="412" height="164"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="344" height="214"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            <size key="minSize" width="412" height="164"/>
-                                            <size key="maxSize" width="548" height="10000000"/>
+                                            <size key="minSize" width="344" height="214"/>
+                                            <size key="maxSize" width="1552" height="10000000"/>
                                             <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                         </textView>
                                     </subviews>
                                 </clipView>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="346" id="6Lh-pr-nB0"/>
+                                    <constraint firstAttribute="height" constant="216" id="lE5-i7-Aol"/>
+                                </constraints>
                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="oFw-vl-dn8">
                                     <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="RPz-US-rpq">
-                                    <rect key="frame" x="397" y="1" width="16" height="164"/>
+                                    <rect key="frame" x="329" y="1" width="16" height="214"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
                             <button autoresizesSubviews="NO" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eoJ-ib-ihB" customClass="DownloadButton" customModule="Get_It" customModuleProvider="target">
-                                <rect key="frame" x="20" y="21" width="414" height="29"/>
+                                <rect key="frame" x="20" y="19" width="346" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="29" id="Zeq-Sv-N6K"/>
+                                    <constraint firstAttribute="height" constant="30" id="icp-82-tXX"/>
                                 </constraints>
                                 <buttonCell key="cell" type="bevel" title="Download" bezelStyle="regularSquare" alignment="center" imageScaling="proportionallyDown" inset="2" id="2Wl-gw-9kz">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1230,21 +1127,12 @@ Enter the following command in the Terminal app and follow the instructions. Whe
                                     <action selector="downloadButton:" target="XfG-lQ-9wD" id="fCZ-Uv-yft"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SGD-KR-TCl" customClass="GrayButton" customModule="Get_It" customModuleProvider="target">
-                                <rect key="frame" x="20" y="60" width="414" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="CUh-oT-ZW6"/>
-                                </constraints>
-                                <buttonCell key="cell" type="bevel" title="Open destination folder" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="3uQ-eK-NEk">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system" size="14"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="openDestinationFolderBtnClicked:" target="XfG-lQ-9wD" id="HG6-hW-eXV"/>
-                                </connections>
-                            </button>
                             <button translatesAutoresizingMaskIntoConstraints="NO" id="CAr-Wq-0Fh">
-                                <rect key="frame" x="99" y="274" width="256" height="114"/>
+                                <rect key="frame" x="114" y="319" width="158" height="108"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="108" id="0AD-wY-87o"/>
+                                    <constraint firstAttribute="width" constant="158" id="NkD-L7-pPr"/>
+                                </constraints>
                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="arrow-download-icon" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="3jb-ZT-9gU">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -1254,9 +1142,10 @@ Enter the following command in the Terminal app and follow the instructions. Whe
                                 </connections>
                             </button>
                             <button translatesAutoresizingMaskIntoConstraints="NO" id="AoL-t3-F2Z">
-                                <rect key="frame" x="405" y="360" width="29" height="30"/>
+                                <rect key="frame" x="328" y="397" width="38" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="WKp-LY-dnS"/>
+                                    <constraint firstAttribute="height" constant="30" id="Q3E-mf-cPX"/>
+                                    <constraint firstAttribute="width" constant="38" id="Sgo-SE-Sr7"/>
                                 </constraints>
                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Settings" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="xgK-5l-IF3">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1266,54 +1155,13 @@ Enter the following command in the Terminal app and follow the instructions. Whe
                                     <segue destination="Igh-3R-yf8" kind="popover" identifier="settingsSegue" popoverAnchorView="AoL-t3-F2Z" popoverBehavior="t" preferredEdge="maxY" id="g0o-eO-lPT"/>
                                 </connections>
                             </button>
-                            <button translatesAutoresizingMaskIntoConstraints="NO" id="Gih-DJ-UYv">
-                                <rect key="frame" x="404" y="320" width="30" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="XXb-Jp-Nvt"/>
-                                </constraints>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="package" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="SfQ-Iq-zhf">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                    <connections>
-                                        <action selector="InstallGuideBtnClicked:" target="XfG-lQ-9wD" id="Qne-4i-dZH"/>
-                                    </connections>
-                                </buttonCell>
-                                <connections>
-                                    <segue destination="TVW-7d-GRi" kind="show" id="lSN-IA-ncA"/>
-                                </connections>
-                            </button>
-                            <button translatesAutoresizingMaskIntoConstraints="NO" id="qaK-My-rOG">
-                                <rect key="frame" x="407" y="285" width="24" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="24" id="ZsC-9l-Vxg"/>
-                                    <constraint firstAttribute="height" constant="25" id="sds-GY-Euy"/>
-                                </constraints>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="refresh" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="p8t-Iq-WEE">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="refreshInstallationBtnClicked:" target="XfG-lQ-9wD" id="9YC-ex-V2W"/>
-                                </connections>
-                            </button>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="TCr-WW-W4C" customClass="progressView" customModule="Get_It" customModuleProvider="target">
-                                <rect key="frame" x="45" y="108" width="243" height="150"/>
+                                <rect key="frame" x="43" y="112" width="300" height="181"/>
                                 <subviews>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="38L-rH-SBn">
-                                        <rect key="frame" x="-2" y="76" width="247" height="19"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="19" id="2Nw-bp-fbM"/>
-                                        </constraints>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="yUm-Ij-IRa">
-                                            <font key="font" metaFont="systemSemibold" size="16"/>
-                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                        </textFieldCell>
-                                    </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wyx-tm-2Ez">
-                                        <rect key="frame" x="5" y="20" width="233" height="55"/>
+                                        <rect key="frame" x="34" y="20" width="233" height="55"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="55" id="Via-Mv-NoM"/>
+                                            <constraint firstAttribute="height" constant="55" id="y9P-fo-eT8"/>
                                         </constraints>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="4YQ-va-fYx">
                                             <font key="font" metaFont="smallSystem"/>
@@ -1321,44 +1169,64 @@ Enter the following command in the Terminal app and follow the instructions. Whe
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="38L-rH-SBn">
+                                        <rect key="frame" x="27" y="81" width="247" height="19"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="243" id="djE-gA-jsZ"/>
+                                            <constraint firstAttribute="height" constant="19" id="nI3-up-RsT"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="yUm-Ij-IRa">
+                                            <font key="font" metaFont="systemSemibold" size="16"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="38L-rH-SBn" firstAttribute="top" secondItem="TCr-WW-W4C" secondAttribute="top" constant="55" id="AgI-3Q-Rhh"/>
-                                    <constraint firstAttribute="width" constant="243" id="Df7-dO-aR9"/>
-                                    <constraint firstAttribute="bottom" secondItem="Wyx-tm-2Ez" secondAttribute="bottom" constant="20" id="XAC-Uh-qhh"/>
-                                    <constraint firstAttribute="trailing" secondItem="Wyx-tm-2Ez" secondAttribute="trailing" constant="7" id="bDa-aA-nuX"/>
-                                    <constraint firstAttribute="trailing" secondItem="38L-rH-SBn" secondAttribute="trailing" id="dX4-xB-GAR"/>
-                                    <constraint firstAttribute="height" constant="150" id="f9Q-tJ-jy0"/>
-                                    <constraint firstItem="38L-rH-SBn" firstAttribute="leading" secondItem="TCr-WW-W4C" secondAttribute="leading" id="idm-mn-Dhm"/>
-                                    <constraint firstItem="Wyx-tm-2Ez" firstAttribute="leading" secondItem="TCr-WW-W4C" secondAttribute="leading" constant="7" id="l7n-aE-cC7"/>
+                                    <constraint firstAttribute="width" constant="300" id="9NK-0k-37D"/>
+                                    <constraint firstItem="38L-rH-SBn" firstAttribute="top" secondItem="TCr-WW-W4C" secondAttribute="top" constant="81" id="CNn-uC-P6B"/>
+                                    <constraint firstAttribute="height" constant="181" id="FFC-C5-qBj"/>
+                                    <constraint firstItem="38L-rH-SBn" firstAttribute="leading" secondItem="TCr-WW-W4C" secondAttribute="leading" constant="29" id="coK-Ej-YJI"/>
+                                    <constraint firstItem="Wyx-tm-2Ez" firstAttribute="top" secondItem="38L-rH-SBn" secondAttribute="bottom" constant="6" id="e0D-v5-px2"/>
+                                    <constraint firstAttribute="trailing" secondItem="Wyx-tm-2Ez" secondAttribute="trailing" constant="35" id="ehS-7e-mcj"/>
+                                    <constraint firstItem="Wyx-tm-2Ez" firstAttribute="leading" secondItem="TCr-WW-W4C" secondAttribute="leading" constant="36" id="lKL-sn-bm3"/>
+                                    <constraint firstAttribute="trailing" secondItem="38L-rH-SBn" secondAttribute="trailing" constant="28" id="yeb-Pe-dII"/>
                                 </constraints>
                             </customView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SGD-KR-TCl" customClass="GrayButton" customModule="Get_It" customModuleProvider="target">
+                                <rect key="frame" x="20" y="57" width="346" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="LI2-6R-gxY"/>
+                                </constraints>
+                                <buttonCell key="cell" type="bevel" title="Open destination folder" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="3uQ-eK-NEk">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system" size="14"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="openDestinationFolderBtnClicked:" target="XfG-lQ-9wD" id="HG6-hW-eXV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="AoL-t3-F2Z" firstAttribute="leading" secondItem="CAr-Wq-0Fh" secondAttribute="trailing" constant="50" id="4BF-gb-7Ld"/>
-                            <constraint firstItem="SGD-KR-TCl" firstAttribute="top" secondItem="70X-2A-ilo" secondAttribute="bottom" constant="10" id="5G6-pu-uoa"/>
-                            <constraint firstItem="Gih-DJ-UYv" firstAttribute="centerX" secondItem="qaK-My-rOG" secondAttribute="centerX" id="Czr-bT-faR"/>
-                            <constraint firstItem="TCr-WW-W4C" firstAttribute="top" secondItem="CAr-Wq-0Fh" secondAttribute="bottom" constant="16" id="GDN-ce-SKj"/>
-                            <constraint firstItem="TCr-WW-W4C" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="45" id="H6y-nT-dst"/>
-                            <constraint firstItem="AoL-t3-F2Z" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="JV2-fa-t2q"/>
-                            <constraint firstItem="70X-2A-ilo" firstAttribute="leading" secondItem="SGD-KR-TCl" secondAttribute="leading" id="Jsl-Ui-NCo"/>
-                            <constraint firstItem="qaK-My-rOG" firstAttribute="leading" secondItem="CAr-Wq-0Fh" secondAttribute="trailing" constant="52" id="M4Y-nt-zxd"/>
-                            <constraint firstItem="eoJ-ib-ihB" firstAttribute="top" secondItem="SGD-KR-TCl" secondAttribute="bottom" constant="10" id="PuD-xH-A2o"/>
-                            <constraint firstItem="qaK-My-rOG" firstAttribute="top" secondItem="Gih-DJ-UYv" secondAttribute="bottom" constant="10" symbolic="YES" id="RPZ-Jf-HOp"/>
-                            <constraint firstItem="70X-2A-ilo" firstAttribute="top" secondItem="CAr-Wq-0Fh" secondAttribute="bottom" constant="8" symbolic="YES" id="Rop-mm-iwM"/>
-                            <constraint firstItem="SGD-KR-TCl" firstAttribute="leading" secondItem="eoJ-ib-ihB" secondAttribute="leading" id="Wjz-c8-qKK"/>
-                            <constraint firstItem="CAr-Wq-0Fh" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="2" id="bwf-B3-mIq"/>
-                            <constraint firstItem="CAr-Wq-0Fh" firstAttribute="centerX" secondItem="70X-2A-ilo" secondAttribute="centerX" id="cLY-jL-Z7g"/>
-                            <constraint firstItem="AoL-t3-F2Z" firstAttribute="trailing" secondItem="SGD-KR-TCl" secondAttribute="trailing" id="dON-yG-7ae"/>
-                            <constraint firstItem="Gih-DJ-UYv" firstAttribute="trailing" secondItem="70X-2A-ilo" secondAttribute="trailing" id="dow-UV-5so"/>
-                            <constraint firstItem="Gih-DJ-UYv" firstAttribute="leading" secondItem="CAr-Wq-0Fh" secondAttribute="trailing" constant="49" id="exA-c8-G0X"/>
-                            <constraint firstItem="70X-2A-ilo" firstAttribute="top" secondItem="qaK-My-rOG" secondAttribute="bottom" constant="19" id="f8e-Tb-S62"/>
-                            <constraint firstItem="70X-2A-ilo" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="g2r-hN-wo5"/>
-                            <constraint firstAttribute="trailing" secondItem="AoL-t3-F2Z" secondAttribute="trailing" constant="20" symbolic="YES" id="hCi-ze-ZDw"/>
-                            <constraint firstItem="SGD-KR-TCl" firstAttribute="centerX" secondItem="eoJ-ib-ihB" secondAttribute="centerX" id="ipO-AR-uwt"/>
-                            <constraint firstItem="Gih-DJ-UYv" firstAttribute="top" secondItem="AoL-t3-F2Z" secondAttribute="bottom" constant="10" symbolic="YES" id="kA7-mz-1Vk"/>
-                            <constraint firstAttribute="bottom" secondItem="eoJ-ib-ihB" secondAttribute="bottom" constant="21" id="uNF-qJ-E1E"/>
-                            <constraint firstItem="70X-2A-ilo" firstAttribute="trailing" secondItem="eoJ-ib-ihB" secondAttribute="trailing" id="ze9-qz-O7Q"/>
+                            <constraint firstItem="SGD-KR-TCl" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="1bo-q4-GtQ"/>
+                            <constraint firstItem="CAr-Wq-0Fh" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="4yx-or-XdE"/>
+                            <constraint firstAttribute="trailing" secondItem="70X-2A-ilo" secondAttribute="trailing" constant="20" id="AgV-zb-udl"/>
+                            <constraint firstAttribute="trailing" secondItem="TCr-WW-W4C" secondAttribute="trailing" constant="43" id="BdY-uB-X9o"/>
+                            <constraint firstItem="eoJ-ib-ihB" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="D8c-Sv-t9B"/>
+                            <constraint firstItem="SGD-KR-TCl" firstAttribute="top" secondItem="70X-2A-ilo" secondAttribute="bottom" constant="8" id="J38-Xs-2i0"/>
+                            <constraint firstItem="CAr-Wq-0Fh" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="114" id="Jnw-YH-sOj"/>
+                            <constraint firstItem="eoJ-ib-ihB" firstAttribute="top" secondItem="SGD-KR-TCl" secondAttribute="bottom" constant="8" id="Rhi-xX-5O3"/>
+                            <constraint firstAttribute="trailing" secondItem="eoJ-ib-ihB" secondAttribute="trailing" constant="20" id="ZfM-Be-wBV"/>
+                            <constraint firstAttribute="trailing" secondItem="AoL-t3-F2Z" secondAttribute="trailing" constant="20" id="cYU-53-NiS"/>
+                            <constraint firstAttribute="trailing" secondItem="SGD-KR-TCl" secondAttribute="trailing" constant="20" id="gc3-Rn-q2M"/>
+                            <constraint firstItem="70X-2A-ilo" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="geo-LV-NpU"/>
+                            <constraint firstItem="SGD-KR-TCl" firstAttribute="top" secondItem="70X-2A-ilo" secondAttribute="bottom" constant="8" id="jW0-tT-tAP"/>
+                            <constraint firstItem="TCr-WW-W4C" firstAttribute="top" secondItem="CAr-Wq-0Fh" secondAttribute="bottom" constant="26" id="mvd-jG-09J"/>
+                            <constraint firstItem="70X-2A-ilo" firstAttribute="top" secondItem="CAr-Wq-0Fh" secondAttribute="bottom" constant="8" id="nqL-Tl-a4q"/>
+                            <constraint firstItem="SGD-KR-TCl" firstAttribute="top" secondItem="TCr-WW-W4C" secondAttribute="bottom" constant="25" id="q0Q-2y-Rw7"/>
+                            <constraint firstItem="TCr-WW-W4C" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="43" id="t9V-yC-SIq"/>
+                            <constraint firstItem="AoL-t3-F2Z" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="yQE-8F-U7L"/>
+                            <constraint firstItem="eoJ-ib-ihB" firstAttribute="top" secondItem="SGD-KR-TCl" secondAttribute="bottom" constant="8" id="yuW-SW-0UB"/>
                         </constraints>
                         <shadow key="shadow">
                             <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -1367,17 +1235,15 @@ Enter the following command in the Terminal app and follow the instructions. Whe
                     <connections>
                         <outlet property="downloadBtn" destination="eoJ-ib-ihB" id="oJe-4A-1EC"/>
                         <outlet property="inputURLS" destination="7x6-CY-4t8" id="fsP-Il-dvb"/>
-                        <outlet property="installationGuideBtn" destination="Gih-DJ-UYv" id="JDK-gm-7gO"/>
                         <outlet property="openDestinationFolderBtn" destination="SGD-KR-TCl" id="BcM-UQ-fxc"/>
                         <outlet property="progressDetails" destination="Wyx-tm-2Ez" id="gKP-v3-iIw"/>
                         <outlet property="progressTitle" destination="38L-rH-SBn" id="y49-WU-cLd"/>
                         <outlet property="progressV" destination="TCr-WW-W4C" id="PS3-EV-bHc"/>
-                        <outlet property="refreshInstallationBtn" destination="qaK-My-rOG" id="qi9-kQ-Cia"/>
                         <outlet property="settingsBtn" destination="AoL-t3-F2Z" id="J49-jk-pqX"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-203" y="506"/>
+            <point key="canvasLocation" x="-789" y="650.5"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="pBA-F1-9Jd">
@@ -1588,13 +1454,10 @@ For more information, visit GitHub and my website.</string>
     </scenes>
     <resources>
         <image name="Folder-icon" width="512" height="512"/>
-        <image name="Settings" width="122.87999725341797" height="122.87999725341797"/>
+        <image name="Settings" width="512" height="512"/>
         <image name="arrow-download-icon" width="256" height="256"/>
-        <image name="github" width="351.08572387695312" height="351.08572387695312"/>
-        <image name="package" width="300" height="300"/>
+        <image name="github" width="512" height="512"/>
         <image name="paypal" width="206" height="204"/>
-        <image name="refresh" width="512" height="512"/>
-        <image name="right arrow" width="626" height="626"/>
         <image name="safari" width="1024" height="1024"/>
     </resources>
 </document>

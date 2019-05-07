@@ -10,6 +10,8 @@ import Cocoa
 import ITSwitch
 
 class OptionsViewController: NSViewController {
+    
+    var getIt = GetIt()
 
     //General tab
     @IBOutlet weak var maxFileSize: NSTextField!
@@ -17,6 +19,8 @@ class OptionsViewController: NSViewController {
     @IBOutlet weak var outputTemplate: NSPopUpButton!
     @IBOutlet weak var selectedPath: NSTextField!
     
+    @IBOutlet var installProgressView: progressView!
+    @IBOutlet weak var installProgressText: NSTextField!
     
     //audio tab
     @IBOutlet weak var extractAudio: ITSwitch!
@@ -71,6 +75,10 @@ class OptionsViewController: NSViewController {
         downloadPlaylist.tintColor = blueColor
         reversePlaylist.tintColor = blueColor
         netrc.tintColor = blueColor
+        
+        // progress view
+        installProgressView.isHidden = true
+        installProgressText.isHidden = true
 
         //placeholders
         maxFileSize.placeholderString = "In MB"
@@ -112,6 +120,15 @@ class OptionsViewController: NSViewController {
         UserDefaults.standard.synchronize()
     }
 
+    
+    @IBAction func installSoftwareBtnClicked(_ sender: Any) {
+        installProgressView.isHidden = false
+        installProgressText.isHidden = false
+        _ = getIt.execute(commandSynchronous: "if ! xcode-select -v &> /dev/null; then xcode-select --install; fi; if brew -v &> /dev/null; then brew update; else echo /usr/bin/ruby -e '$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)'; fi; if brew ls --versions python &> /dev/null; then brew upgrade python; else brew install python; brew link python; fi; if brew ls --versions python3 &> /dev/null; then brew upgrade python3; else brew install python3; fi; if pip2.7 list | grep -i pycrypt &> /dev/null; then pip2.7 install pycrypt --upgrade; else pip2.7 install pycrypt; fi; if youtube-dl --version &> /dev/null; then brew upgrade youtube-dl; else brew install youtube-dl; fi; if brew list libav &> /dev/null; then brew upgrade libav; else brew install libav; fi; if brew list libav &> /dev/null; then brew upgrade ffmpeg; else brew install ffmpeg; fi")
+        installProgressView.isHidden = true
+        installProgressText.isHidden = true
+    }
+    
     @IBAction func loadDefaultsBtnClicked(_ sender: Any) {
         UserDefaults.standard.set(DEFAULT_SETTINGS, forKey: SETTINGS_KEY)
         UserDefaults.standard.setValue(DEFAULT_SETTINGS["path"]!, forKey: OUTPUT_PATH)
