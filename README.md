@@ -10,9 +10,22 @@ A native macOS video/audio downloader. Think of it as a youtube downloader that 
 Download it [here](https://github.com/Kevin-De-Koninck/Get-It/releases/download/v0.6.1/Get.It.app.zip), unzip it and open it.
 To install the dependencies required to run the software, please open the settings in the app and click on 'Install/update software'. This will not update Get It, but it will update all dependencies.
 
-Note: To install the dependencies yourself, open the Terminal app and paste the following command:
+## dependencies
+
+Get It requires the following dependencies which you can install from within the app, or using the command line yourself (see below).  
+The following list is required:
+- xcode-select
+- brew
+- python
+- python3
+- pycrypt
+- youtube-dl
+- libav
+- ffmpeg
+
+To install the dependencies yourself, open the Terminal app and paste the following command:
 ``` bash
-if ! xcode-select -v &> /dev/null; then xcode-select --install; fi; if brew -v &> /dev/null; then brew update; else echo /usr/bin/ruby -e '$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)'; fi; if brew ls --versions python &> /dev/null; then brew upgrade python; else brew install python; brew link python; fi; if brew ls --versions python3 &> /dev/null; then brew upgrade python3; else brew install python3; fi; if pip2.7 list | grep -i pycrypt &> /dev/null; then pip2.7 install pycrypt --upgrade; else pip2.7 install pycrypt; fi; if youtube-dl --version &> /dev/null; then brew upgrade youtube-dl; else brew install youtube-dl; fi; if brew list libav &> /dev/null; then brew upgrade libav; else brew install libav; fi; if brew list libav &> /dev/null; then brew upgrade ffmpeg; else brew install ffmpeg; fi
+if ! xcode-select -v &> /dev/null; then xcode-select --install; fi; if brew -v &> /dev/null; then brew update; else echo /usr/bin/ruby -e '$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)'; fi; if brew ls --versions python &> /dev/null; then brew upgrade python; else brew install python; brew link python; fi; if brew ls --versions python3 &> /dev/null; then brew upgrade python3; else brew install python3; fi; if pip2.7 list | grep -i pycrypt &> /dev/null; then pip2.7 install pycrypt --upgrade; else pip2.7 install pycrypt; fi; if youtube-dl --version &> /dev/null; then brew upgrade youtube-dl; else brew install youtube-dl; fi; if brew list libav &> /dev/null; then brew upgrade libav; else brew install libav; fi; if brew list ffmpeg &> /dev/null; then brew upgrade ffmpeg; else brew install ffmpeg; fi
 ```
 
 
