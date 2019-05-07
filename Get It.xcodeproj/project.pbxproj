@@ -21,12 +21,8 @@
 		0AAAC76C208664EB009C6ACB /* progressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAAC76B208664EB009C6ACB /* progressView.swift */; };
 		0AAC75B61E3E24800086BB87 /* DownloadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC75B51E3E24800086BB87 /* DownloadButton.swift */; };
 		0AAC75B81E3E25820086BB87 /* GrayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC75B71E3E25820086BB87 /* GrayButton.swift */; };
-		0AF763CF1E474D2A00403BA1 /* InstallationGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF763CD1E474D2A00403BA1 /* InstallationGuideViewController.swift */; };
-		0AF763D21E476D4C00403BA1 /* openTerminalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF763D11E476D4C00403BA1 /* openTerminalButton.swift */; };
-		0AF763D41E47B90D00403BA1 /* InstallationGuideTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF763D31E47B90D00403BA1 /* InstallationGuideTexts.swift */; };
-		0AF763D61E47C71500403BA1 /* installationGuideTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF763D51E47C71500403BA1 /* installationGuideTextField.swift */; };
 		0AFE6EDE20ACB49E002C7693 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE6EDD20ACB49E002C7693 /* Logger.swift */; };
-		656FE9E68E618252B653F728 /* Pods_Get_It.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F840AEEA491FC0DE6DE63CC /* Pods_Get_It.framework */; };
+		89FEC36FE494806C0C0FAF5E /* Pods_Get_It.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F840AEEA491FC0DE6DE63CC /* Pods_Get_It.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,10 +42,6 @@
 		0AAAC76B208664EB009C6ACB /* progressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = progressView.swift; sourceTree = "<group>"; };
 		0AAC75B51E3E24800086BB87 /* DownloadButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadButton.swift; sourceTree = "<group>"; };
 		0AAC75B71E3E25820086BB87 /* GrayButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrayButton.swift; sourceTree = "<group>"; };
-		0AF763CD1E474D2A00403BA1 /* InstallationGuideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstallationGuideViewController.swift; sourceTree = "<group>"; };
-		0AF763D11E476D4C00403BA1 /* openTerminalButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = openTerminalButton.swift; sourceTree = "<group>"; };
-		0AF763D31E47B90D00403BA1 /* InstallationGuideTexts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstallationGuideTexts.swift; sourceTree = "<group>"; };
-		0AF763D51E47C71500403BA1 /* installationGuideTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = installationGuideTextField.swift; sourceTree = "<group>"; };
 		0AFE6EDD20ACB49E002C7693 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		2F2FF097A134B03DBD16D354 /* Pods-Youtube-dl-GUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Youtube-dl-GUI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Youtube-dl-GUI/Pods-Youtube-dl-GUI.debug.xcconfig"; sourceTree = "<group>"; };
 		3D0235652B5434027EFB9C78 /* Pods-Get It.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Get It.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Get It/Pods-Get It.debug.xcconfig"; sourceTree = "<group>"; };
@@ -64,7 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				656FE9E68E618252B653F728 /* Pods_Get_It.framework in Frameworks */,
+				89FEC36FE494806C0C0FAF5E /* Pods_Get_It.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,7 +102,6 @@
 				0A59C26D1E3D01A700E40A2B /* WindowController.swift */,
 				0A59C26F1E3D01F400E40A2B /* OptionsViewController.swift */,
 				0A8DA5D91E3E808500148315 /* AboutViewController.swift */,
-				0AF763CD1E474D2A00403BA1 /* InstallationGuideViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -123,8 +114,6 @@
 				0AAC75B71E3E25820086BB87 /* GrayButton.swift */,
 				0A2BF1F71E460F170002C5B7 /* optionsTextfield.swift */,
 				0A2BF1F91E4619230002C5B7 /* secureOptionsTextfield.swift */,
-				0AF763D11E476D4C00403BA1 /* openTerminalButton.swift */,
-				0AF763D51E47C71500403BA1 /* installationGuideTextField.swift */,
 				0AAAC76B208664EB009C6ACB /* progressView.swift */,
 			);
 			name = View;
@@ -143,7 +132,6 @@
 			isa = PBXGroup;
 			children = (
 				0A59C2711E3D09CE00E40A2B /* Constants.swift */,
-				0AF763D31E47B90D00403BA1 /* InstallationGuideTexts.swift */,
 			);
 			name = "Constants and Text";
 			sourceTree = "<group>";
@@ -197,7 +185,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Kevin De Koninck";
 				TargetAttributes = {
 					0A3153141CF37A660020DBB8 = {
@@ -216,6 +204,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -266,19 +255,20 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Get It/Pods-Get It-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Get It/Pods-Get It-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ITSwitch/ITSwitch.framework",
 				"${BUILT_PRODUCTS_DIR}/LetsMove/LetsMove.framework",
+				"${BUILT_PRODUCTS_DIR}/STPrivilegedTask/STPrivilegedTask.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ITSwitch.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LetsMove.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/STPrivilegedTask.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Get It/Pods-Get It-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Get It/Pods-Get It-frameworks.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -289,10 +279,8 @@
 			files = (
 				0AAC75B61E3E24800086BB87 /* DownloadButton.swift in Sources */,
 				0A59C2721E3D09CE00E40A2B /* Constants.swift in Sources */,
-				0AF763D21E476D4C00403BA1 /* openTerminalButton.swift in Sources */,
 				0AAC75B81E3E25820086BB87 /* GrayButton.swift in Sources */,
 				0A8DA5DA1E3E808500148315 /* AboutViewController.swift in Sources */,
-				0AF763D61E47C71500403BA1 /* installationGuideTextField.swift in Sources */,
 				0A2BF1FA1E4619230002C5B7 /* secureOptionsTextfield.swift in Sources */,
 				0A2BF1F81E460F170002C5B7 /* optionsTextfield.swift in Sources */,
 				0AFE6EDE20ACB49E002C7693 /* Logger.swift in Sources */,
@@ -302,8 +290,6 @@
 				0A3153191CF37A660020DBB8 /* AppDelegate.swift in Sources */,
 				0A59C2741E3D0C0E00E40A2B /* GetIt.swift in Sources */,
 				0AAAC76C208664EB009C6ACB /* progressView.swift in Sources */,
-				0AF763CF1E474D2A00403BA1 /* InstallationGuideViewController.swift in Sources */,
-				0AF763D41E47B90D00403BA1 /* InstallationGuideTexts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,19 +311,28 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -360,7 +355,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -372,19 +367,28 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -401,7 +405,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -419,7 +423,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.KevinDeKoninck.GetIt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -434,7 +438,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.KevinDeKoninck.GetIt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

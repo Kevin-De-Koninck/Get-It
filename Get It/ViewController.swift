@@ -21,8 +21,6 @@ class ViewController: NSViewController {
     @IBOutlet weak var settingsBtn: NSButton!
     @IBOutlet weak var openDestinationFolderBtn: GrayButton!
     @IBOutlet weak var downloadBtn: DownloadButton!
-    @IBOutlet weak var installationGuideBtn: NSButton!
-    @IBOutlet weak var refreshInstallationBtn: NSButton!
     @IBOutlet weak var progressV: progressView!
     @IBOutlet weak var progressTitle: NSTextField!
     @IBOutlet weak var progressDetails: NSTextField!
@@ -49,53 +47,31 @@ class ViewController: NSViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(openSettingsView), name: NSNotification.Name(rawValue: "openSettingsView"), object: nil)
     }
-    func openSettingsView(notif: AnyObject) {
+    @objc func openSettingsView(notif: AnyObject) {
         self.performSegue(withIdentifier: "settingsSegue", sender: self)
     }
     
     override func viewWillAppear() {
         super.viewWillAppear()
-        
-        getIt.checkIfSoftwareIsInstalled()
-        let activate = (!getIt.isYTDLInstalled) || (!getIt.isFfmpegInstalled) || (!getIt.isPycryptoInstalled)
-        installationGuideViewSetUp(activate: activate)
+        dismissProgressView()
     }
     
-    func installationGuideViewSetUp(activate: Bool) {
-        inputURLS.isEditable = !activate
-        settingsBtn.isEnabled = !activate
-        openDestinationFolderBtn.isEnabled = !activate
-        downloadBtn.isEnabled = !activate
-        installationGuideBtn.isEnabled = activate
-        installationGuideBtn.isHidden = !activate
-        refreshInstallationBtn.isEnabled = activate
-        refreshInstallationBtn.isHidden = !activate
-        progressV.isHidden = true
-        progressTitle.isHidden = true
-        progressDetails.isHidden = true
+    func activateComponents(activate: Bool) {
+        inputURLS.isEditable = activate
+        settingsBtn.isEnabled = activate
+        openDestinationFolderBtn.isEnabled = activate
+        downloadBtn.isEnabled = activate
     }
     
-    func disableAll() {
-        inputURLS.isEditable = false
-        settingsBtn.isEnabled = false
-        openDestinationFolderBtn.isEnabled = false
-        downloadBtn.isEnabled = false
-        installationGuideBtn.isEnabled = false
-        installationGuideBtn.isHidden = true
-        refreshInstallationBtn.isEnabled = false
-        refreshInstallationBtn.isHidden = true
-    }
-    
-    // TODO fill in popover menu
     func dismissProgressView() {
-        self.installationGuideViewSetUp(activate: false)
+        self.activateComponents(activate: true)
         progressV.isHidden = true
         progressTitle.isHidden = true
         progressDetails.isHidden = true
     }
     
     func showInProgressView(title: String, details: String) {
-        self.disableAll()
+        self.activateComponents(activate: false)
         progressV.isHidden = false
         progressTitle.isHidden = false
         progressDetails.isHidden = false
@@ -104,27 +80,16 @@ class ViewController: NSViewController {
         logger.log(tag: "[PROGRESS VIEW]", str: "\(title): \(details)")
     }
     
-    @IBAction func refreshInstallationBtnClicked(_ sender: Any) {
-        getIt.checkIfSoftwareIsInstalled()
-        let activate = (!getIt.isYTDLInstalled) || (!getIt.isFfmpegInstalled) || (!getIt.isPycryptoInstalled)
-        installationGuideViewSetUp(activate: activate)
-    }
-    
-    @IBAction func InstallGuideBtnClicked(_ sender: Any) {
-        logger.resetInstallLog()
-    }
-    
     @IBAction func openDestinationFolderBtnClicked(_ sender: Any) {
         _ = getIt.open(folder: UserDefaults.standard.value(forKey: OUTPUT_PATH) as! String)
     }
-    
 
     @IBAction func downloadButton(_ sender: AnyObject) {
         logger.reset()
         
         //get input URLs
-        let tempString = inputURLS.string!
-        let urls = tempString.characters.split{$0 == "\n"}.map(String.init)
+        let tempString = inputURLS.string
+        let urls = tempString.split{$0 == "\n"}.map(String.init)
         if(urls.count > 0){
             var urlStr = " "
             for url in urls { urlStr = urlStr + url + " " }
@@ -140,7 +105,6 @@ class ViewController: NSViewController {
             })
         }
     }
-    
     
     func execute(commmandAsynchronous: String){
         
@@ -182,17 +146,17 @@ class ViewController: NSViewController {
                     do{
                         //regex for downloadbar
                         let regex = try NSRegularExpression(pattern: REGEX_PATTERN, options: [])
-                        let matches = regex.matches(in: str, options: [], range: NSRange(location: 0, length: str.characters.count))
+                        let matches = regex.matches(in: str, options: [], range: NSRange(location: 0, length: str.count))
                         //regex for error
                         let regexError = try NSRegularExpression(pattern: "ERROR", options: [])
-                        let matchesError = regexError.matches(in: str, options: [], range: NSRange(location: 0, length: str.characters.count))
+                        _ = regexError.matches(in: str, options: [], range: NSRange(location: 0, length: str.count))
                         
                         if matches.count > 0 {
-                            let rangeOfMatch = matches[0].rangeAt(0)
+                            let rangeOfMatch = matches[0].range(at: 0)
                             var index = str.index(str.startIndex, offsetBy: rangeOfMatch.location + rangeOfMatch.length - 1)
-                            str = str.substring(to: index)
+                            str = String(str[..<index])
                             index = str.index(str.startIndex, offsetBy: rangeOfMatch.location - 1)
-                            str = str.substring(from: index)
+                            str = String(str[index...])
                             
                             self.currentProgress = CGFloat(Double(round(100 * (str as NSString).doubleValue) / 100 ))
                             if( self.currentProgress < self.previousProgress){
@@ -236,7 +200,7 @@ class ViewController: NSViewController {
                 outHandle.waitForDataInBackgroundAndNotify()
             } else {
                 //EOF ON STDOUT FROM PROCESS
-                NotificationCenter.default.removeObserver(obs1)
+                NotificationCenter.default.removeObserver(obs1 as Any)
                 if(self.downloadingFileNr < 2){
                     self.showInProgressView(title: "Failed...", details: "Something went wrong. Please try other settings or report this issue on github if the problem doesn't magically disappears.")
                     DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
@@ -249,7 +213,7 @@ class ViewController: NSViewController {
         var obs2 : NSObjectProtocol!
         obs2 = NotificationCenter.default.addObserver(forName: Process.didTerminateNotification, object: task, queue: nil) { notification -> Void in
             //PROCESS TERMINATED
-            NotificationCenter.default.removeObserver(obs2)
+            NotificationCenter.default.removeObserver(obs2 as Any)
             self.dismissProgressView()
         }
         

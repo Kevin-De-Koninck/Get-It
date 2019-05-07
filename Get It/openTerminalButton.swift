@@ -24,8 +24,8 @@ class installButton: NSButton {
         //text
         let style = NSMutableParagraphStyle()
         style.alignment = .center
-        self.attributedTitle = NSAttributedString(string: "Install", attributes: [ NSForegroundColorAttributeName : NSColor.white,
-                                                                                                 NSParagraphStyleAttributeName : style,
-                                                                                                 NSFontAttributeName: NSFont(name: "Arial", size: 18)!])
+        self.attributedTitle = NSAttributedString(string: "Install", attributes: [ NSAttributedString.Key.foregroundColor : NSColor.white,
+                                                                                   NSAttributedString.Key.paragraphStyle : style,
+                                                                                   NSAttributedString.Key.font: NSFont(name: "Arial", size: 18)!])
     }
 }

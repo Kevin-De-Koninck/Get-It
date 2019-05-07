@@ -23,11 +23,7 @@ class AboutViewController: NSViewController {
     }
     
     @IBAction func githubBtnClicked(_ sender: Any) {
-        open(website: "https://github.com/Kevin-De-Koninck/Get-It")
-    }
-    
-    @IBAction func kBtnClicked(_ sender: Any) {
-        open(website: "https://kevindekoninck.com")
+        open(website: "https://kevin-de-koninck.github.io/Get-It/")
     }
     
     @IBAction func supportedSitesBtnClicked(_ sender: Any) {
@@ -43,7 +39,7 @@ class AboutViewController: NSViewController {
     }
 
     func open(website: String){
-        if let url = URL(string: website), NSWorkspace.shared().open(url) {
+        if let url = URL(string: website), NSWorkspace.shared.open(url) {
             print("default browser was successfully opened")
         }
     }

@@ -11,7 +11,7 @@ import Cocoa
 
 // Command
 let EXPORT_PATH = "export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
-let DEFAULT_COMMAND = EXPORT_PATH + " && youtube-dl --prefer-ffmpeg --newline —yes-playlist —extract-audio —audio-format mp3 —audio-quality 5 —youtube-skip-dash-manifest —sub-format srt —max-filesize 15M —ignore-errors --no-colorhttps://www.youtube.com/watch?v=LrAx8ZuCFyU -o ~/Downloads/‘%(title)s.%(ext)s’"
+let DEFAULT_COMMAND = EXPORT_PATH + " && youtube-dl --prefer-ffmpeg --newline —yes-playlist —extract-audio —audio-format mp3 —audio-quality 5 —youtube-skip-dash-manifest —sub-format srt —ignore-errors --no-colorhttps://www.youtube.com/watch?v=LrAx8ZuCFyU -o ~/Downloads/‘%(title)s.%(ext)s’"
 let DEFAULT_OUTPUTPATH = "~/Downloads/"
 let REGEX_PATTERN = "(?<=^\\[download\\].)[0-9.]+\\%"
 
@@ -19,7 +19,7 @@ let REGEX_PATTERN = "(?<=^\\[download\\].)[0-9.]+\\%"
 var blueColor = NSColor.init(red: 45.0/255, green: 135.0/255, blue: 250.0/255, alpha: 1)
 
 // Settings
-let DEFAULT_SETTINGS = [    "maxFileSize"       :   "15",
+let DEFAULT_SETTINGS = [    "maxFileSize"       :   "",
                             "ignoreErrors"      :   "1", //bool
                             "path"              :   "~/Downloads/",
                             "outputTemplate"    :   "Title.extension",
@@ -51,11 +51,5 @@ let DEFAULT_SETTINGS = [    "maxFileSize"       :   "15",
 // User Defaults - keys
 let SAVED_COMMAND = "savedCommand"
 let SETTINGS_KEY = "settings"
-let YTDL = "isYTDLInstalled"
-let BREW = "isBrewInstalled"
-let FFMPEG = "isFfmpegInstalled"
-let PYTHON = "isPythonInstalled"
-let XCODE = "isXcodeInstalled"
-let PYCRYPTO = "isPycryptoInstalled"
 let OUTPUT_PATH = "outputPath"
 let OUTPUT_TEMPLATE = "outputTemplate"
