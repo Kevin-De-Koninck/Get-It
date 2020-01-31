@@ -324,6 +324,8 @@ class OptionsViewController: NSViewController {
             case 7: subLanguage = "es"
             case 8: subLanguage = "de"
             case 9: subLanguage = "nl"
+            case 10: subLanguage = "zh-Hans"
+            case 11: subLanguage = "zh-Hant"
             default: subLanguage = "en"
             }
             command += " --sub-lang \(subLanguage)"
