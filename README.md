@@ -35,6 +35,11 @@ Get It will download audio and/or movies from many websites such as YouTube, BBC
 It will save your settings dynamically or you can restore the default settings. The default settings will download the audio from a video, convert it to an MP3 and save it to you downloads folder. This was, in my opinion, the mostly used setting.
 
 
+# Common issues
+
+Because this is a simple GUI wrapper for the `youtube-dl` command, most issues can be traced back to the binary. The following common issues exists and can be solved easily:
+- **'Something went wrong'**: An example can be found in [#25](https://github.com/Kevin-De-Koninck/Get-It/issues/25). The can usually be resolved by simply updating youtube-dl as follows: `sudo youtube-dl --update`.
+
 
 # Submit a bug
 
@@ -51,4 +56,4 @@ Provide the output of the first command of you have an issue while installing th
 
 # THANKS
 
-Thanks to [youtube-dl](https://github.com/rg3/youtube-dl) authors for creating such and amazing tool.
+Thanks to [youtube-dl](https://github.com/rg3/youtube-dl) authors for creating such an amazing tool.
