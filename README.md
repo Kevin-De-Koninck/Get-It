@@ -12,7 +12,9 @@ To install the dependencies required to run the software, please open the settin
 
 ## dependencies
 
-Get It requires the following dependencies which you can install from within the app, or using the command line yourself (see below).  
+### Install or Update
+
+Get It requires the following dependencies which you can install and/or update using the command line (see below).  
 The following list is required:
 - xcode-select
 - brew
@@ -23,11 +25,50 @@ The following list is required:
 - libav
 - ffmpeg
 
-To install the dependencies yourself, open the Terminal app and paste the following command:
+To install the dependencies, open the Terminal app and paste the following commands to install and/or update the respective tools.
+
+**xCode command line tools**
 ``` bash
-if ! xcode-select -v &> /dev/null; then xcode-select --install; fi; if brew -v &> /dev/null; then brew update; else echo /usr/bin/ruby -e '$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)'; fi; if brew ls --versions python &> /dev/null; then brew upgrade python; else brew install python; brew link python; fi; if brew ls --versions python3 &> /dev/null; then brew upgrade python3; else brew install python3; fi; if pip2.7 list | grep -i pycrypt &> /dev/null; then pip2.7 install pycrypt --upgrade; else pip2.7 install pycrypt; fi; if youtube-dl --version &> /dev/null; then brew upgrade youtube-dl; else brew install youtube-dl; fi; if brew list libav &> /dev/null; then brew upgrade libav; else brew install libav; fi; if brew list ffmpeg &> /dev/null; then brew upgrade ffmpeg; else brew install ffmpeg; fi
+if ! xcode-select -v &> /dev/null; then xcode-select --install; fi
+``` 
+**Homebrew**
+``` bash
+if brew -v &> /dev/null; then brew update; else echo /usr/bin/ruby -e '$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)'; fi
+``` 
+**Python**
+``` bash
+if brew ls --versions python &> /dev/null; then brew upgrade python; else brew install python; brew link python; fi
+``` 
+**Python 3**
+``` bash
+if brew ls --versions python3 &> /dev/null; then brew upgrade python3; else brew install python3; fi
+``` 
+**PyCrypt**
+``` bash
+if pip2.7 list | grep -i pycrypt &> /dev/null; then pip2.7 install pycrypt --upgrade; else pip2.7 install pycrypt; fi
+``` 
+**Youtube-dl**
+``` bash
+if youtube-dl --version &> /dev/null; then brew upgrade youtube-dl; else brew install youtube-dl; fi
+``` 
+**LibAV**
+``` bash
+if brew list libav &> /dev/null; then brew upgrade libav; else brew install libav; fi
+``` 
+**FFMPEG**
+``` bash
+if brew list ffmpeg &> /dev/null; then brew upgrade ffmpeg; else brew install ffmpeg; fi
 ```
 
+### Uninstall
+
+Each component can be installed **if** it is not used by another program on your Mac. To completely clean everything that is brew related:
+https://github.com/Homebrew/install#uninstall-homebrew
+
+To uninstall the developer tools:
+``` bash
+sudo rm -rf /Library/Developer/CommandLineTools
+```
 
 # About
 
